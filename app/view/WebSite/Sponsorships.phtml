@@ -1,0 +1,64 @@
+<?php
+
+$proofs = $data['proof'];
+
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/SponsorshipSection.phtml";
+
+?>
+<input type="text" hidden name="type_creator" id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden name="logged" id="logged" value="<?= $data['logged'] ?>">
+
+<div class="contains-item-page position-relative">
+    <div class="row">
+        <div class="col-md-12 text-center mb-5">
+            <h1><strong>Sponsorship</strong></h1>
+        </div>
+
+
+    </div>
+    <div class="menu-wrappers d-flex" style="height:60vh ; margin-top: 5rem;">
+
+        <div class=" me-1 child">
+            <button id="featuredBtn" class=""  style="border: none; background:none ;">
+                <div class=" position-relative">
+                    <img style="max-height:200px ;" src="<?= $VIEW_PATH ?>imgs/banners.png" alt="Weekly discount" class="img-radius">
+
+                </div>
+                <div class="h5 mt-2 text-dark">Featured Listing</div>
+                <!-- <div class="text-muted mt-2"><?= $d->title ?></div> -->
+            </button>
+        </div>
+        <div class=" me-1 child">
+            <button class="" id="bannerBtn" style="border: none; background:none ;">
+                <div class=" position-relative">
+                    <img style="max-height:200px ;" src="<?= $VIEW_PATH ?>imgs/banners.png" alt="Weekly discount" class="img-radius">
+
+                </div>
+                <div class="h5 mt-2 text-dark">Web Banner Packages</div>
+                <!-- <div class="text-muted mt-2"><?= $d->title ?></div> -->
+            </button>
+        </div>
+        <?php
+        foreach ($proofs as $d) {
+            if ($d->file_url !== "" && $d->file_url !== null) {
+                $imgUrl = $URL_PATH . $d->file_url . '/middle/' . $d->file_name;
+            } else {
+                $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+            }
+        ?>
+            <div class=" me-1 child">
+                <a href="<?= $URL_Domain ?>SponsorshipsForm/<?= $d->id ?>">
+                    <div class=" position-relative">
+                        <img style="max-height:200px ;" src="<?= $imgUrl ?>" alt="Weekly discount" class="img-radius">
+
+                    </div>
+                    <div class="h5 mt-2 text-dark"><?= $d->title ?></div>
+                    <!-- <div class="text-muted mt-2"><?= $d->title ?></div> -->
+                </a>
+            </div>
+        <?php } ?>
+    </div>
+
+
+</div>

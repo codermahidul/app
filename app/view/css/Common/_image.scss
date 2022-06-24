@@ -1,0 +1,117 @@
+img
+{
+    // width: 100%;
+    width: auto;
+    max-width: 100%;
+}
+.img-100
+{
+    width: 100px;
+}
+.big-size-radus
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.midel-size-radus
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.size-100-min-radius
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+
+.sm-img
+{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.vsm-img
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.sm-img-table
+{
+    width: 6.2rem;
+    border-radius: 8px;
+}
+
+.img-radus
+{
+    border-radius: 6px;
+}
+
+.img-radius
+{
+    border-radius: 6px;
+}
+.shadows
+{
+    box-shadow: 1px 0px 8px 2px #80808085;
+}
+
+
+
+@media only screen and (min-width: 800px) {
+
+    .img-sam-size
+    {
+        display: block;
+        width: 20vmax;
+        height: 11vmax;
+        object-fit: cover;
+    }
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 800px) {
+
+    .img-sam-size
+    {
+        display: block;
+        width: 50vmax;
+        height: 40vmax;
+        object-fit: cover;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    .img-sam-size
+    {
+        display: block;
+        height: 30vmax;
+        object-fit: cover;
+    }
+  }
+
+  .img-overlay
+  {
+    background: radial-gradient(50% 50% at 50% 50%,#0000004d 0,transparent 100%);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    
+    width: 100%;
+  }
+
+.img-md {
+    width: 112px;
+    height: 112px;
+}
+.img-avatar {
+    border-radius: 100%;
+    border: 3px solid #fff;
+}

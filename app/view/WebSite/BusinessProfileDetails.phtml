@@ -1,0 +1,553 @@
+<?php
+$datas = $data['data'][0];
+
+
+$products = $data['products'];
+$prizes = $data['prizes'];
+$coupons = $data['coupons'];
+$followers = $data['followers'];
+$following = $data['following'];
+$isFollower = $data['isFollower'];
+
+$report = $data['report'];
+$table = "user_business";
+$item_id = $datas->id;
+
+$imgUrl = "";
+$bannerUrl = "";
+if ($datas->banner_file_url !== "" && $datas->banner_file_url !== null) {
+    $bannerUrl = $URL_PATH . $datas->banner_file_url . '/thumb/' . $datas->banner_file_name;
+} else {
+    $bannerUrl = $VIEW_PATH . "assets/imgs/vendor/vendor-header-bg.png";
+}
+
+if ($datas->file_url !== "" && $datas->file_url !== null) {
+    $imgUrl = $URL_PATH . $datas->file_url . '/small/' . $datas->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/logo.png";
+}
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddJustReview.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddRate.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReplyComment.phtml";
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="user_business_id" value="<?= $datas->id ?>">
+<input type="text" hidden id="user_business_type" value="<?= $datas->type ?>">
+
+<input type="text" hidden id="idSearch" value="<?= $datas->id ?>">
+<input type="text" hidden id="tableType" value="user_business">
+<input type="text" hidden id="email_user" value="<?= $data['email_online'] ?>">
+<input type="text" hidden id="title_item" value="Business: <?= $datas->display_name ?>">
+<input type="text" hidden id="display_name_user" value="<?= $data['display_name_online'] ?>">
+
+
+
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="<?= $URL_Domain ?>" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="<?= $URL_Domain ?>Networks">Networks</a> <span></span><?= $datas->display_name ?>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-30">
+        <div class="row">
+            <div class="col-xl-10 col-lg-12 m-auto">
+
+                <div class="product-detail accordion-detail">
+                    <div class="row mb-10 mt-30">
+                        <div class="archive-header-3 mt-30 mb-80" style="background-image: url(<?= $bannerUrl ?>)">
+                            <div class="archive-header-3-inner">
+                                <div class="vendor-logo mr-50">
+                                    <img src="<?= $imgUrl ?>" alt="<?= $datas->display_name ?>" class="rounded-circle" />
+                                </div>
+                                <div class="vendor-content">
+                                    <div class="product-category">
+                                        <span class="text-muted"> </span>
+                                    </div>
+                                    <h3 class="mb-5 text-white"><a href="<?= $URL_Domain ?><?= $datas->display_name_slug ?>" class="text-white"><?= $datas->display_name ?></a></h3>
+                                    <div class="product-rate-cover mb-15">
+                                        <div class="product-rate d-inline-block">
+                                            <div class="product-rating" style="width: <?= intval($datas->Rating) * 20 ?>%"></div>
+                                        </div>
+                                        <span class="font-small ml-5 text-muted"> (<?= $datas->Rating ?>)</span>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="vendor-des mb-15">
+                                                <p class="font-sm text-white"><?= $datas->about ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="vendor-info text-white mb-15">
+                                                <ul class="font-sm">
+                                                    <li>
+                                                        <img class="mr-5" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-location.svg" alt="address" /><strong>Address: </strong>
+                                                        <span>
+                                                            <?= $datas->country_name ?>,<?= $datas->province_name ?>,<?= $datas->city_name ?>,<?= $datas->street ?>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <img class="mr-5" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>Call Us:</strong>
+                                                        <span><?= $datas->telephone ?></span>
+                                                    </li>
+
+                                                    <li>
+                                                        <img class="mr-5" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-user.svg" alt="" /><strong>Followers:</strong>
+                                                        <span><?= number_format($followers->data->total) ?></span>
+                                                    </li>
+
+                                                    <li>
+                                                        <img class="mr-5" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-user.svg" alt="" /><strong>Following:</strong>
+                                                        <span><?= number_format($following->data->total) ?></span>
+                                                    </li>
+                                                    <li>
+                                                        <?php if ($isFollower == 'false') { ?>
+                                                            <button data-id="<?= $datas->id ?>" id="AddToFollow" class="btn btn-sm">Follow</button>
+                                                            <div></div>
+                                                        <?php } else { ?>
+                                                            <button style="background: firebrick;" data-id="<?= $data['user_follow_id'] ?>" id="UnFollowBtn" class="btn btn-danger btn-sm">Unfollow</button data-id="<?= $data['user_follow_id'] ?>">
+                                                            <div class="mb-4"></div>
+                                                        <?php } ?>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="detail-info pr-30 pl-30">
+                                <!-- <span class="stock-status out-stock"> Sale Off </span> -->
+
+                                <div class="detail-extralink mb-50">
+
+                                    <div class="product-extra-link2">
+                                        <?php
+                                        $title = $datas->title;
+                                        $id = $datas->id;
+                                        $type = "business";
+                                        $url =  $URL_Domain .  $datas->display_name_slug;
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                                        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                                    </div>
+                                </div>
+                                <!-- products -->
+                                <?php if (count((array)$products->data->data) > 0) { ?>
+                                    <section class="section-padding pb-5">
+                                        <div class="container">
+                                            <div class="section-title">
+                                                <h3 class="">Products</h3>
+
+
+                                                <a class="show-all" href="<?= $URL_Domain ?>StoreProduct/<?= $datas->display_name_slug ?>">
+                                                    All Products
+                                                    <i class="fi-rs-angle-right"></i>
+                                                </a>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-md-12">
+
+                                                    <div class=" fade show ">
+                                                        <div class="carausel-4-columns-cover arrow-center position-relative">
+                                                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-product">
+                                                                <?php foreach ($products->data->data as $d) {
+                                                                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml"; ?>
+
+                                                                <?php } ?>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--End carausel-->
+
+
+                                                </div>
+                                                <!--End Col-lg-9-->
+                                            </div>
+                                        </div>
+                                    </section>
+                                <?php } ?>
+
+                                <!-- Prizes -->
+                                <?php if (count((array)$prizes->data->data) > 0) { ?>
+                                    <section class="section-padding pb-5">
+                                        <div class="container">
+                                            <div class="section-title">
+                                                <h3 class="">Prizes</h3>
+
+
+                                                <a class="show-all" href="<?= $URL_Domain ?>StorePrize/<?= $datas->display_name_slug ?>">
+                                                    All prizes
+                                                    <i class="fi-rs-angle-right"></i>
+                                                </a>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-md-12">
+
+                                                    <div class=" fade show ">
+                                                        <div class="carausel-4-columns-cover arrow-center position-relative">
+                                                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-prize">
+                                                                <?php foreach ($prizes->data->data as $d) {
+                                                                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Prize.phtml"; ?>
+
+                                                                <?php } ?>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--End carausel-->
+
+
+                                                </div>
+                                                <!--End Col-lg-9-->
+                                            </div>
+                                        </div>
+                                    </section>
+                                <?php } ?>
+                                <!--Deals -->
+                                <?php if (count((array)$deals->data->data) > 0) { ?>
+                                    <section class="section-padding pb-5">
+                                        <div class="container">
+                                            <div class="section-title">
+                                                <h3 class="">Deals</h3>
+
+                                                <a class="show-all" href="<?= $URL_Domain ?>StoreDeals/<?= $datas->display_name_slug ?>">
+                                                    All Deals
+                                                    <i class="fi-rs-angle-right"></i>
+                                                </a>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-md-12">
+
+                                                    <div class=" fade show ">
+                                                        <div class="carausel-4-columns-cover arrow-center position-relative">
+                                                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-deals">
+                                                                <?php foreach ($deals->data->data as $d) {
+                                                                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Deals.phtml"; ?>
+
+                                                                <?php } ?>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--End carausel-->
+
+
+                                                </div>
+                                                <!--End Col-lg-9-->
+                                            </div>
+                                        </div>
+                                    </section>
+                                <?php } ?>
+
+                                <!--Coupon -->
+                                <?php if (count((array)$coupons->data->data) > 0) { ?>
+                                    <section class="section-padding pb-5">
+                                        <div class="container">
+                                            <div class="section-title">
+                                                <h3 class="">Coupons</h3>
+
+                                                <a class="show-all" href="<?= $URL_Domain ?>StoreCoupon/<?= $datas->display_name_slug ?>">
+                                                    All Coupons
+                                                    <i class="fi-rs-angle-right"></i>
+                                                </a>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-md-12">
+
+                                                    <div class=" fade show ">
+                                                        <div class="carausel-4-columns-cover arrow-center position-relative">
+                                                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-coupon">
+                                                                <?php foreach ($coupons->data->data as $d) {
+                                                                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml"; ?>
+
+                                                                <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--End carausel-->
+
+
+                                                </div>
+                                                <!--End Col-lg-9-->
+                                            </div>
+                                        </div>
+                                    </section>
+                                <?php } ?>
+
+                                <!--Jobs -->
+                                <?php if (count((array)$jobs->data->data) > 0) { ?>
+                                    <section class="section-padding pb-5">
+                                        <div class="container">
+                                            <div class="section-title">
+                                                <h3 class="">Jobs</h3>
+
+                                                <a class="show-all" href="<?= $URL_Domain ?>StoreJobs/<?= $datas->display_name_slug ?>">
+                                                    All jobs
+                                                    <i class="fi-rs-angle-right"></i>
+                                                </a>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-md-12">
+
+                                                    <div class=" fade show ">
+                                                        <div class="carausel-4-columns-cover arrow-center position-relative">
+                                                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-job">
+                                                                <?php foreach ($jobs->data->data as $d) {
+                                                                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Job.phtml"; ?>
+
+                                                                <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--End carausel-->
+
+
+                                                </div>
+                                                <!--End Col-lg-9-->
+                                            </div>
+                                        </div>
+                                    </section>
+                                <?php } ?>
+
+
+
+                            </div>
+                            <!-- Detail Info -->
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="tab-style3">
+                            <ul class="nav nav-tabs text-uppercase">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (<?= $datas->total_review ?>)</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content shop_info_tab entry-main-content ">
+
+                                <div class="tab-pane fade show active" id="Additional-info">
+                                    <table class="font-md">
+                                        <tbody>
+                                            <tr class="stand-up">
+                                                <th>sunday open</th>
+                                                <td>
+                                                    <p> <?= $datas->sunday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_sunday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_sunday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>monday open</th>
+                                                <td>
+                                                    <p> <?= $datas->monday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_monday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_monday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>tuesday open</th>
+                                                <td>
+                                                    <p> <?= $datas->tuesday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_tuesday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_tuesday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>wednesday open</th>
+                                                <td>
+                                                    <p> <?= $datas->wednesday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_wednesday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_wednesday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>thursday open</th>
+                                                <td>
+                                                    <p> <?= $datas->thursday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_thursday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_thursday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>friday open</th>
+                                                <td>
+                                                    <p> <?= $datas->friday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_friday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_friday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>saturday open</th>
+                                                <td>
+                                                    <p> <?= $datas->saturday_open == '0' ? "<span class='text-danger'>Close</span>" : "<span class='text-success'>Open</span>" ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>time from: <?= $datas->time_from_saturday ?></p>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                    <p>time to: <?= $datas->time_to_saturday ?></p>
+                                                    </p>
+                                                </td>
+                                            </tr>
+
+
+
+
+
+
+
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="tab-pane fade " id="Reviews">
+                                    <!--Comments-->
+                                    <div class="comments-area">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <h4 class="mb-30">Customer questions & answers
+                                                    <button id="btnReview" data-id="<?= $datas->id ?>" class="btn  mb-2">
+                                                        Submit your review
+                                                    </button>
+                                                </h4>
+
+                                                <div class="comment-list" id="comments">
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <button id="LoadMoreComment" class="btn-them" style="display: none;">Load More</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <h4 class="mb-30">Customer reviews</h4>
+                                                <div class="d-flex mb-30">
+                                                    <div class="product-rate d-inline-block mr-15">
+                                                        <div class="product-rating" style="width: <?= intval($datas->Rating) * 20 ?>%"></div>
+                                                    </div>
+                                                    <h6><?= number_format((float)$datas->Rating, 1, '.', '') ?> out of 5</h6>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>5 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating5 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating5 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating5 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>4 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating4 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating4 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating4 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>3 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating3 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating3 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating3 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>2 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating2 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating2 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating2 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress mb-30">
+                                                    <span>1 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating1 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating1 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating1 ?>%
+                                                    </div>
+                                                </div>
+
+                                                <button id="btnRate" data-cat="<?= $datas->cats_id ?>" data-id="<?= $datas->id ?>" class="btn-them">Rate this product</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--comment form-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

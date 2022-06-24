@@ -1,0 +1,53 @@
+
+    <div class="container login">
+        <div class="d-flex justify-content-center mt-5">
+
+            <div class="row m-2 p-1 back-login-div widths ">
+                <h1 class="login-text-header mb-4 mt-4">Register</h1>
+                <form id="frm_register">
+                    <div class="mb-4 position-relative ">
+                        <input type="text" class="form-control radus " name="name" id="name" autocomplete="off" placeholder=" Name">
+                        <i class="bi bi-person-badge icons-input"></i>
+                    </div>
+          
+
+                    <div class="mb-4 position-relative ">
+                        <input type="email" class="form-control radus " name="email" id="email" autocomplete="off"
+                            placeholder="Email Address">
+                        <i class="bi bi-envelope icons-input"></i>
+                    </div>
+
+                    <div class="mb-4 position-relative ">
+                        <select name="type" id="type" class="form-control radus">
+                            <option value="">Choose Account Type</option>
+                            <option value="professional">Professional</option>
+                            <option value="business">Business</option>
+                            <option value="user">General User</option>
+                        </select>
+                     </div>
+
+                    <div class="mb-4 position-relative">
+                        <input type="password" class="form-control radus " name="password" id="password" autocomplete="off"
+                            placeholder="Password">
+                        <i class="bi bi-key-fill icons-input"></i>
+                    </div>
+
+                    <div class="mb-4 position-relative">
+                        <input type="password" class="form-control radus " name="rpassword" id="rpassword" autocomplete="off"
+                            placeholder="Repeat Password">
+                        <i class="bi bi-key-fill icons-input"></i>
+                    </div>
+                    <?php include_once $VIEW_PATH_INCLUDE . "Captcha.html";?>
+                </form>
+
+                <div id="action" class="mb-3">
+                    <button id="btnRgister"  class="btn width-btn btn-glass radus">Register</button>
+                </div>
+
+                <div class="mt-2 mb-2">
+                    <p class="txt">Have an account? <a href="<?= $URL_Domain ?>Login">Login</a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>

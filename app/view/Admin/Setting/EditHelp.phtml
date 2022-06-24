@@ -1,0 +1,27 @@
+<?php
+include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Category.phtml";
+?>
+<div class="m-top covers text-dark">
+    <div class="mb-4">
+        <span class="sm-font">
+            <a href="<?= $URL_Domain ?><?= $data['listHref'] ?>"><?= $data['list'] ?></a>
+        </span>
+        <span class="sm-font"><i class="bi bi-chevron-right"></i></span>
+        <span class="sm-font"><?= $data['pageTitle'] ?></span>
+    </div>
+
+    <form id="frmNew">
+    <input type="text" name="idSearch" id="idSearch" hidden>
+
+        <?php
+        include_once $VIEW_PATH_INCLUDE . "Admin/Setting/HelpItem.phtml";
+        ?>
+    
+    </form>
+    <div class="row">
+        <div class="col-md-12 mt-5 mb-5 text-center">
+            <button id="btnSave" type="button" class="btn  btn-glass">Save</button>
+
+        </div>
+    </div>
+</div>

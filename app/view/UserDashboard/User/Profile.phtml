@@ -1,0 +1,147 @@
+<!-- import modal start -->
+<?php
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "./profileModal/EditInfo.phtml";
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "./profileModal/Website.phtml";
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "./profileModal/EditAbout.phtml";
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "./profileModal/Link.phtml";
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "./profileModal/Skills.phtml";
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "./profileModal/Language.phtml";
+include_once dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../Common/Modal/Remove.phtml";
+
+
+?>
+<!-- end import modal start -->
+<div class=" mt-5">
+    <div class="mt-5 banner-profile user-banner-prof text-center">
+        <img src="<?= $VIEW_PATH ?>imgs/default-banner.jpg" alt="user banner">
+    </div>
+    <div class="covers mb-2 Negative-margin-top">
+
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 user-image-prof" style="width: 100px;height:100px">
+                <img class="midel-size-radus " src="<?= $VIEW_PATH ?>imgs/user.png" alt="user banner">
+            </div>
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <small data-id="modalEditInfo" data-functions="editInfo" class="point btn-them  modalbtn">
+                        <i class="bi bi-pencil-square"> Edit Your info </i>
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <i class="bi bi-person mr-2"></i>
+                        <strong id="user_name">Your name </strong>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-person mr-2"></i>
+                        <span id="user_display_name">Your Display Name</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-calendar mr-2"></i>
+                        <span id="user_birthday">Your Birthday</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-geo-alt mr-2"></i>
+                        <span id="user_country_name">Your Location</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-telephone mr-2"></i>
+                        <span id="user_telephone">Your Telephone</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-envelope mr-2"></i>
+                        <span id="user_email">Your Email</span>
+                    </div>
+                    <!-- <div class="mb-3">
+                    <i class="bi bi-layout-text-window mr-2"></i>
+                    <span id="user_industry_name">Your Industry</span>
+                </div> -->
+
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <small data-id="modalWebsite" class="point btn-them  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i>
+                        Add website
+                    </small>
+                    <div id="user_web" class="m-2">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-12 mt-4 mb-4">
+                <a href="ProfileSetting" class=" hrefs"><i class="bi bi-gear point h3"></i></span></a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- about start -->
+    <div class="covers mb-2">
+        <div class="row">
+            <div class="col-md-12 p-2">
+                <h5>About</h5>
+            </div>
+            <div class="col-md-12">
+                <small data-id="modalEditAbout" data-functions="editInfo" class="point btn-them  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Edit About
+                </small>
+
+            </div>
+            <div class="col-md-12">
+                <div class="m-2 p-2">
+                    <p id="user_about"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about end -->
+
+
+
+    <!-- Skill start-->
+    <div class="covers mb-2">
+        <div class="row">
+            <div class="col-md-12 p-2">
+                <h5>Skill</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="ModalSkills" class="point btn-them  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add skill
+                </small>
+            </div>
+            <div id="user_skill" class="m-2">
+            </div>
+        </div>
+    </div>
+
+    <!--  Skill end-->
+
+    <!-- Links start-->
+    <div class="covers mb-2">
+        <div class="row">
+            <div class="col-md-12 p-2">
+                <h5>Links</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="ModalLinks" data-functions="AddLinks" class="point btn-them  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add link
+                </small>
+            </div>
+            <div id="user_links" class="m-2">
+            </div>
+        </div>
+    </div>
+
+    <!--  Links end-->
+
+
+
+</div>

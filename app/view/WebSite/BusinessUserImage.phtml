@@ -1,0 +1,19 @@
+    <?php
+
+    $imgUrl =$URL_Domain.$VIEW_PATH_INCLUDE."imgs/logo.png";
+    if ($logo !== "" && $logo !== null) {
+        $imgUrl = $URL_PATH . $logo;
+    }
+
+    if($user_id !=='0' && isset($user_id)){
+    ?>
+    <a class="mb-2 mt-2 d-flex align-items-center" href="<?= $URL_Domain ?><?= $display_name_slug ?>">
+        <div class="col-md-2">
+            <img class="sm-img" src="<?= $imgUrl ?>" alt="<?= $display_name_slug ?>">
+        </div>
+        <div class="col-md-2 text-muted">
+            <?= $display_name ?>
+        </div>
+    </a>
+    <?php }?>
+

@@ -1,0 +1,43 @@
+// .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+//     color: $dashboardUserMenuColor;
+//     background-color: #f1e7f0;
+// }
+
+// .nav-link {
+//     display: block;
+//     padding: .5rem 1rem;
+//     color: $dashboardUserMenuColor;
+//     text-decoration: none;
+//     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+// }
+// .nav-link:focus, .nav-link:hover {
+//     color: $dashboardUserMenuColor;
+//     font-weight: bold;
+// }
+
+// .nav {
+//     display: flex;
+//     flex-wrap: wrap;
+//     padding-left: 0;
+//     margin-bottom: 0;
+//     list-style: none;
+// }
+// .nav-tabs {
+//     border-bottom: 2px solid #F4AFD1;
+//     margin-bottom: 15px;
+// }
+
+// .nav-tabs .nav-link.active {
+//     border-bottom: 2px solid #F56692;
+//     color: #F56692;
+// }
+// .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+//     color: #495057;
+//     // background-color: #f3f3f3;
+//     border-color: #ccced2 #ccced2 #f3f3f3;
+// }
+
+.nav-tabs .nav-link:first-child {
+    margin-left: .3rem !important;
+    padding-left: .3rem !important;
+}

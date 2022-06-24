@@ -1,0 +1,45 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/middle/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "assets/imgs/shop/product-1-1.jpg";
+}
+
+$ad="";
+if($d->top_show_id !=null)
+{
+    $ad="<span class='text-success'>Ad </span> ";
+}
+
+
+?>
+<div class="product-cart-wrap" style="border: none;">
+    <div class="product-img-action-wrap">
+        <div class="product-img product-img-zoom">
+            <a href="javascript:void(0);">
+                <img class="default-img img-sam-size" src="<?= $imgUrl ?>" alt="<?= $d->title ?>" />
+                <img class="hover-img img-sam-size" src="<?= $imgUrl ?>" alt="<?= $d->title ?>" />
+            </a>
+        </div>
+        <div class="product-action-1">
+            <!-- <a aria-label="Quick view" class="action-btn small hover-up" href="<?= $URL_Domain ?><?=$data['url_prize']?>/<?= $d->id ?>"> <i class="fi-rs-eye"></i></a>
+            <a aria-label="List" class="action-btn small hover-up" href="<?= $URL_Domain ?>Prizes"><i class="fi-rs-shuffle"></i></a> -->
+        </div>
+   
+    </div>
+    <div class="product-content-wrap">
+        <div class="product-category">
+            <a ><strong class="text-dark">Value: </strong><?= $d->jvalues ?></a>
+        </div>
+        <h2><a href="javascript:void(0);"><?= $ad?> <?= substr($d->title, 0, 40)."..."  ?></a></h2>
+      
+       
+        <div class="sold mt-15 mb-15">
+          
+            <p><?= $d->description ?></p>
+        </div>
+        <!-- <a href="<?= $URL_Domain ?><?= $data['url_prize'] ?>/<?= $d->id ?>" class="btn w-100 hover-up"></i>View</a> -->
+    </div>
+</div>

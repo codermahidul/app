@@ -1,0 +1,57 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+}
+$types=[];
+$levels=[];
+$skills=[];
+$salaries=[];
+if($d->type !=='' && $d->type!==null)
+$types=explode(",",$d->type);
+if($d->level !=='' && $d->level!==null)
+$levels=explode(",",$d->level);
+if($d->skill !=='' && $d->skill!==null)
+$skills=explode(",",$d->skill);
+if($d->salary !=='' && $d->salary!==null)
+$salaries=explode(",",$d->salary);
+
+$ad="";
+if($d->top_show_id !=null)
+{
+    $ad="<span class='text-success'>Ad </span> ";
+}
+
+$class_img = "img-sam-size";
+?>
+<a href="<?= $URL_Domain ?><?= $data['url_job'] ?>/<?= $d->title_slug ?>" class="hrefs col-md-4">
+    <div class="card-contain  m-1 ">
+        <div class="card-image position-relative">
+           
+            <img src="<?= $imgUrl ?>" alt="<?= $d->title_slug ?>" class="<?= $class_img ?>">
+            <div class="img-over-top bag-defult top-r-b-l-radus"><?= $d->category_name ?></div>
+        </div>
+        <div class="card-details">
+            <div>
+                <span class="card-title"><?=$ad?><?= $d->title ?></span>
+                <br>
+                <span class="fw-bold">
+                    <p><?php if(count($types)>0){ foreach(array_slice($types, 0, 3) as $t){?><span class="bag-gray m-1"><?=$t?></span><?php }}?></p>
+                    <p><?php if(count($levels)>0){ foreach(array_slice($levels, 0, 3) as $t){?><span class="bag-gray m-1"><?=$t?></span><?php }}?></p>
+                    <p><?php if(count($skills)>0){ foreach(array_slice($skills, 0, 3) as $t){?><span class="bag-green m-1"><?=$t?></span><?php }}?></p>
+                    <p><?php if(count($salaries)>0){ foreach(array_slice($salaries, 0, 3) as $t){?><span class="bag-defult m-1"><?=$t?></span><?php }}?></p>
+                    
+                </span>
+
+            </div>
+            <div class="mt-1 ">
+                <div class=" p-1">
+                    <!-- <div class="text-muted"><?= substr($d->description, 0, 100) . '...' ?></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

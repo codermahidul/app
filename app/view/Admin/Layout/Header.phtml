@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/UserDashboard/Layout/Header.css">
+<header>
+    <!-- for pc start -->
+    <div class="contain-header big-size">
+        <div class="logo">
+
+            <i id="openCloseSideMenu" class="bi bi-text-left menu-icon sideMenubtn"></i>
+            <h4 class="nameSite"><a class="hrefs" href="<?=$URL_Domain?>"><?=$SiteName?></a></h4>
+        </div>
+
+        <div class="search">
+            <!-- <input type="text" name="search" id="search" class="form-control">
+            <div class="search-icon">
+                <i class="bi bi-search "></i>
+            </div> -->
+
+        </div>
+
+
+        <div class="tools">
+
+            <div class="notification">
+                <!-- <i class="bi bi-bell-fill"></i> -->
+            </div>
+            <div class="user-message">
+                <!-- <i class="bi bi-envelope-fill"></i> -->
+            </div>
+            <div class="user-img dropdown">
+                <div class=" text-muted">
+                    <!-- <img class="dropbtn" src="<?= $VIEW_PATH ?>imgs/user.png" alt="user profile"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+                </div>
+
+                <div class="dropdown-content">
+                    <!-- <a href="Profile">profile</a> -->
+                    <a href="<?=$URL_Domain?>LogOutAdmin">Log out</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- for pc end -->
+
+    <!-- for other device start -->
+    <div class="min-size min-header">
+
+        <div class="menu-side">
+            <div id="openCloseSideMenu2" class="menu-left ">
+                <i class="bi bi-text-left menu-icon-header "></i>
+            </div>
+
+            <div class="user-img menu-right " id="profNav">
+                <!-- <img src="<?= $VIEW_PATH ?>imgs/user.png" alt="user profile"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <!-- for other device end -->
+</header>
+
+<script type="module" src="<?= $VIEW_PATH ?>js/Admin/Layout/Header.js"></script>

@@ -1,0 +1,29 @@
+<div class="modal fade bd-example-modal-lg" id="ModalAdd" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Program</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="addNewFrm">
+                    <?php include $VIEW_PATH_INCLUDE."Admin/Program/modal/Elements.phtml";?>
+
+                    <div class="mb-3">
+                        <input accept=".png, .jpg, .jpeg" type="file" name="main_image" id="main_image" class="fileinputs">
+
+
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="ModalAdd" id="btnAddNew" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="modal fade bd-example-modal-lg" id="ModalQuestions" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Questions</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Choose Question:</label>
+                    <select class="form-control" id="proofQ"></select>
+                </div>
+                <form id="qFrm">
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Question:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="text" name="text">
+                    </div>
+
+                </form>
+                <input type="text" hidden id="category_id" name="category_id">
+
+                <div class="mb-3 row">
+                    <div class="col-md-12 text-center">
+                        <button data-edit="false" data-id="ModalQuestions" id="btnModalQuestions" type="button" class="btn  btn-prim">Save</button>
+
+                    </div>
+                </div>
+                <div class="row p-1" id="result_question"></div>
+            </div>
+
+
+            <div class="modal-footer-glass modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

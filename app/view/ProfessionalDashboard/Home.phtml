@@ -1,0 +1,31 @@
+<?php
+$business = $data['business'];
+$business = $business->data->data;
+?>
+<div class="contains-item-page m-top p-2">
+   <div class="row mt-5 mb-5">
+      <div class="col-md-12 mt-5">
+         <h2><strong>Businesses</strong></h2>
+      </div>
+      <?php foreach ($business as $b) {
+         if ($d->file_url !== "" && $d->file_url !== null) {
+            $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+         } else {
+            $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+         }
+      ?>
+         <div class="col-md-3 row align-items-center point set-business" data-id="<?=$b->on_business_id?>">
+            <div class="col-md-4">
+               <img src="<?= $imgUrl ?>" alt="<?= $d->title ?>" class="vsm-img">
+
+            </div>
+            <div class="col-md-8"><?= $b->display_name ?></div>
+         </div>
+      <?php } ?>
+
+   </div>
+</div>
+<?php
+(include_once $VIEW_PATH_INCLUDE . "UserDashboard/Home.phtml");
+
+?>

@@ -1,0 +1,104 @@
+<div class="modal fade bd-example-modal-lg" id="ModalEdit" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Edit Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmEdit">
+                    <div class="mb-3 row">
+                        <label for="recipient-name" class="col-form-label">Select a city or select an online option for all cities</label>
+
+                        <div class="col-md-3">
+                            <label class="chboxs ">Online
+                                <input type="checkbox" name="online" id="online_e" value="1">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+
+                            <select style="width: 100%;" name="country_id" id="country_id_e" class="form-control select2_e">
+
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select style="width: 100%;" name="province_id" id="province_id_e" class="form-control select2_e"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <select style="width: 100%;" name="city_id" id="city_id_e" class="form-control select2_e"></select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="title_e" name="title">
+                        <input type="text" name="idSearch" id="idSearch" hidden>
+                    </div>
+
+
+
+                    <div class="mb-3 " id="more_cat_e"></div>
+
+                    <div class="mb-3">
+                        <button type="button" id="add_more_cat_e" data-id="more_cat_e" class="btn btn-glass m-1">Add More</button>
+                        <button type="button" id="reset_cat_e" data-id="more_cat_e" class="btn btn-danger m-1">Remove All</button>
+                    </div>
+
+                    <div class="mb-3 row">
+
+                        <div class="col-md-4">
+                            <label for="recipient-name" class="col-form-label">Link type:</label>
+                            <select id="ltype_e1" class="input-white min-radus select-css ">
+                                <option value=""></option>
+                                <option value="buy">Buy</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="recipient-name" class="col-form-label">Link Title:</label>
+                            <input id="ltitle_e1" type="text" autocomplete="off" class="input-white min-radus ">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="recipient-name" class="col-form-label">Link Address:</label>
+                            <input id="ltag_e1" type="text" autocomplete="off" class="input-white min-radus ">
+                        </div>
+
+
+                    </div>
+                    <div class="row" id="more_link_e"></div>
+                    <div class="mb-3 mt-2">
+                        <button type="button" id="add_more_links_e" data-id="more_link_e" class="btn btn-glass">Add More</button>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Price:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="price_e" name="price">
+                    </div>
+
+
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description:</label>
+                        <textarea rows="5" class="input-white min-radus " id="description_e" name="description"></textarea>
+                    </div>
+                    <?php
+                    if (isset($admin)) {
+                        include $VIEW_PATH_INCLUDE . "UserDashboard/User/delete/removeAdmin.phtml";
+                    } else {
+                        include $VIEW_PATH_INCLUDE . "UserDashboard/User/delete/remove.phtml";
+                    }
+                    ?>
+
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-id="ModalEdit" id="btnSaveEdit" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

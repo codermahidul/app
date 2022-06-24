@@ -1,0 +1,272 @@
+<?php
+$datas = $data['data'][0];
+$followers = $data['followers'];
+$following = $data['following'];
+$isFollower = $data['isFollower'];
+$logged = $data['logged'];
+$webSite = $data['webSite'];
+$experience = $data['experience'];
+$vExperience = $data['vExperience'];
+$Skill = $data['Skill'];
+$Education = $data['Education'];
+$License = $data['License'];
+$Publication = $data['Publication'];
+$Patent = $data['Patent'];
+$Course = $data['Course'];
+$Project = $data['Project'];
+$Honors = $data['Honors'];
+$Score = $data['Score'];
+$Language = $data['Language'];
+$Organization = $data['Organization'];
+$report = $data['report'];
+$table = "user";
+$item_id = $datas->id;
+
+$imgUrl = "";
+$bannerUrl = "";
+if ($datas->banner_file_url !== "" && $datas->banner_file_url !== null) {
+    $bannerUrl = $URL_PATH . $datas->banner_file_url . '/thumb/' . $datas->banner_file_name;
+} else {
+    $bannerUrl = $VIEW_PATH . "assets/imgs/vendor/vendor-header-bg.png";
+}
+
+if ($datas->file_url !== "" && $datas->file_url !== null) {
+    $imgUrl = $URL_PATH . $datas->file_url . '/small/' . $datas->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/logo.png";
+}
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="user_business_id" value="<?= $datas->id ?>">
+<input type="text" hidden id="user_business_type" value="<?= $datas->type ?>">
+
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="<?= $URL_Domain ?>" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="<?= $URL_Domain ?>Networks">Networks</a> <span></span><?= $datas->display_name ?>
+            </div>
+        </div>
+    </div>
+    <div class="page-content mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="archive-header-3 mt-30 mb-10" style="background-image: url(<?= $bannerUrl ?>)">
+                        <div class="archive-header-3-inner">
+                            <div class="vendor-logo mr-50">
+                                <img src="<?= $imgUrl ?>" alt="<?= $datas->display_name ?>" class="rounded-circle" />
+                            </div>
+                            <div class="vendor-content">
+                                <div class="product-category">
+                                    <span class="text-muted"> </span>
+                                </div>
+                                <h3 class="mb-5 text-white"><a href="<?= $URL_Domain ?><?= $datas->display_name_slug ?>" class="text-white"><?= $datas->display_name ?></a></h3>
+                                <div class="product-rate-cover mb-15">
+
+                                    <span class="font-small ml-5 text-muted"> <?= $datas->headline ?></span>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-lg-12">
+                                        <div class="vendor-info text-white mb-15">
+                                            <ul class="font-sm">
+                                                <li>
+                                                    <i class="bi bi-geo-alt me-2"></i><strong>Address: </strong>
+                                                    <span>
+                                                        <?= $datas->country_name ?>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <i class="bi bi-info-circle me-2"></i><strong>Industry name:</strong>
+                                                    <span><?= $datas->industry_name ?></span>
+                                                </li>
+
+                                                <li>
+                                                    <img class="mr-5" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-user.svg" alt="" /><strong>Followers:</strong>
+                                                    <span><?= number_format($followers->data->total) ?></span>
+                                                </li>
+
+                                                <li>
+                                                    <img class="mr-5" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-user.svg" alt="" /><strong>Following:</strong>
+                                                    <span><?= number_format($following->data->total) ?></span>
+                                                </li>
+                                                <li>
+                                                    <?php if ($isFollower == 'false') { ?>
+                                                        <button data-id="<?= $datas->id ?>" id="AddToFollow" class="btn ">Follow</button>
+                                                        <div></div>
+                                                    <?php } else { ?>
+                                                        <button style="background: firebrick;" data-id="<?= $data['user_follow_id'] ?>" id="UnFollowBtn" class="btn btn-danger">Unfollow</button data-id="<?= $data['user_follow_id'] ?>">
+                                                        <div class="mb-4"></div>
+                                                    <?php } ?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="detail-extralink mb-50">
+
+                        <div class="product-extra-link2">
+                            <?php
+                            $title = $datas->title;
+                            $id = $datas->id;
+                            $type = "business";
+                            $url =  $URL_Domain .  $datas->display_name_slug;
+                            include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                            <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-11 col-lg-12 m-auto">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="single-page pt-50 pr-30">
+                                <div class="single-header style-2">
+                                    <div class="row">
+                                        <div class="col-xl-10 col-lg-12 m-auto">
+                                            <h2 class="mb-10"><?= $datas->display_name ?></h2>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="single-content">
+                                    <div class="row">
+                                        <div class="col-xl-10 col-lg-12 m-auto">
+                                            <p class="single-excerpt"><?= $datas->about ?></p>
+                                            <?php if ($webSite->data->total > 0) { ?>
+                                                <h5 class="mt-50">WebSite</h5>
+                                                <?php foreach ($webSite->data->data as $d) {
+                                                    $show = false;
+                                                    if ($d->is_public == '1') {
+                                                        if ($logged == 'true' && $isFollower == 'true') {
+                                                            $show = true;
+                                                        }
+                                                    }
+                                                    if ($d->is_public == '2') {
+                                                        $show = true;
+                                                    }
+                                                    if ($show) { ?>
+
+                                                        <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                                                            <div class="author-image mb-30">
+                                                                <a href="<?= $d->website_url ?>">
+                                                                    <h5 class="mb-5"><?= $d->website_title ?></h5>
+                                                                </a>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                <?php
+                                                    }
+                                                } ?>
+
+                                            <?php } ?>
+
+                                            <?php include $VIEW_PATH_INCLUDE . "WebSite/ProfileTimeLine.phtml"; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 primary-sidebar sticky-sidebar pt-50">
+                            <div class="widget-area">
+
+                                <div class="sidebar-widget widget-category-2 mb-50">
+                                    <h5 class="section-title style-1 mb-30">Details</h5>
+                                    <ul>
+                                        <?php if ($experience->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#experience">Experience</a><span class="count"><?= $experience->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+
+                                        <?php if ($vExperience->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#vExperience">Volunteer experience</a><span class="count"><?= $vExperience->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Skill->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Skill">Skill</a><span class="count"><?= $Skill->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Education->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Education">Education</a><span class="count"><?= $Education->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($License->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#License">License</a><span class="count"><?= $License->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Publication->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Publication">Publication</a><span class="count"><?= $Publication->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Patent->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Patent">Patent</a><span class="count"><?= $Patent->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Course->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Course">Course</a><span class="count"><?= $Course->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Project->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Project">Project</a><span class="count"><?= $Project->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Honors->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Honors">Honors</a><span class="count"><?= $Honors->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Score->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Score">Score</a><span class="count"><?= $Score->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Language->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Language">Language</a><span class="count"><?= $Language->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ($Organization->data->total > 0) { ?>
+                                            <li>
+                                                <a href="#Organization">Organization</a><span class="count"><?= $Organization->data->total ?></span>
+                                            </li>
+                                        <?php } ?>
+
+
+
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

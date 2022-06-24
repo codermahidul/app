@@ -1,0 +1,35 @@
+<div class="modal fade bd-example-modal-lg" id="ModalEdit" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Edit Coupon</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmEdit">
+                    <?php $edit = "_e";
+                    include $VIEW_PATH_INCLUDE . "BusinessDashboard/CityChoose.phtml";
+                    include $VIEW_PATH_INCLUDE . "BusinessDashboard/Coupon/modal/Item.phtml";
+                    ?>
+                    <input type="text" hidden id="idSearch" name="idSearch">
+
+
+                    <?php
+                    if (isset($admin)) {
+                        include $VIEW_PATH_INCLUDE . "UserDashboard/User/delete/removeAdmin.phtml";
+                    } else {
+                        include $VIEW_PATH_INCLUDE . "UserDashboard/User/delete/remove.phtml";
+                    }
+                    ?>
+
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-id="ModalEdit" id="btnSaveEdit" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

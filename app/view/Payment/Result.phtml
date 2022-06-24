@@ -1,0 +1,17 @@
+<div class="row p-1  m-top">
+  <div class="d-flex justify-content-center mb-3">
+
+    <div class="covers2 contains-item m-top position-relative">
+     <?php if($data['status']=='true'){?>
+
+        <div class="alert alert-success p-2">Your payment is successful</div>
+     <?php }else{?>
+        <div class="alert alert-danger p-2"><?=$data['err']?></div>
+        <?php }?>
+    
+    </div>
+
+  </div>
+
+</div>
+

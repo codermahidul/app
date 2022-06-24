@@ -1,0 +1,47 @@
+<div class="modal fade bd-example-modal-lg" id="modalAddBusiness" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Business </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmBusiness">
+
+
+                    <!-- <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Start Date</label>
+                       <input  type="date" class="form-control" name="date_start" id="date_start">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">End Date</label>
+                        
+                       <input type="date" type="date" class="form-control" name="date_end" id="date_end">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Still going on</label>
+                       <select name="now" id="now" class="form-control">
+                           <option value=""></option>
+                           <option value="1">Yes</option>
+                           <option value="0">No</option>
+                       </select>
+                    </div> -->
+
+                    <?php
+                    $titleSearch = "Choose Business Name";
+                    $idInput = "searchVal";
+                    $idResult = "resultB";
+                    include $VIEW_PATH_INCLUDE . "AutoComplete.phtml";
+                    ?>
+                </form>
+
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-table="<?= $table ?>" data-item="<?= $item_id ?>" data-id="modalAddBusiness" id="addBusiness" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

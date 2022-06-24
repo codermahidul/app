@@ -1,0 +1,53 @@
+<?php if (count($relates) > 0) {
+    $classes = "row p-2";
+    if (count($relates) >= 4)
+        $classes = "multiple-items p-2";
+
+?>
+    <div class="p-1 m-1">
+        <div class="mb-2">
+            <h5><strong>Similar items</strong></h5>
+        </div>
+        <div class="<?= $classes ?>">
+            <?php foreach ($relates as $d) {
+                switch ($type) {
+                    case "product": {
+                            $data['url_product'] = "ProductDetail";
+                            include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml";
+                            break;
+                        }
+
+                    case "prize": {
+                            $data['url'] = "PrizeDetail";
+                            include $VIEW_PATH_INCLUDE . "WebSite/Cards/Prize.phtml";
+                            break;
+                        }
+
+                    case "coupon": {
+                            $data['url'] = "CouponDetail";
+                            include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml";
+                            break;
+                        }
+                    case "deals": {
+                            $data['url'] = "DealsDetail";
+                            include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml";
+                            break;
+                        }
+
+                    case "program": {
+                            $data['url'] = "ProgramDetail";
+                            include $VIEW_PATH_INCLUDE . "WebSite/Cards/Program.phtml";
+                            break;
+                        }
+
+                    case "job": {
+                            $data['url_job'] = "JobDetail";
+                            include $VIEW_PATH_INCLUDE . "WebSite/Cards/Job.phtml";
+                            break;
+                        }
+                }
+            ?>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>

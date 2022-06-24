@@ -1,0 +1,47 @@
+<div class="modal fade bd-example-modal-lg" id="modalScore" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">test score</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmScore"> 
+                <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Associated with (experience):</label>
+                        <select style="width: 100%" class="input-white min-radus  select-css" name="score_experience_id" id="score_experience_id">
+                     
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Score :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="score" id="score">
+                    </div>
+
+  
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Test date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="score_date" id="score_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Description :</label>
+                        <textarea rows="5" type="text" autocomplete="off" class="input-white min-radus " name="score_description" id="score_description"></textarea>
+                    </div>
+                    <?php
+                  //  include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="modalScore" id="scorebtn" type="button" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

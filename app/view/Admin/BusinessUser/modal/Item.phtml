@@ -1,0 +1,33 @@
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Name:</label>
+    <input type="text" class="input-white min-radus " name="name" id="name<?= $edit ?>">
+</div>
+<!-- <div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Category:</label>
+    <select name="category_id" id="category_id<?= $edit ?>" style="width: 100%" class="input-white min-radus select2 select-css">
+        <option value="">Choose an Category</option>
+    </select>
+</div> -->
+<div class="mb-3 " id="more_cat<?= $edit ?>"></div>
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Email:</label>
+    <input type="text" class="input-white min-radus " name="email" id="email<?= $edit ?>">
+</div>
+<div class="mb-3">
+    <select class="form-control " name="type" id="type<?= $edit ?>">
+        <?php include $VIEW_PATH_INCLUDE . "Admin/BusinessUser/modal/Type.phtml"; ?>
+    </select>
+</div>
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Password:</label>
+    <input type="text" class="input-white min-radus " name="password" id="password<?= $edit ?>">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Verify:</label>
+    <select name="verify" class="form-control" id="verify<?= $edit ?>">
+        <option value=""></option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
+</div>

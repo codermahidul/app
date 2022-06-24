@@ -1,0 +1,71 @@
+<?php
+
+$datas = $data['data'][0];
+
+
+?>
+
+<div class="m-top covers ">
+    <form id="frmAdd">
+        <div class="row m-top">
+
+
+            <div class="col-md-4 mb-3">
+                <label for="recipient-name" class="col-form-label">Choose Section:</label>
+                <select class="form-control min-radus" name="section" id="section">
+                    <option value=""></option>
+                    <?php foreach ($data['section'] as $s) { ?>
+                        <option value="<?= $s->id ?>"><?= $s->name ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="recipient-name" class="col-form-label">Choose Type:</label>
+                <select name="type" id="type" class="form-control min-radus">
+                    <option value=""></option>
+                    <option value="click">Click</option>
+                    <option value="show">Show</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="recipient-name" class="col-form-label">Price:</label>
+                <input type="number" autocomplete="off" class="form-control min-radus " id="price" name="price">
+            </div>
+
+        </div>
+    </form>
+    <diw class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-prim btn-lg" id="saveBtn">Save</button>
+        </div>
+    </diw>
+
+    <table class="table table-striped mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Section</th>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($data['AdListPrice'] as $ad){?>
+            <tr>
+                <th scope="row"><?=$ad->id?></th>
+                <td><?=$ad->section_name?></td>
+                <td><?=$ad->type?></td>
+                <td><?=$ad->price?></td>
+                <td>
+                    <button data-id="<?=$ad->id?>" class="btn text-danger removes"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+            <?php }?>
+       
+ 
+        </tbody>
+    </table>
+</div>

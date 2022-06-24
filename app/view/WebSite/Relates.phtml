@@ -1,0 +1,65 @@
+<?php if (count((array)$relates) > 0) {
+ 
+
+?>
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12">
+
+            <div class=" fade show ">
+                <div class="carausel-3-columns-cover arrow-center position-relative">
+                    <div class="slider-arrow slider-arrow-2 carausel-3-columns-arrow" id="carausel-3-columns-arrows"></div>
+                    <div class="carausel-3-columns carausel-arrow-center" id="carausel-3-columns">
+                        <?php foreach ($relates as $d) {
+                            switch ($type) {
+                                case "product": {
+                                        $data['url_product'] = "ProductDetail";
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml";
+                                        break;
+                                    }
+
+                                case "prize": {
+                                        $data['url'] = "PrizeDetail";
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Prize.phtml";
+                                        break;
+                                    }
+
+                                case "coupon": {
+                                        $data['url_coupon'] = "CouponDetail";
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml";
+                                        break;
+                                    }
+                                case "deals": {
+                                        $data['url_deals'] = "DealsDetail";
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml";
+                                        break;
+                                    }
+
+                                case "program": {
+                                        $data['url'] = "ProgramDetail";
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Program.phtml";
+                                        break;
+                                    }
+
+                                case "job": {
+                                        $data['url_job'] = "JobDetail";
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Job.phtml";
+                                        break;
+                                    }
+                            }
+                        ?>
+                        <?php } ?>
+
+
+                    </div>
+                </div>
+            </div>
+            <!--End carausel-->
+
+
+        </div>
+        <!--End Col-lg-9-->
+    </div>
+
+
+<?php } ?>

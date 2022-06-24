@@ -1,0 +1,139 @@
+@import '../../Common/body';
+@import '../../Common/inputNormal';
+@import '../../Variable/Colors';
+@import '../../Variable/Fonts';
+@import '../../Variable/Size';
+@import '../../Common/button';
+@import '../../Common/layout';
+@import '../../Common/modalNormal';
+@import '../../Common/chbox';
+@import '../../Common/radio';
+//@import '../../Common/select';
+@import '../../Common/table';
+@import '../../Common/tag';
+@import '../../Common/cards';
+@import '../../Common/image';
+@import '../../Common/swal';
+//@import '../../Common/tab';
+@import '../../Common/slice';
+@import '../../Common/timeLine';
+@import '../../Common/gallery';
+@import '../../Common/star';
+@import '../../Common/figure';
+@import '../../Common/Text';
+
+body
+{
+  @include bodysSite();
+
+}
+
+
+@media only screen and (max-width: 1025px) {
+
+  .contains-item,.contains-item2
+  {
+      width: 100%;
+  }
+
+}
+@media only screen and (min-width: 1025px) {
+
+  .contains-item{
+      width: 50%;
+    }
+    .contains-item2{
+      width: 70%;
+    }
+}
+
+.grid-row
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.profile-image
+{
+  position: absolute;
+  top: -40px;
+  left: 23px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;;
+  
+}
+@media only screen and (max-width: 600px) {
+  .profile-image {
+    position: absolute;
+    top: -25px;
+    left: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+}
+
+.show-with-vertical-line
+{
+    display: grid;
+    grid-template-columns: 40% 10% 40%;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .contains-list
+  {
+      display: block;
+      margin: 0 .2rem;
+  }
+  .searches-div
+  {
+      display: block;
+  }
+
+  .side-bar-div
+  {
+      display: none;
+  }
+
+}
+
+@media only screen and (min-width: 1000px) {
+  .contains-list
+  {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      gap: 1rem;
+  }
+
+  .searches-div
+  {
+      display: none;
+  }
+  .side-bar-div
+  {
+      display: block;
+  }
+}
+
+.side-search
+{
+  flex: 0 0 auto;
+  height: 60vh;
+  overflow: auto;
+  position: sticky;
+  top: 10rem;
+ 
+}
+
+.header-h-text
+{
+  display: -webkit-box;
+  -webkit-box-align: baseline;
+}
+
+.tokenize > .tokens-container
+{
+  border-radius: 18px;
+}

@@ -1,0 +1,43 @@
+<?php  
+ include_once ($VIEW_PATH_ADMIN_INCLUDE ."Setting/modal/AddCategory.phtml");
+ include_once ($VIEW_PATH_ADMIN_INCLUDE ."Setting/modal/EditCategory.phtml");
+ include_once ($VIEW_PATH_ADMIN_INCLUDE ."Setting/modal/Question.phtml");
+ ?>
+ <div class="m-top">
+<div style="display: none;" class="row  covers p-1 m-1" id="btns">
+    <div class="col-md-12  mb-3 mt-2">
+        <small id="addNewBtn" class="btn btn-prim btn-lg ">
+            <i class="bi bi-plus-lg mr-2"></i> Add Category
+        </small>
+        <small id="back" class="btn  btn-lg">
+            Back
+        </small>
+    </div>
+</div>
+
+<div id="types" class="row covers p-1 m-1">
+    <div data-type="product" class="col-md-12 border-bottom mb-1 p-2 point cat-type">
+        Product Type
+    </div>
+    
+    <div data-type="coupon" class="col-md-12 border-bottom mb-1 p-2 point cat-type">
+        Coupon Type
+    </div>
+    <div data-type="business" class="col-md-12 border-bottom mb-1 p-2 point cat-type">
+        Business Type
+    </div>
+    <div data-type="job" class="col-md-12 border-bottom mb-1 p-2 point cat-type">
+        Job Type
+    </div>
+    <div data-type="faq" class="col-md-12 border-bottom mb-1 p-2 point cat-type">
+        Faq Type
+    </div>
+    <!-- <div data-type="program" class="col-md-12 border-bottom mb-1 p-2 point cat-type">
+    program Type
+    </div> -->
+
+
+</div>
+
+<div style="display: none;" class="row covers p-3 m-1" id="category_data"></div>
+</div>

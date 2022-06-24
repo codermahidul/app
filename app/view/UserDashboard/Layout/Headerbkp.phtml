@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/UserDashboard/Layout/Header.css">
+<header>
+    <!-- for pc start -->
+    <div class="contain-header big-size ">
+        <div class="logo">
+
+            <i id="openCloseSideMenu" class="bi bi-text-left menu-icon sideMenubtn"></i>
+            <h4 class="nameSite"><a class="hrefs" href="<?= $URL_Domain ?>"><?=$SiteName?></a></h4>
+        </div>
+
+        <div class="search"></div>
+
+
+        <div class="tools position-relative">
+
+            <div class="user-message">
+                <!-- <i class="bi bi-envelope-fill"></i> -->
+            </div>
+            <div id="notification_icon" class=" notification position-relative">
+                <span id="star_notfication" class="text-danger position-absolute start-50 bottom-50"></span>
+                <i class="bi bi-bell-fill"></i>
+
+            </div>
+            <div class="user-img dropdown">
+                <div class="user-image-prof">
+                    <img class="dropbtn" src="<?= $VIEW_PATH ?>imgs/user.png" alt="user profile">
+                </div>
+
+                <div class="dropdown-content">
+                    <a href="<?= $URL_Domain ?>Profile">profile</a>
+                    <a href="<?= $URL_Domain ?>LogOutUser">Log out</a>
+                </div>
+
+            </div>
+
+            <div style="display: none;" id="main_div_notification" class="notification-top-header">
+                <div  class="row" id="div_header_notification">
+               
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- for pc end -->
+
+    <!-- for other device start -->
+    <div class="min-size min-header">
+
+        <div class="menu-side">
+            <div id="openCloseSideMenu2" class="menu-left ">
+                <i class="bi bi-text-left menu-icon-header "></i>
+            </div>
+
+            <div class="user-img menu-right user-image-prof" id="profNav">
+                <img src="<?= $VIEW_PATH ?>imgs/user.png" alt="user profile">
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <!-- for other device end -->
+</header>
+
+<script type="module" src="<?= $VIEW_PATH ?>js/UserDashboard/Layout/Header.js"></script>

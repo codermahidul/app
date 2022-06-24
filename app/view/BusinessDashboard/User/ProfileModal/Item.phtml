@@ -1,0 +1,192 @@
+<?php
+include $VIEW_PATH_INCLUDE . "BusinessDashboard/CityChooseProfile.phtml";
+?>
+
+
+<div class="mb-3">
+    <label class="chboxs ">Show on map
+        <input type="checkbox" name="show_map" id="show_map<?= $edit ?>" value="0">
+        <span class="checkmark"></span>
+    </label>
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">* </span> Postal Code:</label>
+    <input type="text" autocomplete="off" class="input-white min-radus " id="postal_code" name="postal_code">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">* </span> Name:</label>
+    <input type="text" autocomplete="off" class="input-white min-radus " id="name" name="name">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">* </span>Display Name:</label>
+    <input type="text" autocomplete="off" class="input-white min-radus " id="display_name" name="display_name">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Date of Establishment:</label>
+    <input type="date" autocomplete="off" class="input-white min-radus " id="establishment" name="establishment">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">* </span>Email:</label>
+    <input type="text" autocomplete="off" class="input-white min-radus " id="email" name="email">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Hashtags (separator with ::)</label>
+    <textarea rows="1" class="input-white min-radus "  id="hashtag" name="hashtag"></textarea>
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">More Info:</label>
+    <textarea rows="3" class="input-white min-radus " id="more_info" name="more_info"></textarea>
+</div>
+
+<!-- <div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">* </span>Country/Regionline:</label>
+    <select style="width: 100%" class="input-white min-radus select2 select-css" name="country_id" id="country_id">
+        <option value="">Choose an Country..</option>
+    </select>
+
+</div> -->
+
+<!-- <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"><span class="text-danger">* </span>Category:</label>
+                        <select name="category_id" id="category_id" style="width: 100%" class="input-white min-radus select2 select-css">
+                            <option value="">Choose an Category</option>
+                        </select>
+                    </div> -->
+<div class="mb-3 " id="more_cat_e"></div>
+
+
+<p>Hours</p>
+<div class="mb-3 row">
+    <div class="col-md-3">Sunday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="sunday_open"  checked>
+            <label class="form-check-label" for="sunday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_sunday" name="time_from_sunday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_sunday" name="time_to_sunday">
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-md-3">Monday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="monday_open"  checked>
+            <label class="form-check-label" for="monday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_monday" name="time_from_monday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_monday" name="time_to_monday">
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-md-3">Tuesday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="tuesday_open" checked>
+            <label class="form-check-label" for="tuesday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_tuesday" name="time_from_tuesday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_tuesday" name="time_to_tuesday">
+    </div>
+</div>
+
+
+<div class="mb-3 row">
+    <div class="col-md-3">Wednesday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="wednesday_open" checked>
+            <label class="form-check-label" for="sunday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_wednesday" name="time_from_wednesday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_wednesday" name="time_to_wednesday">
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-md-3">Thursday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="thursday_open" checked>
+            <label class="form-check-label" for="sunday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_thursday" name="time_from_thursday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_thursday" name="time_to_thursday">
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-md-3">Friday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  id="friday_open" checked>
+            <label class="form-check-label" for="sunday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_friday" name="time_from_friday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_friday" name="time_to_friday">
+    </div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-md-3">Saturday</div>
+    <div class="col-md-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="saturday_open"  checked>
+            <label class="form-check-label" for="sunday">Open</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time from:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_from_saturday" name="time_from_saturday">
+    </div>
+    <div class="col-md-3">
+        <label for="recipient-name" class="col-form-label">Time to:</label>
+        <input type="time" autocomplete="off" class="input-white min-radus " id="time_to_saturday" name="time_to_saturday">
+    </div>
+</div>
+

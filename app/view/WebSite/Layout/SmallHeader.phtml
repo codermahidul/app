@@ -1,0 +1,137 @@
+<div class="mobile-header-active mobile-header-wrapper-style">
+    <div class="mobile-header-wrapper-inner">
+        <div class="mobile-header-top">
+            <div class="mobile-header-logo">
+                <a href="<?= $URL_Domain ?>"><img src="<?= $VIEW_PATH ?>imgs/main-logo.png" alt="hairizer" /></a>
+            </div>
+            <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
+                <button class="close-style search-close">
+                    <i class="icon-top"></i>
+                    <i class="icon-bottom"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-header-content-area">
+            <div class="mobile-search search-style-3 mobile-header-border">
+                <form>
+                    <input data-id="small_header" style="border-radius: 20px;" class="searchHeader" type="text" placeholder="Search for items…" />
+
+                </form>
+                <div id="small_header" style="position: absolute;
+                    background: white;
+                    width: auto;
+                    z-index: 100;
+                    max-width: 85%;
+                    overflow-y: auto;
+                    display:none;
+                    padding: .9rem !important;
+                    max-height: 80%;" class="search-top-header shadow-lg p-5 search_result">
+                </div>
+            </div>
+
+            <div class="mobile-search search-style-3 mobile-header-border mt-10">
+                <form class="d-flex align-items-center">
+                    <input autocomplete="off" data-id="pc_header_loc_mobile" style="border-radius: 20px;" class="searchHeaderLoc" type="text" placeholder="Search for Location…" id="locationSeMobile" />
+                    <i class="bi bi-x-circle point" style="display: none;" id="header-loc-close-mobile"></i>
+
+                </form >
+                <div id="pc_header_loc_mobile" style="position: absolute;
+                    background: white;
+                    width: auto;
+                    z-index: 100;
+                    display:none;
+                    max-width: 85%;
+                    overflow-y: auto;
+                    padding: .9rem !important;
+                    max-height: 80%;" class="search-top-header shadow-lg p-5 search_result">
+                </div>
+            </div>
+            <div class="mobile-menu-wrap mobile-header-border">
+                <!-- mobile menu start -->
+                <nav>
+                    <ul class="mobile-menu font-heading">
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>">Home</a>
+                            <!-- <ul class="dropdown">
+                                <li><a href="index.html">Home 1</a></li>
+                                <li><a href="index-2.html">Home 2</a></li>
+                                <li><a href="index-3.html">Home 3</a></li>
+                                <li><a href="index-4.html">Home 4</a></li>
+                                <li><a href="index-5.html">Home 5</a></li>
+                                <li><a href="index-6.html">Home 6</a></li>
+                            </ul> -->
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Programs">Programs</a>
+
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Products">Products</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Coupons">Coupons</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Deal">Deals</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Jobs">Jobs</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Networks">Networks</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Prizes">Prize</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>Help">Helps</a>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $URL_Domain ?>About">About</a>
+
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- mobile menu end -->
+            </div>
+            <div class="mobile-header-info-wrap">
+                <div class="single-mobile-header-info">
+                    <a href="page-contact.html"><i class="fi-rs-marker"></i><?= $setting->address ?></a>
+                </div>
+
+                <div style="display: none;" id="loginMobile" class="single-mobile-header-info">
+                    <a href="<?= $URL_Domain ?>login"><i class="fi-rs-user"></i>Log In </a>
+                </div>
+                <div style="display: none;" id="registerMobile" class="single-mobile-header-info">
+                    <a href="<?= $URL_Domain ?>register"><i class="fi-rs-user"></i>Register </a>
+                </div>
+
+                <div style="display: none;" id="profMobile" class="single-mobile-header-info">
+                    <a href="<?= $URL_Domain ?>Profile"><i class="fi-rs-user"></i>Profile </a>
+                </div>
+                <div class="single-mobile-header-info">
+                    <a href="#"><i class="fi-rs-headphones"></i><?= $setting->tel ?> </a>
+                </div>
+            </div>
+            <div class="mobile-social-icon mb-50">
+                <h6 class="mb-15">Follow Us</h6>
+
+
+                <a href="<?= $setting->facebook ?>"><img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
+                <a href="<?= $setting->twitter ?>"><img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
+                <a href="<?= $setting->instagram ?>"><img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
+                <a href="<?= $setting->youtube ?>"><img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
+            </div>
+            <div class="site-copyright"><?= $setting->copy_right ?></div>
+        </div>
+    </div>
+</div>

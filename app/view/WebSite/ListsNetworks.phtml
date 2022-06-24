@@ -1,0 +1,77 @@
+<div class="row p-1 m-1">
+<div class="accordion accordion-flush mb-3"  id="accordionFlushExample">
+        <div class="accordion-item" >
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" style="background: gainsboro;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <i class="bi bi-search"></i>
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="covers row mt-3 mb-3 ms-1 me-1 mr-1 p-1">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" autocomplete="off" class="form-control min-radus " id="display_name_search">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Sort:</label>
+                            <select id="orderser" class="form-control ">
+                                <option value=""></option>
+                                <option value="id,desc">the newest</option>
+                                <option value="id,asc">the oldest</option>
+                                <option value="display_name,asc">A-z</option>
+                                <option value="display_name,desc">Z-A</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <?php if (isset($data['display_name_slug'])) {
+                        $display_name_slug = $data['display_name_slug'];
+                    } else $display_name_slug = "" ?>
+                    <input type="text" hidden id="display_name_slug" value="<?= $display_name_slug ?>">
+                    <div class="col-md-12 text-center mb-2 mt-2">
+                        <button class="btn btn-prim" id="SerachBtn">search</button>
+                        <button class="btn" id="resetbtn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="grids mt-4" id="dataList">
+        <input type="text" hidden value="<?= $data['idNotIn'] ?>" id="idNotIn">
+        <?php
+        foreach ($data['data'] as $d) {
+            $imgurl = "";
+            if ($d->image !== "" && $d->image !== null) {
+                $imgurl = $URL_PATH . 'uploads/user/' . $d->id . '/profile/image/middle/' . $d->image;
+            } else {
+                $imgurl = $VIEW_PATH . "imgs/user_defult.jpg";
+            }
+        ?>
+            <a href="<?=$URL_Domain?>UserDetailProfile/<?= $d->display_name_slug ?>" class="hrefs">
+                <div class="card-contain covers">
+                    <div class="card-image ">
+                        <img src="<?= $imgurl ?>" alt="<?= $d->display_name_slug ?>">
+                    </div>
+                    <div class="card-details">
+                        <div class="h5"><?= $d->display_name ?></div>
+                        <div class="mt-1 min-text-show">
+                            <small class="text-muted"><?= $d->headline ?></small>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        <?php } ?>
+    </div>
+    <div class="col-md-12 text-center mt-3">
+        <?php if ($data['haveMore']) { ?>
+            <button class="btn btn-sm btn-prim" id="BtnnLoad">Lode More</button>
+        <?php } ?>
+
+    </div>
+</div>

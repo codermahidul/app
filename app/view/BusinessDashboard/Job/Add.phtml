@@ -1,0 +1,30 @@
+<?php
+include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Category.phtml";
+?>
+<div class="m-top covers text-dark">
+    <div class="mb-4">
+        <span class="sm-font">
+            <a href="<?= $URL_Domain ?><?= $data['listHref'] ?>"><?= $data['list'] ?></a>
+        </span>
+        <span class="sm-font"><i class="bi bi-chevron-right"></i></span>
+        <span class="sm-font">Add Job</span>
+    </div>
+    <form id="frmNew">
+        <?php
+        $edit = "";
+        include $VIEW_PATH_INCLUDE . "BusinessDashboard/CityChoose.phtml";
+        include $VIEW_PATH_INCLUDE . "BusinessDashboard/Job/Item.phtml"; ?>
+
+        <div class="mb-3">
+            <input accept=".png, .jpg, .jpeg" type="file" name="main_image" id="main_image" class="fileInputs">
+
+
+        </div>
+    </form>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-12 text-center">
+            <button id="btnAddNew" type="button" class="btn btn-lg btn-prim">Save</button>
+
+        </div>
+    </div>
+</div>

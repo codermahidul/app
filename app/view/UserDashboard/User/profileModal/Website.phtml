@@ -1,0 +1,50 @@
+<div class="modal fade bd-example-modal-lg" id="modalWebsite" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> your Website info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmWebSite">
+                
+                <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Website Title:</label>
+                        <input type="url" autocomplete="off" class="input-white min-radus " id="website_title" name="website_title">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Website URL:</label>
+                        <input type="url" autocomplete="off" class="input-white min-radus " id="website_url" name="website_url">
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Type:</label>
+                        <select name="website_type" id="website_type" style="width: 100%" class="input-white min-radus  select-css">
+                            <option value="">…</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Company">Company</option>
+                            <option value="Blog">Blog</option>
+                            <option value="RSS Feed">RSS Feed</option>
+                            <option value="Portfolio">Portfolio</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <?php
+                    // include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-id="modalWebsite" data-editid="" data-edit="false" id="addwebBtn" type="button" class="btn  btn-glass">Save</button>
+             
+            </div>
+        </div>
+    </div>
+</div>

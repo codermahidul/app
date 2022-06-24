@@ -1,0 +1,205 @@
+<?php
+
+$datas = $data['data'][0];
+
+$socialTag = false;
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "coupon";
+$item_id = $datas->id;
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddJustReview.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReplyComment.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddRate.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Login.phtml";
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Clime.phtml";
+
+
+if ($datas->product_price == "" || $datas->product_price == null) {
+    $datas->product_price = "0";
+}
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="coupon_id" value="<?= $datas->id ?>">
+<input type="text" hidden id="idSearch" value="<?= $datas->id ?>">
+<input type="text" hidden id="tableType" value="coupon">
+<input type="text" hidden id="email_user" value="<?= $data['email_online'] ?>">
+<input type="text" hidden id="title_item" value="Coupon: <?= $datas->title ?>">
+<input type="text" hidden id="display_name_user" value="<?= $data['display_name_online'] ?>">
+
+<div class="contains-item-page">
+    <div class="row p-1 ">
+        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Coupons" class="text-muted txt-small">Coupons</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>CouponDetail/<?= $datas->id ?>" class="text-muted txt-small"><?= $datas->title ?></a>
+        </div>
+
+    </div>
+
+    <div class="row position-relative">
+        <div class="col-md-12">
+            <div class="header-h-text">
+                <h1><strong><?= $datas->title ?></strong></h1>
+
+            </div>
+            <div class="text-muted"><?= $datas->country_name ?> <?= $datas->province_name ?> <?= $datas->city_name ?></div>
+        </div>
+
+        <div class="mb-2 mt-2 col-md-6">
+            <?php
+            $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+            if ($datas->file_url !== "" && $datas->file_url !== null) {
+                $imgUrl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+            }
+            if ($imgUrl != "") {
+            ?>
+                <img class="img-radus" src="<?= $imgUrl ?>" alt="<?= $datas->title_slug ?>">
+            <?php } ?>
+
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Details</strong></h4>
+            </div>
+            <div class=" mt-2 text-muted h6"><?= $datas->description ?></div>
+
+
+
+
+        </div>
+
+        <div class="side-sticky col-md-6 mb-3">
+            <div class="  ">
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Amount</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted h6">
+                    <?= $datas->type_name == "Numerical" ? "$" : "" ?><?= ($datas->amount) ?><?= $datas->type_name == "Percent" ? " %" : "" ?>
+
+                </div>
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Product Price</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 ">
+                    <del class="text-danger">$<?= number_format($datas->product_price) ?></del>
+                    <?php
+                    if ($datas->deal_product_price != null && $datas->deal_product_price != '') {
+                    ?>
+                        <span class="text-dark">$<?= number_format($datas->deal_product_price) ?></span>
+                    <?php } else {
+                        if ($datas->type_name == "Numerical") {
+                            $newDealsPrice = floatval($datas->product_price) - ($datas->amount);
+                        } else {
+                            $newDealsPrice = floatval($datas->product_price) - ((floatval($datas->product_price) * $datas->amount) / 100);
+                        }
+                    ?>
+                        <span class="text-dark">$<?= number_format($newDealsPrice) ?></span>
+                    <?php } ?>
+                </div>
+
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Price</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-success h5 fw-bold">
+                    $<?= number_format($datas->price) ?>
+                </div>
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Inventory</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= number_format($datas->inventory) ?>
+                </div>
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Expire</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= ($datas->expire) ?>
+                </div>
+
+                <?php
+                if ($datas->link !== "" && $datas->link !== null) { ?>
+                    <div class="mb-4 ">
+                        <a target="blank" href="<?= $datas->link ?>" class=" text-muted">
+                            <div class="covers bg-primary p-2 text-light bg-opacity-75 text-center">
+                                <i class="bi bi-link-45deg"></i> Use it now
+
+                            </div>
+                        </a>
+
+                    </div>
+
+                <?php } ?>
+
+                <?php
+                //if ($datas->price >0) { 
+                ?>
+                <div class="mb-4 ">
+                    <div id="AddCouponShop" data-id="<?=$datas->id?>" class="point covers bg-success p-3 text-light bg-opacity-75 text-center">
+                        <strong class="h4">Get it now</strong>
+                    </div>
+
+
+                </div>
+
+                <?php //} 
+                ?>
+
+                <div class=" mt-2 mb-4">
+                    <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                </div>
+
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Share</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted">
+                    <?php
+                    $title = $datas->title;
+                    $id = $datas->id;
+                    $type = "coupon";
+                    $url =  $URL_Domain . "CouponDetail/" . $datas->title_slug;
+                    include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                </div>
+
+
+                <div class="mt-2 mb-3">
+                    <?php
+                    $logo = $datas->logo_url != '' && $datas->logo_url != null ? $datas->logo_url . "/small/" . $datas->logo_name : "";
+                    $display_name = $datas->display_name;
+                    $display_name_slug = $datas->display_name_slug;
+                    $user_id = $datas->user_business_id;
+                    include $VIEW_PATH_INCLUDE . "WebSite/BusinessUserImage.phtml";
+                    ?>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <?php
+        $have_rate = 'true';
+        $total_rate = $datas->total_rate;
+        $Rating = $datas->Rating;
+        include $VIEW_PATH_INCLUDE . "WebSite/RateReview.phtml";
+        $relates = $data['relates'];
+        $type = "coupon";
+        include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml"; ?>
+    </div>
+
+</div>

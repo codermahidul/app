@@ -1,0 +1,32 @@
+$finalHeight: 150px;
+$finalWidth: 3 * $finalHeight;
+$scrollBarHeight: .3rem;
+
+::-webkit-scrollbar {
+  width: $scrollBarHeight;
+  height: $scrollBarHeight;
+}
+
+::-webkit-scrollbar-button {
+  width: $scrollBarHeight;
+  height: $scrollBarHeight;
+}
+
+
+
+
+div.scrollmenu {
+
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 1rem;
+ a{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  text-decoration: none;
+ }
+}
+
+

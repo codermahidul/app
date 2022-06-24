@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/News/Style/Style.css">
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/News/MegaMenu/MegaMenu.css">
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/News/Mobile/Mobile.css">
+<!-- <link rel="stylesheet" href="<?= $VIEW_PATH ?>css/WebSite/Layout/Header.css"> -->
+
+<header>
+    <!-- for pc start -->
+    <?php include $VIEW_PATH_INCLUDE . "WebSite/Layout/HeaderPc.phtml"; ?>
+
+    <!-- for pc end -->
+
+    <!-- for other device start -->
+    <?php include $VIEW_PATH_INCLUDE . "WebSite/Layout/SmallHeader.phtml"; ?>
+
+    <!-- for other device end -->
+
+</header>
+<?php
+//include($VIEW_PATH_INCLUDE . "WebSite/Layout/ProfileSideMenu.phtml");
+?>
+
+<!-- check if the user is not logged in -->
+<?php if (!$logged): ?>
+ 
+ <!-- display the login prompt -->
+ <script src="https://accounts.google.com/gsi/client" async defer></script>
+ <div id="g_id_onload"
+     data-client_id="<?=$CLIENT_ID_GOOGLE ?>"
+     data-context="signin"
+     data-callback="googleLoginEndpoint"
+     data-close_on_tap_outside="false">
+ </div>
+  
+<?php endif; ?>
+
+<script type="module" src="<?= $VIEW_PATH ?>js/WebSite/Layout/Header.js?v= <?=$VERSION?>"></script>
+<script>
+    // callback function that will be called when the user is successfully logged-in with Google
+    function googleLoginEndpoint(googleUser) {
+        // get user information from Google
+        console.log(googleUser);
+ 
+        // send an AJAX request to register the user in your website
+        var ajax = new XMLHttpRequest();
+ 
+        // path of server file
+        ajax.open("POST", "google-sign-in.php", true);
+ 
+        // callback when the status of AJAX is changed
+        ajax.onreadystatechange = function () {
+ 
+            // when the request is completed
+            if (this.readyState == 4) {
+ 
+                // when the response is okay
+                if (this.status == 200) {
+                    console.log(this.responseText);
+                }
+ 
+                // if there is any server error
+                if (this.status == 500) {
+                    console.log(this.responseText);
+                }
+            }
+        };
+ 
+        // send google credentials in the AJAX request
+        var formData = new FormData();
+        formData.append("id_token", googleUser.credential);
+        ajax.send(formData);
+    }
+</script>

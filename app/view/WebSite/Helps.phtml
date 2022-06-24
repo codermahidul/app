@@ -1,0 +1,134 @@
+<?php
+include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Category.phtml";
+
+?>
+
+
+<div class=" mt-5 ">
+    <div class="row p-1 contains-item-page mt-5">
+        <div class="col-md-12 mt-3 mb-4 text-center">
+            <h4><strong><?= $data['title_page'] ?></strong></h4>
+        </div>
+
+        <!-- search box start -->
+
+        <!-- search box end -->
+
+        <div class="page-content mb-50">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="shop-product-fillter mb-50 pr-30">
+
+                            <div class="sort-by-product-area">
+                                <div class="sort-by-cover mr-10">
+
+                                    <div class="sort-by-cover">
+
+                                        <div class="sort-by-product-wrap">
+                                            <div class="sort-by">
+                                                <span><i class="fi-rs-apps-sort"></i>Category: <span id="sort_page"></span></span>
+                                            </div>
+                                            <div class="sort-by-dropdown-wrap">
+                                                <span> <i class="fi-rs-angle-small-down"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="sort-by-dropdown">
+                                            <ul>
+                                                <li><a class=" orderCl" data-value="" href="javascript:void(0);">...</a></li>
+                                                <?php foreach ($data['category'] as $c) { ?>
+
+                                                    <li><a class="orderCl " data-value="<?= $c->id ?>" href="javascript:void(0);"><?= $c->name ?></a></li>
+                                                <?php } ?>
+
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="loop-grid loop-list pr-30 mb-50" id="dataList">
+                            <?php
+                            foreach ($data['data'] as $d) {
+
+                                $imgUrl = $VIEW_PATH . "assets/imgs/blog/blog-1.png";
+                                if ($d->file_url !== "" && $d->file_url !== null) {
+                                    $imgUrl = $URL_PATH . $d->file_url . '/thumb/' . $d->file_name;
+                                }
+                                $links = [];
+                                if ($d->help_tag !== null) {
+                                    $links = explode(",", $d->help_tag);
+                                }
+                            ?>
+                                <article class="wow fadeIn animated hover-up mb-30 animated row">
+                                    <div class="post-thumb col-md-6" style="background-image: url(<?= $imgUrl ?>);background-size: contain;background-repeat: no-repeat;">
+                                        <div class="entry-meta">
+                                        </div>
+                                    </div>
+                                    <div class="entry-content-2 pl-50 col-md-6">
+                                        <h3 class="post-title mb-20">
+                                            <a><?= $d->title ?></a>
+                                        </h3>
+                                        <p class="post-exerpt mb-40"><?= $d->descriptions ?></p>
+
+                                        <?php
+                                        foreach ($links as $l) {
+                                            $link = explode("::", $l);
+                                            if ($link[3] == 'link') {
+                                        ?>
+                                                <div class="entry-meta meta-1 font-xs color-grey mt-10 p-10">
+
+                                                    <div>
+                                                        <a href="<?= $link[2] ?>" class="post-on"><?= $link[1] ?></a>
+                                                    </div>
+                                                </div>
+                                        <?php }
+                                        } ?>
+
+                                        <div class="row">
+
+                                            <?php
+                                            foreach ($links as $l) {
+                                                $link = explode("::", $l);
+                                                if ($link[3] == 'video') { ?>
+                                                    <div class="col-md-6">
+                                                        <?php
+                                                        $video_link = $link[2];
+                                                        include $VIEW_PATH_INCLUDE . "WebSite/Youtube.phtml";
+                                                        ?>
+                                                    </div>
+                                            <?php }
+                                            } ?>
+
+                                        </div>
+                                    </div>
+
+                                </article>
+                            <?php } ?>
+
+
+
+                        </div>
+                        <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">
+                            <div class="col-md-12 text-center mt-3">
+                                <?php if ($data['haveMore']) { ?>
+                                    <button class="btn btn-sm btn-prim" id="BtnnLoad">Lode More</button>
+                                <?php } ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

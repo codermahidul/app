@@ -1,0 +1,22 @@
+<?php
+$modules = $permissions->data->module;
+$list = $permissions->data->list;
+$module = [];
+$lists = [];
+$add = false;
+foreach ($modules as $m) {
+
+    if ($m->action == $actions && $m->list == $listN) {
+        $add = true;
+    }
+}
+
+?>
+
+
+
+<?php if ($add) { ?>
+    <small id="addNewBtn" class="btn btn-prim btn-lg ">
+        <i class="bi bi-plus-lg mr-2"></i> <?=$BtnTitle?>
+    </small>
+<?php } ?>

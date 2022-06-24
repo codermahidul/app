@@ -1,0 +1,29 @@
+<div class="modal fade bd-example-modal-lg" id="ModalSkills" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Skills</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmskill">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">skills:</label>
+                        <select data-url="fetchData/getSkill" style="width: 100%"
+                         class="input-white min-radus  tokenize-custom-demo1 select-css" multiple name="skills" id="skills">
+           
+                        </select>
+                    
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="ModalSkills" id="btnskill" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="modal fade bd-example-modal-lg" id="ModalEditProject" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Edit Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="projecteditfrm">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="title_e" name="title">
+                        <input type="text" name="idSearch" id="idSearch" hidden>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Category:</label>
+                        <div data-dismiss="modal" type="text" class="input-white min-radus point" id="category_id_e"></div>
+
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-6">
+                            <label for="recipient-name" class="col-form-label">Link Title:</label>
+                            <input type="text" autocomplete="off" class="input-white min-radus " id="title_link_e" name="title_link">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="recipient-name" class="col-form-label">Link Address:</label>
+                            <input type="text" autocomplete="off" class="input-white min-radus " id="tag_e" name="tag">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description:</label>
+                        <textarea rows="5" class="input-white min-radus " id="description_e" name="description"></textarea>
+                    </div>
+
+                    <?php
+                    if (isset($admin)) {
+                        include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../../User/delete/removeAdmin.phtml";
+                    } else {
+                        include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../../User/delete/remove.phtml";
+                    }
+
+                    ?>
+
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-id="ModalEditProject" id="btnprojectEdit" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

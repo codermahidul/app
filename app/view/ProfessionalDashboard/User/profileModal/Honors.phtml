@@ -1,0 +1,50 @@
+<div class="modal fade bd-example-modal-lg" id="modalHonors" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Honors & Awards</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmhonors">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="honors_title" id="honors_title">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Associated with (experience):</label>
+                        <select style="width: 100%" class="input-white min-radus  select-css" name="honors_experience_id" id="honors_experience_id">
+                            <option value="">...</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Issuer :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="honors_issuer" id="honors_issuer">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Issuer Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="honors_issuer_date" id="honors_issuer_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Description :</label>
+                        <textarea rows="5" type="text" autocomplete="off" class="input-white min-radus " name="honors_description" id="honors_description"></textarea>
+                    </div>
+                    <?php
+                    //include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="modalHonors" id="btnhonors" type="button" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<?php
+
+$datas = $data['data'][0];
+
+$socialTag = false;
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "job";
+$item_id = $datas->id;
+$skill = [];
+if ($datas->skill != null) {
+    $skill = $datas->skill;
+    $skill = explode(",", $skill);
+}
+
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Login.phtml";
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="job_id" value="<?= $datas->id ?>">
+
+
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="<?= $URL_Domain ?>" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="<?= $URL_Domain ?>Jobs">Jobs</a> <span></span><?= $datas->title ?>
+            </div>
+        </div>
+    </div>
+    <div class="page-content mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-11 col-lg-12 m-auto">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="single-page pt-50 pr-30">
+                                <div class="single-header style-2">
+                                    <div class="row">
+                                        <div class="col-xl-10 col-lg-12 m-auto">
+
+                                            <h2 class="mb-10"><?= $datas->title ?></h2>
+                                            <div class="single-header-meta">
+                                                <div class="entry-meta meta-1 font-xs mt-15 mb-1">
+                                                    <a class="author-avatar" href="javascript:void(0)">
+
+
+                                                    </a>
+                                                    <span class="post-by">By <a href="<?= $URL_Domain ?><?= $datas->display_name ?>"><?= $datas->display_name ?></a></span>
+                                                    <span class="post-on has-dot"><?= $datas->created_at ?></span>
+                                                    <span class="time-reading has-dot"><?= $datas->category_name ?></span>
+                                                    <span class="time-reading has-dot">
+                                                        <?php if ($datas->online == '0') { ?>
+                                                            <?= $datas->country_name ?> <?= $datas->province_name ?> <?= $datas->city_name ?>
+                                                        <?php } else { ?>
+                                                            <strong>Online</strong>
+                                                        <?php } ?>
+                                                    </span>
+                                                </div>
+                                                <div class="social-icons single-share">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <figure class="single-thumbnail">
+
+                                    <?php
+
+                                    if ($datas->file_url !== "" && $datas->file_url !== null) {
+                                        $imgUrl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+                                    ?>
+                                        <img src="<?= $imgUrl ?>" alt="<?= $datas->title ?>" />
+                                    <?php } ?>
+                                </figure>
+                                <div class="single-content">
+                                    <div class="row">
+                                        <div class="col-xl-10 col-lg-12 m-auto">
+                                            <h5 class="mt-20">Type</h5>
+                                            <p> <?= ($datas->type) ?></p>
+                                            <h5 class="mt-20">Level</h5>
+                                            <p> <?= ($datas->level) ?></p>
+                                            <h5 class="mt-20">Gender</h5>
+                                            <p> <?= ($datas->gender) ?></p>
+                                            <h5 class="mt-20">Exprience</h5>
+                                            <p> <?= ($datas->exprience) ?></p>
+                                            <h5 class="mt-20">Salary</h5>
+                                            <p> <?= ($datas->salary) ?></p>
+                                            <h5 class="mt-20">Benefit</h5>
+                                            <p> <?= ($datas->benefit) ?></p>
+                                            <h5 class="mt-20">Details</h5>
+                                            <p> <?= ($datas->description) ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 primary-sidebar sticky-sidebar pt-50">
+                            <div class="widget-area">
+
+                                <!--skill-->
+                                <div class="sidebar-widget widget-tags mb-50 pb-10">
+                                    <h5 class="section-title style-1 mb-30">Skill & Apply</h5>
+                                    <ul class="tags-list mb-50">
+                                        <?php foreach ($skill as $s) { ?>
+                                            <li class="hover-up">
+                                                <a href="javascript:void(0);"></i><?= $s ?></a>
+                                            </li>
+                                        <?php } ?>
+
+
+                                    </ul>
+
+                                    <?php if ($data['HaveResume'] == 'false') { ?>
+                                        <button id="apply" style="width: 100%;" class="btn btn-lg btn-success">Apply Now</button>
+                                    <?php } else { ?>
+                                        <div class="alert alert-success">You have already applied</div>
+                                    <?php } ?>
+
+                                    <div class="product-extra-link2 mt-50">
+                                        <?php
+                                        $title = $datas->title;
+                                        $id = $datas->id;
+                                        $type = "job";
+                                        $url =  $URL_Domain . "JobDetail/" . $datas->title_slug;
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

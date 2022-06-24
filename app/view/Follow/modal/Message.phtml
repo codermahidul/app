@@ -1,0 +1,28 @@
+<div class="modal fade bd-example-modal-lg" id="modalMessage" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Message </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmNewTxt">
+               
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> your Text</label>
+                        <textarea rows="5" class="form-control" name="txt" id="txtR"></textarea>
+                    </div>
+                    <input type="text" name="to_user" hidden id="to_user">
+  
+                </form>
+                
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-id="modalMessage" id="addTxt" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

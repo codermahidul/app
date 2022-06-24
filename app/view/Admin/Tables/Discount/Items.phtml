@@ -1,0 +1,55 @@
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> Title:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " id="title<?= $edit ?>" name="title">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> Value:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " id="amount<?= $edit ?>" name="amount">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> type:</label>
+    <select class="form-control min-radus" id="type<?= $edit ?>" name="type"></select>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <label class="chboxs ">Use for Business Verify
+            <input type="checkbox" id="business_verify<?= $edit ?>"  value="1">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="col-md-4">
+        <label class="chboxs ">Use for Advertise with us
+            <input type="checkbox" id="advertise<?= $edit ?>"  value="1">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="col-md-4">
+        <label class="chboxs ">Use for deals
+            <input type="checkbox" id="deals<?= $edit ?>" value="1">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> Expire Date:</label>
+    <input type="date" autocomplete="off" class="form-control min-radus " id="expire<?= $edit ?>" name="expire">
+</div>
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span>Code:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " id="code<?= $edit ?>" name="code">
+</div>
+
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> Number Use:</label>
+    <input type="number" autocomplete="off" class="form-control min-radus " id="numbers<?= $edit ?>" name="numbers">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Description:</label>
+    <textarea rows="5" class="form-control min-radus " id="description<?= $edit ?>" name="description"></textarea>
+</div>

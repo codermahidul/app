@@ -1,0 +1,218 @@
+<?php
+
+$winner = $data['winner'];
+$product = $data['product'];
+$coupon = $data['coupon'];
+$deals = $data['deals'];
+$job = $data['jobs'];
+
+$winners = $winner->data->data;
+$winner_total = $winner->data->total;
+
+$products = $product->data->data;
+$product_total = $product->data->total;
+
+$coupons = $coupon->data->data;
+$coupon_total = $coupon->data->total;
+
+$deal = $deals->data->data;
+$deals_total = $deals->data->total;
+
+$jobs = $job->data->data;
+$job_total = $job->data->total;
+?>
+<div class="">
+
+    <!-- product -->
+    <?php if ($product_total > 0) { ?>
+
+
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Products</h3>
+
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Products">
+                        All Products
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+                                    <?php foreach ($products as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml"; ?>
+
+                                    <?php } ?>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+    <?php } ?>
+    <!-- coupon -->
+    <?php if ($coupon_total > 0) { ?>
+
+
+        <!--Coupon -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Coupons</h3>
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Coupons">
+                        All Coupons
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-coupon">
+                                    <?php foreach ($coupons as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml"; ?>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+    <?php } ?>
+
+    <!-- deal -->
+    <?php if ($deals_total > 0) { ?>
+
+
+
+
+        <!--Deals -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Deals</h3>
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Deal">
+                        All Deals
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-deals">
+                                    <?php foreach ($deal as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Deals.phtml"; ?>
+
+                                    <?php } ?>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+
+    <?php } ?>
+    <!-- job -->
+    <?php if ($job_total > 0) {
+        $classes = "row p-2";
+        $set_img_class = false;
+        if ($job_total >= 5)
+            $classes = "multiple-items p-2";
+        $set_img_class = true;
+
+    ?>
+        <div class="grid-row mb-3 mt-5 ">
+            <div class="text-left">
+                <h2 class="compound-title"><strong>Job</strong></h2>
+            </div>
+            <div class="text-end"><strong><a class="text-dark" href="<?= $URL_Domain ?>Jobs">See More</a></li></strong></div>
+        </div>
+        <div class="<?= $classes ?>">
+            <?php foreach ($jobs as $d) {
+                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Job.phtml"; ?>
+
+            <?php } ?>
+        </div>
+    <?php } ?>
+    <div class="row mb-4">
+        <div class="col-md-12 row" id="resultProducts"></div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoadProduct">Lode More</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 row" id="resultProductsP"></div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoadProductP">Lode More</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 row" id="resultPrize"></div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoadPrize">Lode More</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 row" id="resultPrizeP"></div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoadPrizeP">Lode More</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 row" id="resultCoupon"></div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoadCoupon">Lode More</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 row" id="resultCouponP"></div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoadCouponP">Lode More</button>
+        </div>
+    </div>
+
+</div>

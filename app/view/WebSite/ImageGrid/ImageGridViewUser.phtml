@@ -1,0 +1,51 @@
+<div class="card-ui cui-c-featured-card-carousel mt-3 mb-2">
+    <div class="cui-sub-featured-tiles">
+        <?php for ($i = 0; $i < 4; $i++) {
+            $d = $items[$i];
+            $imgUrl = "";
+            if ($d->image !== "" && $d->image !== null) {
+                $imgUrl = $URL_PATH . 'uploads/user/' . $d->id . '/profile/image/small/' . $d->image;
+            } else {
+                $imgUrl = $VIEW_PATH . "imgs/user_defult.jpg";
+            }
+        ?>
+
+            <div class="cui-c-sub-featured-tile">
+                <a href="<?= $URL_Domain ?><?= $page ?>/<?= $d->display_name_slug ?>">
+                    <div class="cui-sub-featured-content">
+                        <div class="cui-sub-featured-overlay"></div>
+                        <img class="cui-sub-featured-image" src="<?= $imgUrl ?>" alt="<?= $d->display_name_slug ?>">
+                        <div class="cui-sub-featured-title cui-hyphenate"><?= $d->display_name ?></div>
+                    </div>
+                </a>
+            </div>
+        <?php } ?>
+
+
+    </div>
+    <div class="cui-featured-card">
+        <?php if (count($items) >= 5) { 
+             $d = $items[4];
+          
+
+            $imgUrl = "";
+            if ($d->image !== "" && $d->image !== null) {
+                $imgUrl = $URL_PATH . 'uploads/user/' . $d->id . '/profile/image/middle/' . $d->image;
+            } else {
+                $imgUrl = $VIEW_PATH . "imgs/user_defult.jpg";
+            }
+            ?>
+            <a href="<?= $URL_Domain ?><?= $page ?>/<?= $d->display_name_slug ?>">
+                <div class="cui-featured-content">
+                    <div class="cui-featured-overlay"></div>
+                    <img class="cui-featured-image" src="<?= $imgUrl ?>" alt="<?= $d->display_name_slug ?>">
+                    <div class="cui-featured-text">
+                        <div class="cui-featured-title"><?= $d->display_name ?></div>
+                    </div>
+
+                </div>
+            </a>
+        <?php } ?>
+
+    </div>
+</div>

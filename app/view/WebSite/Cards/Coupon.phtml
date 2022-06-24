@@ -1,0 +1,59 @@
+<?php
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "assets/imgs/shop/thumbnail-1.jpg";
+}
+
+$ad = "";
+if ($d->top_show_id != null) {
+    $ad = "<span class='text-success'>Ad </span> ";
+}
+
+
+?>
+
+
+
+<div class="product-cart-wrap">
+    <div class="product-cart-wrap style-2">
+        <div class="product-img-action-wrap">
+            <div class="product-img">
+                <a href="<?= $URL_Domain ?><?= $data['url_coupon'] ?>/<?= $d->title_slug ?>">
+                    <img class="img-sam-size" src="<?=$imgUrl?>" alt="<?=$d->title?>" />
+                </a>
+            </div>
+        </div>
+        <div class="product-content-wrap">
+            <div class="deals-countdown-wrap">
+                <div class="deals-countdown" data-countdown="<?=$d->expire?> 00:00:00"></div>
+            </div>
+            <div class="deals-content">
+                <h2><a href="<?= $URL_Domain ?><?= $data['url_coupon'] ?>/<?= $d->title_slug ?>"><?= substr($d->title, 0, 20) . '...' ?></a></h2>
+                <div class="product-rate-cover">
+                    <div class="product-rate d-inline-block">
+                        <div class="product-rating" style="width: <?= intval($d->Rating)*20  ?>%"></div>
+                    </div>
+                    <span class="font-small ml-5 text-muted"> (<?= intval($d->Rating)  ?>.0)</span>
+                </div>
+                <div>
+                    <span class="font-small text-muted">
+                         <a href="<?= $URL_Domain ?><?= $data['url_coupon'] ?>/<?= $d->title_slug ?>">
+                        <?= $d->type_name == "Numerical" ? "$" : "" ?><?= ($d->amount) ?><?= $d->type_name == "Percent" ? " %" : "" ?>
+                    </a>
+                </span>
+                </div>
+                <div class="product-card-bottom">
+                    <div class="product-price">
+                        <span> </span>
+                        <div class="text-muted"><?= substr($d->description, 0, 50) . '...' ?></div>
+                    </div>
+                    <!-- <div class="add-cart">
+                        <a class="add" href="<?= $URL_Domain ?><?= $data['url_coupon'] ?>/<?= $d->title_slug ?>">View </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

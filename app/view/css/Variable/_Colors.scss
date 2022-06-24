@@ -1,0 +1,30 @@
+@mixin filter($blur: 10px,$bcBlur:2px) {
+    -webkit-backdrop-filter: blur($blur);
+    backdrop-filter: blur($bcBlur)
+  }
+
+$color1:#f19b99;
+$color2:#a3aef7;
+$borderShadowColor:#0000000d;
+$shadowColor:#0000001f;
+$colorbacground:rgba(255,255,255,0.05);
+$bc-input:#f3f3f324;
+$layoutCovers:#f3f3f324;
+$border-radus-input:2em;
+$white:#f8f9fa;
+$background:linear-gradient(95deg, $color1 0,$color2 58%);
+$backgroundUserDashboard:linear-gradient(92deg, #fb86de6e 0, #2ed0ea66 58%);
+$inptColor:#41464b;
+$inptColorNormal:#141516;
+$btn-white:#eff0f77d;
+$gray:#0000006b;
+$dashboardHeaderRed:#b14c7b;
+$dashboardUserMenuColor:#222260;
+$defultColor:#222260;
+$dashboardUserMenuColorHover:#1b1b42;
+$backgrounSide:linear-gradient(117.76deg, #f9f3f308 -7.21%, #ffffffa6 118.08%);
+$backHeaderSideMenuDashboardUser:#e0e0ea;
+$backgroundUserDashboardProfileDiv:#8588861f;
+$backgroundUserDashboardProfileDivWhite:linear-gradient(117.76deg,rgba(255, 255, 255, 0.7) -7.21%,rgba(255, 255, 255, 0.5) 118.08%);
+$blur:8px;
+$HeaderFooterColor:#e4e4ec

@@ -1,0 +1,148 @@
+<?php
+$datas = $data['data'][0];
+
+$webSite = $data['webSite'];
+
+$Skill = $data['Skill'];
+
+$Language = $data['Language'];
+$report = $data['report'];
+$table = "user_business";
+$item_id = $datas->id;
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+
+$imgUrl = "";
+$bannerUrl = "";
+if ($datas->banner !== "" && $datas->banner !== null) {
+    $bannerUrl = $URL_PATH . 'uploads/user/' . $datas->id . '/profile/banner/thumb/' . $datas->banner;
+} else {
+    $bannerUrl = $VIEW_PATH . "assets/imgs/vendor/vendor-header-bg.png";
+}
+
+if ($datas->image !== "" && $datas->image !== null) {
+    $imgUrl = $URL_PATH . 'uploads/user/' . $datas->id . '/profile/image/small/' . $datas->image;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/user_defult.jpg";
+}
+?>
+
+<input type="text" value="<?= $data['logged'] ?>" hidden id="logged">
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="<?= $URL_Domain ?>" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="<?= $URL_Domain ?>Networks">Networks</a> <span></span><?= $datas->display_name ?>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-30">
+        <div class="row">
+            <div class="col-xl-10 col-lg-12 m-auto">
+
+                <div class="product-detail accordion-detail">
+                    <div class="row mb-10 mt-30">
+                        <div class="archive-header-3 mt-30 mb-80" style="background-image: url(<?= $bannerUrl ?>)">
+                            <div class="archive-header-3-inner">
+                                <div class="vendor-logo mr-50">
+                                    <img src="<?= $imgUrl ?>" alt="<?= $datas->display_name ?>" class="rounded-circle" />
+                                </div>
+                                <div class="vendor-content">
+                                    <div class="product-category">
+                                        <span class="text-muted"> </span>
+                                    </div>
+
+                                    <h3 class="mt-50 text-white"><a href="<?= $URL_Domain ?><?= $datas->display_name_slug ?>" class="text-white"><?= $datas->display_name ?></a></h3>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="vendor-des mb-15">
+                                                <p class="font-sm text-white"><?= $datas->about ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="vendor-info text-white mb-15">
+                                                <ul class="font-sm">
+
+
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="detail-info pr-30 pl-30">
+                                <!-- <span class="stock-status out-stock"> Sale Off </span> -->
+
+                                <div class="detail-extralink mb-10">
+
+                                    <div class="product-extra-link2">
+                                        <?php
+                                        $title = $datas->title;
+                                        $id = $datas->id;
+                                        $type = "business";
+                                        $url =  $URL_Domain .  $datas->display_name_slug;
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                                        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-lg-12 pt-50" >
+
+                                    <div >
+                                        <div class="widget-area">
+
+                                            <div class="sidebar-widget widget-category-2 mb-10">
+                                                <h5 class="section-title style-1 mb-30">Activities</h5>
+                                                <ul>
+
+                                                    <li>
+                                                        <a href="javascript:void(0)">Number of rate with actual purchase</a><span class="count"><?= number_format($datas->product_rate_bought) ?></span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Number of rate without actual purchase</a><span class="count"><?= number_format($datas->rate_not_bought) ?></span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Number of Review with actual purchase</a><span class="count"><?= number_format($datas->comment_bought) ?></span>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="javascript:void(0)">Number of Review without actual purchase</a><span class="count"><?= number_format($datas->comment_not_bought) ?></span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Number of Comment</a><span class="count"><?= number_format($datas->comment_bought + $datas->comment_not_bought) ?></span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)">Number of other people like on his comment</a><span class="count"><?= number_format($datas->comment_like_bought + $datas->comment_like_not_bought) ?></span>
+                                                    </li>
+
+                                              
+
+                                                </ul>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Detail Info -->
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

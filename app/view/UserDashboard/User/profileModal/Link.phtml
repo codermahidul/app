@@ -1,0 +1,42 @@
+<div class="modal fade bd-example-modal-lg" id="ModalLinks" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Links</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmLinks">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="title" id="title">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> type:</label>
+                        <select class="form-control min-radus" id="type_link" name="type"></select>
+                    </div>
+
+           
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Address :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="tag" id="tag">
+                    </div>
+
+          
+                    <?php
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-editid="" data-edit="false" id="linkBtn" data-id="ModalLinks" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

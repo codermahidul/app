@@ -1,0 +1,575 @@
+<?php if ($experience->data->total > 0) { ?>
+    <h5 id="experience" class="mt-50">Experience</h5>
+
+    <?php
+    $i = 0;
+    foreach ($experience->data->data as $d) {
+        $show = true;
+
+        $end = 'false';
+        if ($d->experience_now == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div  class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->experience_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->experience_end_date ?><?php } else { ?>Now <?php } ?>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10"> <?= $d->title ?></span>
+                            <span class="has-dot">Employment type: <?= $d->employment_type ?></span>
+                            <span class="has-dot">Company: <?= $d->company ?></span>
+                            <span class="has-dot">Location: <?= $d->location ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($vExperience->data->total > 0) { ?>
+    <h5 id="vExperience" class="mt-50">Volunteer experience</h5>
+
+    <?php
+    $i = 0;
+    foreach ($vExperience->data->data as $d) {
+        $show = true;
+
+        $end = 'false';
+        if ($d->user_volunteer_experience_now == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div  class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->user_volunteer_experience_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->user_volunteer_experience_end_date ?><?php } else { ?>Now <?php } ?>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Role: <?= $d->role ?></span>
+                            <span class="has-dot">organization: <?= $d->organization ?></span>
+                            <span class="has-dot">Cause: <?= $d->cause ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p><?= $d->user_volunteer_experience_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Skill->data->total > 0) { ?>
+    <h5 class="mt-50">Skills</h5>
+    <div id="Skill" class="author-bio p-30 mt-10 border-radius-15 bg-white">
+        <ul class="tags-list">
+            <?php
+            $i = 0;
+            foreach ($Skill->data->data as $d) {
+                $sName = $d->skill_name;
+
+
+                if ($sName == '') {
+                    $sName = $d->proof_title;
+                }
+
+            ?>
+                <li class="hover-up">
+                    <a href="javascript:void(0)"><?= $sName ?></a>
+                </li>
+
+            <?php
+
+            } ?>
+        </ul>
+
+
+    </div>
+<?php } ?>
+
+
+<?php if ($Education->data->total > 0) { ?>
+    <h5 id="Education" class="mt-50">Education</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Education->data->data as $d) {
+        $show = true;
+
+        $str = "";
+        $end = 'false';
+        if ($d->education_end_date == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div  class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->education_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->education_end_date ?><?php } else { ?>Now <?php } ?>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">School: <?= $d->school ?></span>
+                            <span class="has-dot">Degree: <?= $d->degree ?></span>
+                            <span class="has-dot">Field Study: <?= $d->field_study ?></span>
+                            <span class="has-dot">Activities and societies: <?= $d->activitys ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p><?= $d->description_education ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($License->data->total > 0) { ?>
+    <h5 id="License" class="mt-50">License or Certification</h5>
+
+    <?php
+    $i = 0;
+    foreach ($License->data->data as $d) {
+        $show = true;
+
+        $str = "";
+        $end = 'false';
+        if ($d->license_now == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->issuin_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->issuin_end_date ?><?php } else { ?>Now <?php } ?>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Issuing: <?= $d->issuin ?></span>
+                            <span class="has-dot">Credential ID: <a class="hrefs" href="<?= $d->credential_url ?>"><?= $d->credential_id ?></a></span>
+                            <span class="has-dot">Expire: <?= $d->end ?></span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Publication->data->total > 0) { ?>
+    <h5  id="Publication" class="mt-50">Publication</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Publication->data->data as $d) {
+        $show = true;
+
+        $str = "";
+        $end = 'false';
+        if ($d->education_end_date == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <divclass="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->title_publication ?>
+
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Date: <?= $d->publication_date ?></span>
+                            <span class="has-dot">Publication/Publisher: <?= $d->publisher ?></span>
+                            <span class="has-dot">Author: <?= $d->author ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p><?= $d->publication_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Patent->data->total > 0) { ?>
+    <h5  id="Patent" class="mt-50">Patent</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Patent->data->data as $d) {
+        $show = true;
+
+        $str = "";
+        $end = 'false';
+        if ($d->education_end_date == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <a href="<?= $d->patent_url ?>"><?= $d->title_patent ?></a>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Issue date: <?= $d->issue_date ?></span>
+                            <span class="has-dot">Office Country: <?= $d->country_name ?></span>
+                            <span class="has-dot">Patent or application number: <?= $d->number ?></span>
+                            <span class="has-dot"> Status: <?= $d->status ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p><?= $d->publication_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+
+<?php if ($Course->data->total > 0) { ?>
+    <h5 id="Course" class="mt-50">Course</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Course->data->data as $d) {
+        $show = true;
+        if ($d->is_public == '1') {
+            if ($logged == 'true' && $isFollower == 'true') {
+                $show = true;
+            }
+        }
+        if ($d->is_public == '2') {
+            $show = true;
+        }
+        $str = "";
+        $end = 'false';
+        if ($d->education_end_date == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->course_name  ?>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Number: <?= $d->course_number   ?></span>
+                            <span class="has-dot">Associated with: <?= $d->experience_title ?></span>
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+
+<?php if ($Project->data->total > 0) { ?>
+    <h5 id="Project" class="mt-50">Project</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Project->data->data as $d) {
+        $show = true;
+        if ($d->is_public == '1') {
+            if ($logged == 'true' && $isFollower == 'true') {
+                $show = true;
+            }
+        }
+        if ($d->is_public == '2') {
+            $show = true;
+        }
+
+        $end = 'false';
+        if ($d->project_now == '0') {
+            $str = "d";
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->project_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->project_end_date ?><?php } else { ?>Now <?php } ?>
+
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10"> <?= $d->title ?></span>
+                            <span class="has-dot">Associated with: <?= $d->experience_title ?></span>
+                            <span class="has-dot">Creator: <?= $d->creator ?></span>
+                            <span class="has-dot">Field Study: <?= $d->field_study ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p><?= $d->project_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+
+
+<?php if ($Honors->data->total > 0) { ?>
+    <h5 id="Honors" class="mt-50">Honors</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Honors->data->data as $d) {
+        $show = true;
+
+        $str = "";
+        $end = 'false';
+        if ($d->education_end_date == '0') {
+
+            $end = 'true';
+        }
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5"><?= $d->honors_title ?> </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Issue Date: <?= $d->issue_date ?></span>
+                            <span class="has-dot">Associated with: <?= $d->experience_title ?></span>
+                            <span class="has-dot">Issuer: <?= $d->honors_issuer ?></span>
+                            <span class="has-dot">Issuer Date: <?= $d->honors_issuer_date ?></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p> <?= $d->honors_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Score->data->total > 0) { ?>
+    <h5 id="Score" class="mt-50">Score</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Score->data->data as $d) {
+        $show = true;
+
+        $str = "";
+
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5"><?= $d->score ?> </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Score Date: <?= $d->score_date ?></span>
+                            <span class="has-dot">Associated with: <?= $d->experience_title ?></span>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p> <?= $d->score_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Language->data->total > 0) { ?>
+    <h5 id="Language" class="mt-50">Language</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Language->data->data as $d) {
+        $show = true;
+
+        $str = "";
+
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5"><?= $d->language  ?> </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">Proficiency: <?= $d->proficiency ?></span>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+
+<?php if ($Organization->data->total > 0) { ?>
+    <h5 id="Organization" class="mt-50">Organization</h5>
+
+    <?php
+    $i = 0;
+    foreach ($Organization->data->data as $d) {
+        $show = true;
+
+        $str = "";
+
+        if ($show) {
+
+            $i++;
+    ?>
+            <div class="author-bio p-30 mt-10 border-radius-15 bg-white">
+                <div class="author-image mb-30">
+
+                    <div class="author-infor">
+                        <h6 class="mb-5">
+                            <?= $d->organization_name ?>
+                            <?= $d->organization_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->organization_end_date ?><?php } else { ?>Now <?php } ?>
+                        </h6>
+                        <p class="mb-0 text-muted font-xs">
+                            <span class="mr-10">
+                                <?= $d->organization_start_date ?> To
+                                <?php if ($end == 'true') { ?> <?= $d->organization_end_date ?><?php } else { ?>Now <?php } ?>
+                                </h6>
+                            </span>
+                            <span class="has-dot">Associated with: <?= $d->experience_title ?></span>
+                            <span class="has-dot">Position held : <?= $d->position ?></span>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="author-des">
+                    <p> <?= $d->organization_description ?></p>
+                </div>
+            </div>
+
+    <?php
+        }
+    } ?>
+
+<?php } ?>

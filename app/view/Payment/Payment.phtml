@@ -1,0 +1,104 @@
+<div class="row p-1  m-top">
+  <div class="d-flex justify-content-center mb-3">
+
+    <div class="covers2 contains-item m-top position-relative">
+      <div id="paymentResponse"></div>
+
+
+      <div class=" h5 text-center fw-bold">
+        <span class="text-dark">Pay </span>
+        <span class="text-success">$<?= $data['price'] ?></span>
+        <span class="text-dark">with Stripe</span>
+      </div>
+      <form id="payment-form" action="<?= $data['action'] ?>" method="post">
+
+        <div id="payment-element">
+          <!--Stripe.js injects the Payment Element-->
+        </div>
+        <input type="text" name="price" hidden value="<?= $data['price'] ?>" id="price">
+        <input type="text" name="item_id" hidden value="<?= $data['id'] ?>" id="item_id">
+        <input type="text" name="userType" hidden value="<?= $data['userType'] ?>" id="userType">
+        <input type="text" name="table_type" hidden value="<?= $data['table'] ?>" id="table_type">
+        <input type="text" name="email" hidden value="<?= $data['email'] ?>" id="email">
+
+        <div type="text" class="form-control mb-2" name="card" id="card" placeholder="card"></div>
+        <div type="text" class="form-control mb-2" name="cardExpiry" id="exp" placeholder="exp"></div>
+        <div type="text" class="form-control mb-2" name="cardCvc" id="cv" placeholder="cv"></div>
+
+        <div class="text-center m-3 ">
+          <button class="btn btn-outline-success btn-lg" type="button" id="payBtn">Pay now</button>
+
+        </div>
+        <div id="payment-message" class="hidden"></div>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  let stripe = Stripe("pk_test_51Jqut1E0RaMwKYhfLNjZic8sEl5MxlX9KkzIap1ZRZtseDxEEZEK61IMwWNXH4bJYggDXJN4c0MZ2RWoyPvJT5uD00XkkpToNM");
+  let style = {
+    base: {
+      iconColor: '#c4f0ff',
+      color: '#fff',
+      fontWeight: '500',
+      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+      fontSize: '16px',
+      fontSmoothing: 'antialiased',
+      ':-webkit-autofill': {
+        color: '#fce883',
+      },
+      '::placeholder': {
+        color: '#87BBFD',
+      },
+    },
+    invalid: {
+      iconColor: '#FFC7EE',
+      color: '#FFC7EE',
+    },
+  };
+  let elements = stripe.elements();
+
+  let cardElement = elements.create("cardNumber", style);
+  cardElement.mount("#card");
+
+  let exp = elements.create("cardExpiry", style);
+  exp.mount("#exp");
+
+  let cvs = elements.create("cardCvc", style);
+  cvs.mount("#cv");
+
+  let form = document.getElementById("payment-form");
+  let result = document.getElementById("paymentResponse");
+
+
+  let btnS = document.getElementById("payBtn");
+  btnS.onclick = () => {
+    createToken();
+  }
+
+  function createToken() {
+
+    stripe.createToken(cardElement).then(function(result) {
+
+      if (result.error) {
+        result.innerHTML = '<p>' + event.error.massage + '</p>';
+      } else {
+        stripeTokenHandler(result.token);
+      }
+    })
+  }
+
+  function stripeTokenHandler(token) {
+    let inp = document.createElement('input');
+    inp.setAttribute("type", "hidden");
+    inp.setAttribute("name", "stripeToken");
+    inp.setAttribute("value", token.id);
+    form.appendChild(inp);
+
+    form.submit();
+  }
+</script>

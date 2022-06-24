@@ -1,0 +1,98 @@
+<?php
+
+$datas = $data['data'][0];
+
+
+?>
+
+<div class="m-1 covers ">
+    <form id="frmEdit">
+        <div class="row m-top">
+
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">tax:</label>
+                <input type="number" value="<?= $datas->tax ?>" autocomplete="off" class="form-control min-radus " id="tax" name="tax">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Percent Deals:</label>
+                <input type="number" value="<?= $datas->percent_deals ?>" autocomplete="off" class="form-control min-radus " id="percent_deals" name="percent_deals">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Verify Price:</label>
+                <input type="number" value="<?= $datas->verify_price ?>" autocomplete="off" class="form-control min-radus " id="verify_price" name="verify_price">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">daily rate:</label>
+                <input type="number" value="<?= $datas->daily_rate ?>" autocomplete="off" class="form-control min-radus " id="daily_rate" name="daily_rate">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">daily comment:</label>
+                <input type="number" value="<?= $datas->daily_comment ?>" autocomplete="off" class="form-control min-radus " id="daily_comment" name="daily_comment">
+            </div>
+
+            
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">daily coupon:</label>
+                <input type="number" value="<?= $datas->daily_coupon ?>" autocomplete="off" class="form-control min-radus " id="daily_coupon" name="daily_coupon">
+            </div>
+
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">tel:</label>
+                <input type="text" value="<?= $datas->tel ?>" autocomplete="off" class="form-control min-radus " id="tel" name="tel">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">email:</label>
+                <input type="text" value="<?= $datas->email ?>" autocomplete="off" class="form-control min-radus " id="email" name="email">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">instagram:</label>
+                <input type="text" value="<?= $datas->instagram ?>" autocomplete="off" class="form-control min-radus " id="instagram" name="instagram">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">facebook:</label>
+                <input type="text" value="<?= $datas->facebook ?>" autocomplete="off" class="form-control min-radus " id="facebook" name="facebook">
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">youtube:</label>
+                <input type="text" value="<?= $datas->youtube ?>" autocomplete="off" class="form-control min-radus " id="youtube" name="youtube">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">support_tel:</label>
+                <input type="text" value="<?= $datas->support_tel ?>" autocomplete="off" class="form-control min-radus " id="support_tel" name="support_tel">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">copy right:</label>
+                <input type="text" value="<?= $datas->copy_right ?>" autocomplete="off" class="form-control min-radus " id="copy_right" name="copy_right">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">app store:</label>
+                <input type="text" value="<?= $datas->app_store ?>" autocomplete="off" class="form-control min-radus " id="app_store" name="app_store">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">google play:</label>
+                <input type="text" value="<?= $datas->google_play ?>" autocomplete="off" class="form-control min-radus " id="google_play" name="google_play">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">address:</label>
+                <textarea  class="form-control min-radus " id="address" name="address"><?= $datas->address ?></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">description:</label>
+                <textarea  class="form-control min-radus " id="description" name="description"><?= $datas->description ?></textarea>
+            </div>
+ 
+   
+        </div>
+    </form>
+    <diw class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-prim btn-lg" id="saveBtn">Save</button>
+        </div>
+    </diw>
+</div>

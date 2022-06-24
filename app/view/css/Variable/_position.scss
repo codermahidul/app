@@ -1,0 +1,33 @@
+@mixin absoluteTop ($top:0){
+    position: absolute;
+    top: $top;
+}
+
+@mixin absoluteBottom ($bottom:0){
+    position: absolute;
+    bottom: $bottom;
+}
+
+@mixin absoluteRight($right:0){
+    position: absolute;
+    right: $right;
+}
+@mixin absoluteLeft ($left:0){
+    position: absolute;
+    right: $left;
+}
+
+@mixin absoluteTopRight ($top:0,$right:0){
+    position: absolute;
+    right: $right;
+    top: $top;
+}
+
+
+@mixin absoluteTopLeft ($top:0,$left:0){
+    position: absolute;
+    left: $left;
+    top: $top;
+}
+
+

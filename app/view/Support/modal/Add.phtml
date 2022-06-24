@@ -1,0 +1,43 @@
+<div class="modal fade bd-example-modal-lg" id="ModalAdd" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Add </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="addFrm">
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Topic:</label>
+                        <select class="form-control min-radus " name="topic" id="topic<?= $edit ?>"></select>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Priority:</label>
+                        <select class="form-control min-radus " name="priority" id="priority<?= $edit ?>"></select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description:</label>
+                        <textarea class="form-control min-radus " name="description" id="description<?= $edit ?>"></textarea>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <input accept=".png, .jpg, .jpeg, .pdf,.doc, .docx" type="file" name="main_image" id="main_image" multiple class="fileInput">
+
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button id="btnSave" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

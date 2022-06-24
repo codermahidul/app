@@ -1,0 +1,297 @@
+    <header class="header-area header-style-1 header-height-2">
+
+        <div class="header-middle header-middle-ptb-1 d-none d-lg-block p-1">
+            <div class="container">
+                <div class="header-wrap">
+                    <div class="logo logo-width-1">
+                        <a href="<?= $URL_Domain ?>"><img style="width: 90px;min-width: 90px;" src="<?= $VIEW_PATH . "imgs/main-logo.png" ?>" alt="hairizer" /></a>
+                    </div>
+                    <div class="header-right">
+                        <div style="display: grid;
+
+    width: 100%;
+    grid-template-columns: auto auto;">
+                            <div class="search-style-2">
+                                <form style="border-radius: 20px;">
+
+                                    <input data-id="pc_header" style="border-radius: 20px;max-width: 100%;height: 40px;" type="text" class="searchHeader" />
+
+                                </form>
+                                <div id="pc_header" style="display: none; position: absolute;background: white;width: auto;z-index: 100;max-width: 700px;" class="search-top-header shadow-lg p-5 search_result">
+                                    <div class="row div_header_search_result">
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="search-style-2 ">
+                                <input type="text" data-id="pc_header_loc" autocomplete="off" class="searchHeaderLoc" placeholder="Your Location" style="padding: 1.3rem;border-radius: 20px;max-width: 45%;height: 40px;margin: 0 .2rem;width: 320px;" id="locationSe">
+                                <i class="bi bi-x-circle point" style="display: none;" id="header-loc-close"></i>
+                                <div id="pc_header_loc" style="display: none; position: absolute;background: white;width: auto;z-index: 100;max-width: 400px;" class="search-top-header shadow-lg p-5 search_result">
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="header-action-right">
+                            <div class="header-action-2">
+
+
+                                <div style="display: none;" id="wishDiv" class="header-action-icon-2">
+                                    <a href="<?= $URL_Domain ?>MyWishList">
+                                        <img class="svgInject" alt="Nest" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-heart.svg" />
+                                        <span class="pro-count blue" id="wishNum">0</span>
+                                    </a>
+                                    <a href=""><span class="lable"></span></a>
+                                </div>
+
+                                <div style="display: none;" id="noteDiv" class="header-action-icon-2">
+                                    <a class="mini-cart-icon" href="<?= $URL_Domain ?>MyNotification">
+                                        <img alt="Nest" src="<?= $VIEW_PATH ?>img/bellb.png" />
+                                        <span class="pro-count blue" id="noteNum">0</span>
+                                    </a>
+                                    <a href=""><span class="lable"></span></a>
+
+                                </div>
+                                <div class="header-action-icon-2">
+                                    <a style="font-size: 14px;" href="<?= $URL_Domain ?>Prizes">
+                                        Prize
+                                    </a>
+
+                                </div>
+                                <div class="header-action-icon-2">
+                                    <a style="font-size: 14px;" href="<?= $URL_Domain ?>Helps">
+                                        Help
+                                    </a>
+                                </div>
+                                <div class="header-action-icon-2" id="account">
+                                    <a href="javascript:void(0)">
+                                        <img class="svgInject" alt="Nest" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-user.svg" />
+                                    </a>
+                                    <a href="javascript:void(0)"><span class="lable ml-0"></span></a>
+                                    <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
+                                        <ul>
+                                            <li><a href="<?= $URL_Domain ?>register"><i class="fi fi-rs-user mr-10"></i>Register</a></li>
+                                            <li><a href="<?= $URL_Domain ?>login"><i class="fa fa-user-lock mr-10"></i>Login</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom header-bottom-bg-color sticky-bar ">
+            <div class="container">
+                <div class="header-wrap header-space-between position-relative ">
+                    <div class="logo logo-width-1 d-block d-lg-none">
+                        <a href="<?= $URL_Domain ?>"><img src="<?= $VIEW_PATH . "imgs/main-logo.png" ?>" alt="hairizer" /></a>
+                    </div>
+                    <div class="header-nav d-none d-lg-flex ">
+
+                        <div style="width: 80vw;justify-content: center;text-align: center;" class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
+                            <nav>
+                                <ul>
+                                
+                                  
+
+                                    <li>
+                                        <a class="" href="<?= $URL_Domain ?>Programs">Programs <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu" style="text-align: start;">
+                                        <?php foreach($programCat as $p){?>
+                                            <li><a href="<?= $URL_Domain ?>Programs/<?=$p->id?>"><?=$p->title?></a></li>
+                                        <?php }?>
+                                            
+                                           
+                                        </ul>
+                                    </li>
+
+                                    <li class="position-static">
+                                        <a class="" href="<?= $URL_Domain ?>Products">Products <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="mega-menu" style="display: flex; text-align: start; flex-wrap:wrap">
+                                            <?php foreach ($categories as $cat) {
+                                                //foreach($cat->data as $d){
+                                            ?>
+                                                <li class="sub-mega-menu sub-mega-menu-width-22 mt-2">
+                                                    <a class="menu-title" href="<?= $URL_Domain ?>Products/<?= $dd->name_slug ?>"><?= $cat->name ?></a>
+                                                    <ul>
+                                                        <?php foreach ($cat->sub as $dd) { ?>
+                                                            <li><a href="<?= $URL_Domain ?>Products/<?= $dd->name_slug ?>"><?= $dd->name ?></a></li>
+                                                        <?php } ?>
+
+                                                    </ul>
+                                                </li>
+
+
+                                            <?php }
+
+
+
+                                            // }
+                                            ?>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                    <li class="position-static">
+                                        <a class="" href="<?= $URL_Domain ?>Coupons">Coupons <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="mega-menu" style="display: flex; text-align: start; flex-wrap:wrap">
+                                            <?php foreach ($categoriesCoupon as $cat) {
+                                                //foreach($cat->data as $d){
+                                            ?>
+                                                <li class="sub-mega-menu sub-mega-menu-width-22 mt-2">
+                                                    <a class="menu-title" href="<?= $URL_Domain ?>Coupons/<?= $dd->name_slug ?>"><?= $cat->name ?></a>
+                                                    <ul>
+                                                        <?php foreach ($cat->sub as $dd) { ?>
+                                                            <li><a href="<?= $URL_Domain ?>Coupons/<?= $dd->name_slug ?>"><?= $dd->name ?></a></li>
+                                                        <?php } ?>
+
+                                                    </ul>
+                                                </li>
+
+
+                                            <?php }
+
+
+
+                                            // }
+                                            ?>
+
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="position-static">
+                                        <img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-hot.svg" alt="hot deals" />
+
+                                        <a class="" href="<?= $URL_Domain ?>Deal">Deals <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="mega-menu" style="display: flex; text-align: start; flex-wrap:wrap">
+                                            <?php foreach ($categoriesCoupon as $cat) {
+                                                //foreach($cat->data as $d){
+                                            ?>
+                                                <li class="sub-mega-menu sub-mega-menu-width-22 mt-2">
+                                                    <a class="menu-title" href="<?= $URL_Domain ?>Deal/<?= $dd->name_slug ?>"><?= $cat->name ?></a>
+                                                    <ul>
+                                                        <?php foreach ($cat->sub as $dd) { ?>
+                                                            <li><a href="<?= $URL_Domain ?>Deal/<?= $dd->name_slug ?>"><?= $dd->name ?></a></li>
+                                                        <?php } ?>
+
+                                                    </ul>
+                                                </li>
+
+
+                                            <?php }
+
+
+
+                                            // }
+                                            ?>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                    <!-- <li class="hot-deals">
+                                        <img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-hot.svg" alt="hot deals" />
+                                        <a href="<?= $URL_Domain ?>Deal"> Deals</a>
+                                    </li> -->
+
+                                    <li class="position-static">
+                                        <a href="<?= $URL_Domain ?>Jobs">Jobs </a>
+
+                                    </li>
+
+                                    <!-- <li>
+                                        <a href="<?= $URL_Domain ?>Networks">Networks </a>
+
+                                    </li> -->
+                                    <li>
+                                        <a class="" href="<?= $URL_Domain ?>Networks">Networks <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu" style="text-align: start;">
+                                            <li><a href="<?= $URL_Domain ?>Networks/business">Businesses</a></li>
+                                            <li><a href="<?= $URL_Domain ?>Networks/professional">Professionals</a></li>
+                                            <li><a href="<?= $URL_Domain ?>Networks/user">Public </a></li>
+                                           
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="header-action-icon-2 d-block d-lg-none">
+                        <div class="burger-icon burger-icon-white">
+                            <span class="burger-icon-top"></span>
+                            <span class="burger-icon-mid"></span>
+                            <span class="burger-icon-bottom"></span>
+                        </div>
+                    </div>
+                    <div class="header-action-right d-block d-lg-none">
+                        <div class="header-action-2">
+                            <div class="header-action-icon-2">
+                                <a style="display: none;" id="wishDivMobile" href="<?= $URL_Domain ?>MyWishList">
+                                    <img alt="Nest" src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-heart.svg" />
+                                    <span class="pro-count white" id="wishNumMobile">0</span>
+                                </a>
+                            </div>
+                            <div class="header-action-icon-2">
+                                <a style="display: none;" id="noteDivMobile" class="mini-cart-icon" href="<?= $URL_Domain ?>MyNotification">
+                                    <img alt="Nest" src="<?= $VIEW_PATH ?>img/bellb.png" />
+                                    <span class="pro-count white" id="noteNumMobile">0</span>
+                                </a>
+                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                    <ul>
+                                        <li>
+                                            <div class="shopping-cart-img">
+                                                <a href="shop-product-right.html"><img alt="Nest" src="<?= $VIEW_PATH ?>assets/imgs/shop/thumbnail-3.jpg" /></a>
+                                            </div>
+                                            <div class="shopping-cart-title">
+                                                <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
+                                                <h3><span>1 × </span>$800.00</h3>
+                                            </div>
+                                            <div class="shopping-cart-delete">
+                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="shopping-cart-img">
+                                                <a href="shop-product-right.html"><img alt="Nest" src="<?= $VIEW_PATH ?>assets/imgs/shop/thumbnail-4.jpg" /></a>
+                                            </div>
+                                            <div class="shopping-cart-title">
+                                                <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
+                                                <h3><span>1 × </span>$3500.00</h3>
+                                            </div>
+                                            <div class="shopping-cart-delete">
+                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="shopping-cart-footer">
+                                        <div class="shopping-cart-total">
+                                            <h4>Total <span>$383.00</span></h4>
+                                        </div>
+                                        <div class="shopping-cart-button">
+                                            <a href="">View cart</a>
+                                            <a href="shop-checkout.html">Checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

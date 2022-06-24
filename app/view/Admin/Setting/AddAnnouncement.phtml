@@ -1,0 +1,75 @@
+<?php
+include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Category.phtml";
+?>
+<div class="m-top covers text-dark">
+    <div class="mb-4">
+        <span class="sm-font">
+            <a href="<?= $URL_Domain ?>Announcement">Announcement</a>
+        </span>
+        <span class="sm-font"><i class="bi bi-chevron-right"></i></span>
+        <span class="sm-font">Add Announcement</span>
+    </div>
+    <form id="frmNew">
+        <div class="col-md-3">
+            <label class="chboxs ">Online
+                <input type="checkbox" id="online" name="online" value="1">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div id="addCity">
+
+        </div>
+        <button type="button" id="add_more_city" data-id="addCity" class="btn btn-glass m-1">Add More</button>
+        <div class="col-md-3 mt-3 ">
+            <label class="chboxs ">All user
+                <input type="checkbox" id="all_user" name="all_user" value="1">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="mb-4 position-relative ">
+            <label for="recipient-name" class="col-form-label p-3">Choose Account Type:</label>
+
+            <select name="type" multiple id="user_type" class="form-control p-5 radus">
+
+                <option value="userProfessional">Professional</option>
+                <option value="userBusiness">Business</option>
+                <option value="user">General User</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Search User:</label>
+            <select style="width: 100%" class="input-white min-radus  userSearch select-css" multiple name="user_id" id="user_id">
+
+            </select>
+
+        </div>
+        <!-- 
+        <div class="mb-3 " id="more_cat"></div>
+
+        <div class="mb-3">
+            <button type="button" id="add_more_cat" data-id="more_cat" class="btn btn-glass">Add More</button>
+            <button type="button" id="reset_cat" data-id="more_cat" class="btn btn-danger m-1">Remove All</button>
+
+        </div> -->
+
+
+
+        <div class="mb-3">
+            <label class="col-form-label">Expire </label>
+            <input type="date" name="expire" id="expire" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Description:</label>
+            <textarea rows="5" class="form-control min-radus " id="description" name="description"></textarea>
+        </div>
+
+    </form>
+    <div class="row">
+        <div class="col-md-12 mt-5 mb-5 text-center">
+            <button id="btnSave" type="button" class="btn  btn-glass">Save</button>
+
+        </div>
+    </div>
+</div>

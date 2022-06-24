@@ -1,0 +1,41 @@
+<?php
+
+
+$imgUserUrl = "";
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUserUrl = $URL_PATH . $d->file_url . '/middle/' . $d->file_name;
+} else {
+    $imgUserUrl =  $VIEW_PATH . "assets/imgs/shop/thumbnail-1.jpg";
+}
+
+
+
+
+$banner = "";
+if ($d->banner_file_url !== "" && $d->banner_file_url !== null) {
+    $banner = $URL_PATH . $d->banner_file_url . '/small/' . $d->banner_file_name;
+} 
+
+?>
+
+
+
+
+<div class="product-cart-wrap">
+    <div class="card card-user">
+        <?php if($banner !==""){?>
+            <div class="card-header" style="background-image: url(<?=$banner?>) !important; background-position: center;background-size: cover;">
+        <?php }else{?>
+            <div class="card-header">
+            <?php }?>  
+            <img class="img-md img-avatar" src="<?=$imgUserUrl?>" alt="<?= $d->display_name ?>">
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title mt-50"><?= $d->display_name ?></h5>
+            <div class="card-text text-muted ">
+                <p><?= substr($d->headline, 0, 100)?></p>
+                <a href="<?= $URL_Domain ?><?= $d->display_name_slug ?>" class="btn btn-sm btn-brand rounded font-sm mt-15">View details</a>
+            </div>
+        </div>
+    </div>
+</div>

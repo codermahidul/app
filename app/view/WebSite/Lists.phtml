@@ -1,0 +1,124 @@
+<?php include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Category.phtml"; ?>
+
+<div class="row p-1 contains-item-page">
+    <?php include $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+
+    <div class="col-md-12 mt-3 ">
+        <h4 class="page-header-title"><?= $data['title_page'] ?></h4>
+    </div>
+    <?php if (isset($data['display_name_slug'])) {
+        $display_name_slug = $data['display_name_slug'];
+    } else $display_name_slug = "" ?>
+    <input type="text" hidden id="display_name_slug" value="<?= $display_name_slug ?>">
+    <div class="contains-list">
+        <!-- search box start -->
+        <div class="accordion accordion-flush searches-div mb-3" id="accordionFlushExample">
+            <?php include_once $VIEW_PATH_INCLUDE . "WebSite/Search.phtml"; ?>
+
+        </div>
+
+        <div class="side-search side-bar-div">
+            <?php include_once $VIEW_PATH_INCLUDE . "WebSite/SearchSide.phtml"; ?>
+        </div>
+        <!-- search box end -->
+
+        <div>
+            <div class="mb-1  grid-two-div p-2">
+                <div class="text-muted"><span id="totals"><?= number_format($data['total']) ?></span> results</div>
+                <div class="text-end grids-list-search">
+                    <div class="btn-group">
+                        <button class="btn-drop dropdown-toggle" id="btn_sort_page" type="button">
+                            Sort By
+                        </button>
+                        <div class="dropdown-menu p-2 drop-list btn-sort-page-list">
+                            <label class="radiobox">the newest
+                                <input type="radio" value="id,desc" name="orderPage" id="orderPage12">
+                                <span class="chmr"></span>
+                            </label>
+                            <label class="radiobox">oldest
+                                <input type="radio" value="id,asc" name="orderPage" id="orderPage2">
+                                <span class="chmr"></span>
+                            </label>
+                            <label class="radiobox">A-z
+                                <input type="radio" value="title,asc" name="orderPage" id="orderPage3">
+                                <span class="chmr"></span>
+                            </label>
+                            <label class="radiobox">Z-A
+                                <input type="radio" value="title,desc" name="orderPage" id="orderPage4">
+                                <span class="chmr"></span>
+                            </label>
+
+
+
+                        </div>
+                    </div>
+                    <?php if (isset($data['city_search'])) { ?>
+                        <div class="mb-3 text-start">
+                            <label for="recipient-name" class="col-form-label">Location:</label>
+                            <select class=" max-radius  city-search " multiple name="city" id="city">
+
+                            </select>
+
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row" id="dataList">
+                <input type="text" hidden value="<?= $data['idNotIn'] ?>" id="idNotIn">
+                <?php
+                foreach ($data['data'] as $d) {
+                    switch ($data['type_shows']) {
+                        case "product": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml";
+                                break;
+                            }
+
+                        case "prize": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Prize.phtml";
+                                break;
+                            }
+                        case "coupon": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml";
+                                break;
+                            }
+
+                        case "store": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Store.phtml";
+                                break;
+                            }
+
+                        case "winner": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Winner.phtml";
+                                break;
+                            }
+
+                        case "user": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/User.phtml";
+                                break;
+                            }
+                        case "program": {
+                                include $VIEW_PATH_INCLUDE . "WebSite/Cards/Program.phtml";
+                                break;
+                            }
+                    }
+                ?>
+                <?php } ?>
+                <?php $indexBanner = "1";
+                include $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+
+            </div>
+            <div class="col-md-12 text-center mt-3">
+                <?php if ($data['haveMore']) { ?>
+                    <button class="btn btn-sm btn-prim" id="BtnnLoad">Lode More</button>
+                <?php } ?>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

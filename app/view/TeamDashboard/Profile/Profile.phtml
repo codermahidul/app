@@ -1,0 +1,113 @@
+<!-- import modal start -->
+<?php
+include $VIEW_PATH_INCLUDE ."TeamDashboard/Profile/modal/EditInfo.phtml";
+include_once $VIEW_PATH_INCLUDE."BusinessDashboard/Product/modal/EditImage.phtml";
+include_once $VIEW_PATH_INCLUDE."BusinessDashboard/Product/modal/ImageGallery.phtml";
+
+
+?>
+<input type="text" name="idSearch" id="idSearch" hidden>
+<!-- end import modal start -->
+<div class=" m-top">
+
+<div class="covers2 mb-3 ">
+
+    <div class="row">
+        <div class="col-md-12 text-center mb-5 user-image-prof">
+            <img class="midel-size-radus " src="<?= $VIEW_PATH ?>imgs/user.png" alt="user banner">
+          
+        </div>
+        <div class="col-md-12 text-center">
+            <small  id="editImg" class="point btn-radus btn-blue-dark  modalbtn">
+                    <i class="bi bi-pencil-square"> Edit Your Image </i>
+                </small>
+            </div>
+        <div class="col-md-6">
+            <div class="mb-4">
+                <small data-id="modalEditInfo" id="editInfo" class="point btn-radus btn-blue-dark  modalbtn">
+                    <i class="bi bi-pencil-square"> Edit Your info </i>
+                </small>
+            </div>
+            <div class="mb-3">
+                <div class="mb-3">
+                    <i class="bi bi-person mr-2"></i>
+                    <strong id="team_name">Your name </strong>
+                </div>
+
+                <div class="mb-3">
+                    <i class="bi bi-person mr-2"></i>
+                    <span id="team_display_name">Your Display Name</span>
+                </div>
+        
+                <div class="mb-3">
+                    <i class="bi bi-envelope mr-2"></i>
+                    <span id="team_email">Your Email</span>
+                </div>
+         
+
+            </div>
+
+        </div>
+
+    
+    </div>
+</div>
+
+<!-- about start -->
+<div class="covers2 mb-3">
+    <div class="row">
+        <div class="col-md-12 p-2">
+            <h5>About</h5>
+        </div>
+        <div class="col-md-12">
+        
+
+        </div>
+        <div class="col-md-12">
+            <div class="m-2 p-2">
+                <p id="team_about"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- about end -->
+
+
+<!-- Links start-->
+<div class="covers2 mb-3">
+    <div class="row">
+        <div class="col-md-12 p-2">
+            <h5>Links</h5>
+        </div>
+        <div class="col-md-12 mb-2">
+        
+        </div>
+        <div id="team_links" class="m-2">
+        </div>
+    </div>
+</div>
+
+<!--  Links end-->
+
+<!-- Links start-->
+<div class="covers2 mb-3">
+    <div class="row">
+        <div class="col-md-12 p-2">
+            <h5>Gallery</h5>
+        </div>
+        <div class="col-md-12 mb-2">
+                <small data-id="modalEditInfo" id="editGallery" class="point btn-radus btn-blue-dark  modalbtn">
+                    <i class="bi bi-pencil-square"> Edit Your Gallery </i>
+                </small>
+    
+        </div>
+        <div id="team_gallery" class=" col-md-12 gallery mt-2 mb-2 p-5">
+        </div>
+    </div>
+</div>
+
+<!--  Links end-->
+
+
+</div>

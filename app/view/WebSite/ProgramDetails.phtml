@@ -1,0 +1,287 @@
+<?php
+$datas = $data['data'][0];
+
+$PlayTag = false;
+$DownloadTag = false;
+
+$links = explode(",", $datas->program_tag);
+foreach ($links as $li) {
+    $l = explode("::", $li);
+
+    if ($l[3] === "play") {
+        $PlayTag = true;
+    }
+
+    if ($l[3] === "download") {
+        $DownloadTag = true;
+    }
+}
+
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "program";
+$item_id = $datas->id;
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddJustReview.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReplyComment.phtml";
+//include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Login.phtml";
+?>
+
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="program_id" value="<?= $datas->id ?>">
+
+
+<div class="contains-item-page position-relative">
+
+    <div class="row p-1 ">
+        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Programs" class="text-muted txt-small">Programs</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>ProgramDetail/<?= $datas->title_slug ?>" class="text-muted txt-small"><?= $datas->title ?></a>
+        </div>
+
+    </div>
+    <div class="mb-2 mt-2 d-flex justify-content-center">
+        <?php
+
+        $imgurl = "";
+        if ($datas->file_url !== "" && $datas->file_url !== null) {
+            $imgurl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+        }
+        if ($imgurl != "") {
+        ?>
+            <!-- <img class="img-radus" src="<?= $imgurl ?>" alt="<?= $datas->title_slug ?>"> -->
+        <?php }
+
+        $video_link = $datas->video_link;
+        include_once $VIEW_PATH_INCLUDE . "WebSite/Youtube.phtml";
+        ?>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <div class="covers2 contains-item2 ">
+            <div class=" text-center mt-4 mb-5">
+                <h4><strong><?= $datas->title ?></strong></h4>
+            </div>
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Category</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= ($datas->program_category_name) ?></div>
+            <!-- <div class=" text-start border-bottom mt-4">
+                <h6><strong>Award Section</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= ($datas->award_name) ?></div> -->
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Photographer Name</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= ($datas->photographer_name) ?></div>
+
+            <?php
+            if ($datas->profile_tag !== null && $datas->profile_tag !== '') { ?>
+
+                <?php if ($PlayTag) { ?>
+                    <div class="text-start border-bottom mt-4">
+                        <h6><strong>Play Links</strong></h6>
+                    </div>
+                    <div class="mb-5 mt-2">
+                        <?php
+                        foreach ($links as $li) {
+                            $l = explode("::", $li);
+                            if ($l[3] === "play") {
+                        ?>
+                                <div class="mb-3 covers bg-success p-2 text-dark bg-opacity-25">
+                                    <a target="blank" href="<?= $l[2] ?>" class="text-muted"><i class="bi bi-link-45deg"></i> <?= $l[1] ?></a>
+
+                                </div>
+
+                        <?php }
+                        } ?>
+                    </div>
+                <?php } ?>
+
+                <?php if ($DownloadTag) { ?>
+                    <div class="text-start border-bottom mt-4">
+                        <h6><strong>Download Links</strong></h6>
+                    </div>
+                    <div class="mb-5 mt-2">
+                        <?php
+                        foreach ($links as $li) {
+                            $l = explode("::", $li);
+                            if ($l[3] === "download") {
+                        ?>
+                                <div class="mb-3 covers bg-success p-2 text-dark bg-opacity-25">
+                                    <a target="blank" href="<?= $l[2] ?>" class="text-muted"><i class="bi bi-link-45deg"></i> <?= $l[1] ?></a>
+
+                                </div>
+
+                        <?php }
+                        } ?>
+                    </div>
+                <?php } ?>
+
+            <?php } ?>
+
+
+
+            <?php
+            if ($datas->program_guests !== null && $datas->program_guests !== '') { ?>
+
+                <div class="text-start border-bottom mt-4">
+                    <h6><strong>Guests</strong></h6>
+                </div>
+                <div class="mb-5 mt-2">
+                    <?php
+                    $guest = explode(",", $datas->program_guests);
+                    foreach ($guest as $g) {
+                        $info = explode("::", $g);
+                        $name = "";
+                        $link = "";
+                        if ($info[1] !== "") {
+                            $name = $info[1];
+                        }
+
+                        if ($info[3] !== "") {
+                            $name = $info[3];
+                        }
+
+                        if ($info[4] !== "") {
+                            $name = $info[4];
+                        }
+
+                        $link = $info[5];
+
+                    ?>
+                        <div class="mb-3 covers bg-success p-2 text-dark bg-opacity-25">
+                            <a target="blank" href="<?= $link ?>" class="text-muted">
+                                <i class="bi bi-link-45deg"></i>
+                                <?= $name ?>
+                            </a>
+
+                        </div>
+
+                    <?php
+                    } ?>
+                </div>
+
+            <?php } ?>
+
+
+
+            <?php
+            if ($datas->program_role !== null && $datas->program_role !== '') { ?>
+
+                <div class="text-start border-bottom mt-4">
+                    <h6><strong>Roles</strong></h6>
+                </div>
+                <div class="mb-5 mt-2">
+                    <?php
+                    $role = explode(",", $datas->program_role);
+                    foreach ($role as $g) {
+                        $info = explode("::", $g);
+                        $role = $info[3];
+                        $crew = $info[2];
+
+                    ?>
+                        <div class="mb-5 mt-2 text-muted">
+                            <span class="text-dark"><?= ($role) ?> :</span> <?= $crew ?>
+                        </div>
+
+                    <?php
+                    } ?>
+                </div>
+
+            <?php } ?>
+
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Details</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= $datas->description ?></div>
+
+
+
+
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Share</strong></h6>
+            </div>
+            <div class="detail-extralink mb-10">
+
+                <div class="product-extra-link2">
+                    <?php
+                    $title = $datas->title;
+                    $id = $datas->id;
+                    $type = "program";
+                    $url =  $URL_Domain . "ProgramDetail/" . $datas->title_slug;
+                    include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                    <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                </div>
+            </div>
+           
+
+
+            <div class="mt-2 mb-3">
+                <?php
+                $logo = $datas->logo_url != '' && $datas->logo_url != null ? $datas->logo_url . "/small/" . $datas->logo_name : "";
+                $display_name = $datas->display_name;
+                $display_name_slug = $datas->display_name_slug;
+                $user_id = $datas->user_business_id;
+                include $VIEW_PATH_INCLUDE . "WebSite/BusinessUserImage.phtml"; ?>
+            </div>
+
+            <div class=" mt-2 mb-4">
+                <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- gallery -->
+    <div class="contains-item-page">
+        <?php if ($datas->program_gallery !== null && $datas->program_gallery !== '') { ?>
+            <div class="col-md-12 contains-middle-center">
+                <div class=" text-start border-bottom mt-4">
+                    <h6><strong>Gallery</strong></h6>
+                </div>
+                <div class=" mt-2 text-muted">
+                    <div class="col-md-12 gallery mt-2 mb-2 p-5">
+
+
+                        <?php if ($datas->program_gallery !== null && $datas->program_gallery !== '') {
+                            $gallery = explode(",", $datas->program_gallery);
+                            foreach ($gallery as $g) {
+                                $attach = explode("::", $g);
+                                $file_url = $attach[1];
+                                $file_name = $attach[2];
+                        ?>
+                                <img class="img-radus" src="<?= $URL_PATH ?><?= $file_url ?>/middle/<?= $file_name ?>" alt="<?= $datas->title_slug ?>">
+
+                        <?php }
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+
+    <?php
+    $have_rate = 'false';
+    include $VIEW_PATH_INCLUDE . "WebSite/RateReview.phtml";
+    $relates = $data['relates'];
+    $type = "program";
+    include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml"; ?>
+</div>

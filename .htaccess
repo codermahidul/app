@@ -1,0 +1,14 @@
+Options +FollowSymlinks
+
+RewriteEngine On
+
+
+#comment out to keep trailing slashes
+RewriteRule ^(.+)/$ $1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+RewriteRule ^(.*)$ index.php?route=$1 [L]
+
+RewriteRule (includes/.*)\.[\d]{10}\.(css|js)$ /$1.$2 [L]

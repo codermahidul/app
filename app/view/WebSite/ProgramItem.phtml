@@ -1,0 +1,49 @@
+<?php foreach($items as $d){
+    if ($d->file_url !== "" && $d->file_url !== null) {
+        $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+    } else {
+        $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+    }
+
+    $guest = explode(",", $d->program_guests);
+    foreach ($guest as $g) {
+        $guest_item = explode("::", $g);
+        $name = "";
+        if ($guest_item[1] != '')
+            $name = $guest_item[1];
+        if ($guest_item[3] != '')
+            $name = $guest_item[3];
+        if ($guest_item[4] != '')
+            $name = $guest_item[4];
+    }
+    
+    ?>
+<div class="item">
+
+    <div class="programbox">
+
+        <div class="sharebtn">
+            <a href=""><i class="fas fa-star"></i></a>
+            <a href=""><i class="fa fa-play"></i></a>
+            <a href=""><i class="fas fa-heart"></i></a>
+            <a href=""><i class="fab fa-playstation"></i></a>
+        </div>
+        <a href="<?= $URL_Domain ?><?= $url ?>/<?= $d->title_slug ?>">
+            <img class="img-fluid" src="<?= $imgUrl ?>" alt="<?= $d->title ?>">
+
+            <div class="programtext">
+                <p><strong>Host :</strong> <?= $d->title ?></p>
+                <p><strong>Music Composer :</strong> </p>
+                <p><strong>Producer :</strong> </p>
+                <p><strong>Guests: <?=$name?></strong></p>
+                <p><a href="https://www.facebook.com/sharer/sharer.php?u=<?= $URL_Domain ?><?= $url ?>/<?= $d->title_slug ?>"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://twitter.com/intent/tweet?text=<?=$d->title?>&url=<?= $URL_Domain ?><?= $url ?>/<?= $d->title_slug ?>" data-size="large"><i class="fab fa-twitter-square"></i></a>
+
+                    <a href=""><i class="fab fa-bity"></i></a> with friend
+                </p>
+            </div>
+        </a>
+    </div>
+
+</div>
+<?php }?>

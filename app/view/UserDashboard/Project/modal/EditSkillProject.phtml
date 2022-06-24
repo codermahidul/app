@@ -1,0 +1,30 @@
+<div class="modal fade bd-example-modal-lg" id="ModalEditSkill" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Edit Skill Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="d-flex">
+                    <div class="col-md-4 rounded  mb-2" id="user_skill"></div>
+                    <input type="text" hidden  id="idSearchSkill">
+                </div>
+           
+                <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label ">skills:</label>
+                        <select data-url="fetchData/getSkill" style="width: 100%" class="input-white min-radus tokenize select-css" multiple name="propf_id_e" id="propf_id_e">
+
+                        </select>
+                        
+
+                    </div>
+            </div>
+            <div class="modal-footer-glass modal-footer">
+                <button data-id="ModalEditSkill" id="btnprojectEditSkill" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

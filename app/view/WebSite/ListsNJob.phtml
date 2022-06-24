@@ -1,0 +1,92 @@
+<div class="main mt-2">
+
+    <?php 
+    include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; 
+    include_once $VIEW_PATH_INCLUDE."UserDashboard/Common/Modal/Category.phtml";
+
+    ?>
+
+
+    <?php if (isset($data['display_name_slug'])) {
+        $display_name_slug = $data['display_name_slug'];
+    } else $display_name_slug = "" ?>
+    <input type="text" hidden id="display_name_slug" value="<?= $display_name_slug ?>">
+
+    <div class="container mb-30">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-4-5">
+                <div class="shop-product-fillter">
+                    <div class="totall-product">
+                        <p> <strong class="text-brand"><?= number_format($data['total']) ?></strong> items</p>
+                    </div>
+                    <div class="sort-by-product-area">
+
+                        <div class="sort-by-cover">
+
+                            <div class="sort-by-product-wrap">
+                                <div class="sort-by">
+                                    <span><i class="fi-rs-apps-sort"></i>Sort by: <span id="sort_page">The Newest</span></span>
+                                </div>
+                                <div class="sort-by-dropdown-wrap">
+                                    <span> <i class="fi-rs-angle-small-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="sort-by-dropdown">
+                                <ul>
+                                    <li><a class="active orderCl" data-value="id,desc" href="javascript:void(0);">The Newest</a></li>
+                                    <li><a class="orderCl " data-value="id,asc" href="javascript:void(0);">Oldest</a></li>
+                                    <li><a class="orderCl " data-value="title,asc" href="javascript:void(0);">A-Z</a></li>
+                                    <li><a class="orderCl " data-value="title,desc" href="javascript:void(0);">Z-A</a></li>
+                                 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row product-grid" id="dataList">
+                    <input type="text" hidden value="<?= $data['idNotIn'] ?>" id="idNotIn">
+                    <?php
+                    foreach ($data['data'] as $d) { ?>
+                        <div class=" col-md-6 col-12 col-sm-6  mb-30">
+                            <?php switch ($data['type_shows']) {
+
+
+                               
+                                case "job": {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Job.phtml";
+                                        break;
+                                    }
+                            }
+                            ?>
+                        </div>
+                    <?php } ?>
+
+
+
+                </div>
+                <!--product grid-->
+                <div class="pagination-area mt-20 mb-20">
+                    <div class="row">
+                        <?php $indexBanner = "1";
+                        include $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+                    </div>
+                    <div class="col-md-12 text-center mt-3">
+                        <?php if ($data['haveMore']) { ?>
+                            <button class="btn btn-sm btn-prim" id="BtnnLoad">Lode More</button>
+                        <?php } ?>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
+
+                <!-- Filleter  -->
+                <?php include $VIEW_PATH_INCLUDE . "WebSite/SearchSideN.phtml"; ?>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

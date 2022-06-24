@@ -1,0 +1,15 @@
+<?php
+
+$showV = "";
+$linkV = explode("v=", $video_link);
+if ($linkV[1] != '') {
+    $showV = $linkV[1];
+} else {
+    $linkV = explode("be/", $video_link);
+    $showV = $linkV[1];
+}
+?>
+<div class="contain-iframe">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $showV ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" id="YoutubeVideo" allowfullscreen>
+    </iframe>
+</div>

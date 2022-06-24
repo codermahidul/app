@@ -1,0 +1,57 @@
+<?php foreach ($items as $d) {
+    if ($d->file_url !== "" && $d->file_url !== null) {
+        $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+    } else {
+        $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+    }
+
+
+    $ad = "";
+    if ($d->top_show_id != null) {
+        $ad = "<span class='text-success'>Ad </span> ";
+    }
+
+    $price = $d->price;
+    $mainPrice = 0;
+    if ($d->amount !== null) {
+        if ($d->coupon_type == "Numerical") {
+            $mainPrice = $price - $d->amount;
+        }
+
+        if ($d->coupon_type == "Percent") {
+            $mainPrice = $price - (($price * $d->amount) / 100);
+        }
+    }
+
+    $st="";
+    for($i=0;$i<=intval($d->Rating);$i++){
+        $st.='<i class="fas fa-star star"></i>';
+    }
+
+?>
+
+    <div class="item">
+        <a class="text-dark" href="<?= $URL_Domain ?><?= $url ?>/<?= $d->title_slug ?>">
+            <div class="productbox">
+                <div class="proimg">
+                    <img src="<?= $imgUrl ?>" alt="<?= $d->title_slug ?>">
+                </div>
+                <h4><?=$ad?><?= $d->title ?></h4>
+                <p class="revietext"><span><?= number_format((float)$d->Rating, 1, '.', '') ?></span>
+                <span class="review"><?=$st?></span>
+                    <span><?= number_format($d->total_rate) ?> Ratings</span>
+                </p>
+                <p><b>
+                    <span class="graydel"><?php if($mainPrice!=0){?><del>$<?=$mainPrice?></del><?php }?></span>
+                        <!-- <span class="greendel"><del>$89.40</del></span> -->
+                        <span class="redprice">$<?=number_format(floatval($d->price))?></span>
+                        <!-- <span class="redprice">Ends Tomorrow</span> -->
+                    </b>
+                </p>
+                <p>
+                <?= substr($d->description, 0, 100) . '...' ?>
+                </p>
+            </div>
+        </a>
+    </div>
+<?php } ?>

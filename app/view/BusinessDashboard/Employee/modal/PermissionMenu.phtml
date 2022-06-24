@@ -1,0 +1,48 @@
+<div class="modal fade bd-example-modal-lg" id="PermissionMenu" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Permission</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="permission">
+                    <input type="text" value="" hidden id="idSearchP">
+                    <div class="covers row">
+                        <?php include_once($VIEW_PATH_INCLUDE . "BusinessDashboard/Employee/modal/Permission/Product.phtml"); ?>
+
+                    </div>
+                 
+                    <div class="covers row mt-3">
+                        <?php include_once($VIEW_PATH_INCLUDE . "BusinessDashboard/Employee/modal/Permission/Prize.phtml"); ?>
+                    </div>
+
+                        
+                    <div class="covers row mt-3">
+                        <?php include_once($VIEW_PATH_INCLUDE . "BusinessDashboard/Employee/modal/Permission/Coupon.phtml"); ?>
+                    </div>
+
+                    <div class="covers row mt-3">
+                        <?php include_once($VIEW_PATH_INCLUDE . "BusinessDashboard/Employee/modal/Permission/Deals.phtml"); ?>
+                    </div>
+
+                    <div class="covers row mt-3">
+                        <?php include_once($VIEW_PATH_INCLUDE . "BusinessDashboard/Employee/modal/Permission/Job.phtml"); ?>
+                    </div>
+
+
+                      
+
+
+                
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-id="PermissionMenu" id="btnPermissionMenu" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+}
+$types = [];
+$levels = [];
+$skills = [];
+$salaries = [];
+if ($d->type !== '' && $d->type !== null)
+    $types = explode(",", $d->type);
+if ($d->level !== '' && $d->level !== null)
+    $levels = explode(",", $d->level);
+if ($d->skill !== '' && $d->skill !== null)
+    $skills = explode(",", $d->skill);
+if ($d->salary !== '' && $d->salary !== null)
+    $salaries = explode(",", $d->salary);
+
+$ad = "";
+if ($d->top_show_id != null) {
+    $ad = "<span class='text-success'>Ad </span> ";
+}
+
+$class_img = "img-sam-size";
+?>
+
+
+<div class="vendor-wrap style-2 mb-40">
+
+    <div class="vendor-img-action-wrap">
+        <div class="vendor-img">
+            <a href="<?= $URL_Domain ?><?= $data['url_job'] ?>/<?= $d->title_slug ?>">
+                <img class="default-img img-radius" src="<?= $imgUrl ?>" alt="<?= $d->title ?>">
+            </a>
+        </div>
+        <?php if (count($types) > 0) {
+            foreach (array_slice($types, 0, 3) as $t) { ?>
+                <div class="mt-10">
+                    <span class="font-small total-product"><?= $t ?></span>
+                </div>
+        <?php }
+        } ?>
+    </div>
+    <div class="vendor-content-wrap">
+        <div class="mb-30">
+            <div class="product-category">
+                <span class="text-muted"><?= $d->category_name ?></span>
+            </div>
+            <h4 class="mb-5"><a href="<?= $URL_Domain ?><?= $data['url_job'] ?>/<?= $d->title_slug ?>"><?= $ad ?><?= $d->title ?></a></h4>
+
+         
+            <div class="vendor-info d-flex justify-content-between align-items-end mt-30">
+                <ul class="contact-infor text-muted">
+                    <li><strong>Skill: </strong>
+                        <?php if (count($skills) > 0) {
+                            foreach (array_slice($skills, 0, 3) as $t) { ?>
+                                <span><?= $t ?></span>,
+                        <?php }
+                        } ?>
+                    </li>
+                    <li><strong>Levels:</strong>
+                        <?php if (count($levels) > 0) {
+                            foreach (array_slice($levels, 0, 3) as $t) { ?>
+                                <span><?= $t ?></span>
+                        <?php }
+                        } ?>
+                    </li>
+                    <li><strong>Salaries:</strong>
+                        <?php if (count($salaries) > 0) {
+                            foreach (array_slice($salaries, 0, 3) as $t) { ?>
+                                <span><?= $t ?></span>
+                        <?php }
+                        } ?>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

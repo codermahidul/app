@@ -1,0 +1,37 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgurl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgurl = $VIEW_PATH . "imgs/defult.jpg";
+}
+
+$ad="";
+if($d->top_show_id !=null)
+{
+    $ad="<span class='text-success'>Ad </span> ";
+}
+
+$class_img = "img-sam-size";
+?>
+<a href="<?= $URL_Domain ?><?=$data['url_coupon']?>/<?= $d->title_slug ?>" class="hrefs col-md-4">
+    <div class="card-contain  m-1 ">
+        <div class="card-image position-relative">
+            <img src="<?= $imgurl ?>" alt="<?= $d->title ?>" class="<?= $class_img ?>">
+            <div class="img-over-top bag-defult top-r-b-l-radus">
+            <?= $d->type_name == "Numerical" ? "$" : "" ?><?= ($d->amount) ?><?= $d->type_name == "Percent" ? " %" : "" ?>
+
+            </div>
+        </div>
+        <div class="card-details text-muted">
+            <div class="card-title"><?=$ad?><?= $d->title ?></div>
+            <div class="mt-1 ">
+           
+                <div class=" p-1">
+                    <span class="text-muted"><?= substr($d->description, 0, 100) . '...' ?></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

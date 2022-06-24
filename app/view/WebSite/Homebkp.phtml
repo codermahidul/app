@@ -1,0 +1,117 @@
+<?php
+$slider = $data['slider'];
+$products = $data['products'];
+$prizes = $data['prizes'];
+$coupons = $data['coupons'];
+$programs = $data['programs'];
+$users = $data['users'];
+$businessUsers = $data['businessUsers'];
+
+
+?>
+
+<div class="  ">
+    <div class="contains-item-page">
+
+
+
+        <?php if ($slider->data->total > 0) { ?>
+            <div class="slick p-2">
+                <?php foreach ($slider->data->data as $d) { ?>
+                    <div><img class="img-radus" src="<?= $URL_PATH ?><?= $d->file_url ?>/thumb/<?= $d->file_name ?>" alt="Master-Steve"></div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+
+        <!-- <div class="m-top mb-3">
+            <div class="scrollmenu">
+                <?php include $VIEW_PATH_INCLUDE . "WebSite/MenuBtn.phtml"; ?>
+
+            </div>
+        </div> -->
+        <!-- product -->
+        <?php if ($products->data->total > 0) {
+            $classes = "row p-2";
+            $set_img_class = false;
+            if ($products->data->total >= 5)
+                $classes = "multiple-items p-2";
+            $set_img_class = true;
+
+        ?>
+            <div class="grid-row mb-3 mt-5 ">
+                <div class="text-left"><h2 class="compound-title"><strong>Product</strong></h2></div>
+                <div class="text-right"><strong><a aria-label="See More Product" class="text-dark" href="<?= $URL_Domain ?>Products">See More</a></li></strong></div>
+            </div>
+            <div class="<?= $classes ?>">
+                <?php foreach ($products->data->data as $d) {
+                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml"; ?>
+
+                <?php } ?>
+            </div>
+        <?php } ?>
+
+        <!-- program -->
+        <?php if ($programs->data->total > 0) {
+            $items = $programs->data->data;
+            $page = "ProgramDetail";
+            include $VIEW_PATH_INCLUDE . "WebSite/ImageGrid/ImageGridViewProfile.phtml";
+        } ?>
+
+        <!-- prize -->
+        <?php  if ($prizes->data->total > 0) {
+            $classes = "row p-2";
+            $set_img_class = false;
+            if ($prizes->data->total >= 5)
+                $classes = "multiple-items p-2";
+            $set_img_class = true;
+
+        ?>
+            <div class="grid-row mb-3 mt-5 ">
+                <div class="text-left"><h2 class="compound-title"><strong>prizes</strong></h2></div>
+                <div class="text-right"><strong><a aria-label="See More Prize" class="text-dark" href="<?= $URL_Domain ?>Prizes">See More</a></li></strong></div>
+            </div>
+            <div class="<?= $classes ?>">
+                <?php foreach ($prizes->data->data as $d) {
+                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Prize.phtml"; ?>
+
+                <?php } ?>
+            </div>
+        <?php } ?>
+
+        <!-- businessUser -->
+        <?php if ($businessUsers->data->total > 0) {
+            $items = $businessUsers->data->data;
+            $page = "";
+            include $VIEW_PATH_INCLUDE . "WebSite/ImageGrid/ImageGridViewBusiness.phtml";
+        } ?>
+
+        <!-- coupon -->
+        <?php if ($coupons->data->total > 0) {
+            $classes = "row p-2";
+            $set_img_class = false;
+            if ($coupons->data->total >= 5)
+                $classes = "multiple-items p-2";
+            $set_img_class = true;
+
+        ?>
+            <div class="grid-row mb-3 mt-5 ">
+                <div class="text-left"><h2 class="compound-title"><strong>coupons</strong></h2></div>
+                <div class="text-right"><strong><a aria-label="See More Coupon" class="text-dark" href="<?= $URL_Domain ?>Coupons">See More</a></li></strong></div>
+            </div>
+            <div class="<?= $classes ?>">
+                <?php foreach ($coupons->data->data as $d) {
+                    include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml"; ?>
+
+                <?php } ?>
+            </div>
+        <?php } ?>
+
+        <!-- User -->
+        <?php if ($users->data->total > 0) {
+            $items = $users->data->data;
+            $page = "UserDetailProfile";
+            include $VIEW_PATH_INCLUDE . "WebSite/ImageGrid/ImageGridViewUser.phtml";
+        } ?>
+    </div>
+
+</div>

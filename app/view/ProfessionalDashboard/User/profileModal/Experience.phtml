@@ -1,0 +1,72 @@
+<div class="modal fade bd-example-modal-lg" id="modalExperience" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Experience</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmexperience">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="title" id="title">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Employment type:</label>
+                        <select style="width: 100%" class="input-white min-radus  select-css" name="employment_type" id="employment_type">
+                            <option value="">...</option>
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                            <option value="Self-employed">Self-employed</option>
+                            <option value="Freelance">Freelance</option>
+                            <option value="Contract">Contract</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Apprenticeship">Apprenticeship</option>
+                            <option value="Seasonal">Seasonal</option>
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Company :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="company" id="company">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Location :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="location" id="location">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Start Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="experience_start_date" id="experience_start_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">End Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="experience_end_date" id="experience_end_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="chboxs">I am currently working in this role
+                            <input type="checkbox" value="1" name="experience_now" id="experience_now">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <?php
+                    //include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-editid="" data-edit="false" id="experincebtn" data-id="modalExperience" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

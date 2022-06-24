@@ -1,0 +1,83 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "assets/imgs/shop/product-1-1.jpg";
+}
+// $class_img = "";
+// if (isset($set_img_class) && $set_img_class) {
+
+//     $class_img = "img-sam-size";
+// }
+$ad = "";
+if ($d->top_show_id != null) {
+    $ad = "<span class='text-success'>Ad </span> ";
+}
+
+$class_img = "img-sam-size";
+?>
+<a href="<?= $URL_Domain ?><?= $data['url_product'] ?>/<?= $d->title_slug ?>" class="hrefs col-md-4">
+    <div class="card-contain  m-1 ">
+        <div class="card-image position-relative">
+
+            <img src="<?= $imgUrl ?>" alt="<?= $d->title_slug ?>" class="<?= $class_img ?>">
+            <div class="img-over-top bag-defult top-r-b-l-radus"><?= $d->category_name ?></div>
+        </div>
+        <div class="card-details">
+            <div>
+                <span class="card-title"><?= $ad ?><?= $d->title ?></span>
+                <br>
+                <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                <span class="fw-bold text-muted">
+                    <small><?= number_format((float)$d->Rating, 1, '.', '') ?></small>
+                    <span class="ms-1 me-1"><?= number_format($d->total_rate) ?> Ratings</span>
+
+                </span>
+
+            </div>
+            <div class="mt-1 ">
+
+                <div class=" p-1">
+                    <?php
+
+                    $price = $d->price;
+                    $mainPrice = 0;
+                    if ($d->amount !== null) {
+                        if ($d->coupon_type == "Numerical") {
+                            $mainPrice = $price - $d->amount;
+                        }
+
+                        if ($d->coupon_type == "Percent") {
+                            $mainPrice = $price - (($price * $d->amount) / 100);
+                        }
+                    }
+                    if ($mainPrice != 0) {
+                    ?>
+
+                        <del class="text-muted fw-bolder">$<?= number_format($price) ?></del>
+                        <strong class="text-success h4 fw-bolder">$<?= number_format($mainPrice) ?></strong>
+                        <small>
+                            <span class="bag-green h4 fw-bolder">
+                                <?= $d->coupon_type == "Numerical" ? "$" : "" ?>
+                                <?= ($d->amount) ?>
+                                <?= $d->coupon_type == "Percent" ? " %" : "" ?>
+                                OFF
+                            </span>
+                        </small>
+                    <?php } else {
+
+                    ?>
+                        <strong class="text-muted fw-bolder h5">$<?= number_format(floatval($d->price)) ?></strong>
+                    <?php } ?>
+
+
+                    <div class="text-muted"><?= substr($d->description, 0, 100) . '...' ?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
+
+

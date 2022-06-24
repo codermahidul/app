@@ -1,0 +1,43 @@
+<div class="modal fade bd-example-modal-lg" id="ModalEditCat" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="editFrm">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Category Name:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="name" id="name_cat_e">
+                        <input type="text" hidden name="idSearch" id="idSearch">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Show Review:</label>
+                        <select name="review" id="review_e" class="form-control">
+                            <option value=""></option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                       
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Show Rate:</label>
+                        <select name="rate" id="rate_e" class="form-control">
+                            <option value=""></option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                       
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-id="ModalEditCat" id="btnModalEditCat" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

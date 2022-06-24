@@ -1,0 +1,316 @@
+<!-- import modal start -->
+<?php
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/EditInfo.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Website.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/EditAbout.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Experience.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/VolunteerExperience.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Skills.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Education.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/License.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Publication.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Patent.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Course.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Project.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Honors.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Score.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Language.phtml";
+include_once $VIEW_PATH_INCLUDE . "ProfessionalDashboard/User/profileModal/Organization.phtml";
+include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Remove.phtml";
+
+
+
+?>
+<!-- end import modal start -->
+<div class=" p-sm-3 mt-5">
+    <div class="mt-5 banner-profile user-banner-prof text-center">
+        <img src="<?= $VIEW_PATH ?>imgs/default-banner.jpg" alt="user banner">
+    </div>
+    <div class="profile Negative-margin-top">
+
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 user-image-prof">
+                <img class="midel-size-radus " src="<?= $VIEW_PATH ?>imgs/user.png" alt="user banner">
+            </div>
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <small data-id="modalEditInfo" data-functions="editInfo" class="btn-them point  modalbtn">
+                        <i class="bi bi-pencil-square"> Edit Your info </i>
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <i class="bi bi-person mr-2"></i>
+                        <strong id="user_name">Your name </strong>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-person mr-2"></i>
+                        <span id="user_display_name">Your Display Name</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-calendar mr-2"></i>
+                        <span id="user_birthday">Your Birthday</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-geo-alt mr-2"></i>
+                        <span id="user_country_name">Your Location</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-telephone mr-2"></i>
+                        <span id="user_telephone">Your Telephone</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-envelope mr-2"></i>
+                        <span id="user_email">Your Email</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-layout-text-window mr-2"></i>
+                        <span id="user_industry_name">Your Industry</span>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <small data-id="modalWebsite" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i>
+                        Add website
+                    </small>
+                    <div id="user_web" class="m-2">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-12 mt-4 mb-4">
+                <a href="ProfessionalProfileSetting" class=" hrefs"><i class="bi bi-gear point h3"></i></span></a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- about start -->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>About</h5>
+            </div>
+            <div class="col-md-12">
+                <small data-id="modalEditAbout" data-functions="editInfo" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Edit About
+                </small>
+
+            </div>
+            <div class="col-md-12">
+                <div class="m-2 p-2">
+                    <p id="user_about"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about end -->
+
+    <!--  Experience start-->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>Experience</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="modalExperience" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add Experience
+                </small>
+                <div id="user_experience" class="m-2">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>Volunteer experience</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="modalVolunteerExperience" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add volunteer experience
+                </small>
+                <div id="user_vexperience" class="m-2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Experience end-->
+
+    <!-- Skill start-->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>Skill</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="ModalSkills" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add skill
+                </small>
+            </div>
+            <div id="user_skill" class="m-2">
+            </div>
+        </div>
+    </div>
+
+    <!--  Skill end-->
+
+    <!-- Education start-->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>Education</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="modalEducation" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add Education
+                </small>
+
+                <div id="user_education" class="m-2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Education end-->
+
+
+
+    <!-- License or Certification start-->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>License or Certification</h5>
+            </div>
+            <div class="col-md-12 mb-2">
+                <small data-id="modalLicense" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg mr-2"></i> Add License or Certification
+                </small>
+
+                <div id="user_license" class="m-2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  License or Certification end-->
+
+
+
+    <!-- Accomplishments start-->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 ps-md-3 mb-1">
+                <h5>Accomplishments</h5>
+            </div>
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalPublication" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add publication
+                    </small>
+
+                    <div id="user_publication" class="m-2">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalPatent" data-functions="patent" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Patent
+                    </small>
+                </div>
+                <div id="user_patent" class="m-2">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalCourse" data-functions="course" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Course
+                    </small>
+                </div>
+                <div id="user_course" class="m-2">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalProject" data-functions="project" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Projects
+                    </small>
+                </div>
+                <div id="user_project" class="m-2">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalHonors" data-functions="honors" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Honors & Awards
+                    </small>
+                </div>
+                <div id="user_honors" class="m-2">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalScore" data-functions="score" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Test Score
+                    </small>
+                </div>
+                <div id="user_score" class="m-2">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalLanguage" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Language
+                    </small>
+                </div>
+                <div id="user_language" class="m-2">
+
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 covers">
+                <div>
+                    <small data-id="modalOrganization" data-functions="organiz" class="btn-them point  modalbtn">
+                        <i class="bi bi-plus-lg mr-2"></i> Add Organization
+                    </small>
+                </div>
+                <div id="user_organization" class="m-2">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--  Accomplishments end-->
+</div>

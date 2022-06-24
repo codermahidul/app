@@ -1,0 +1,307 @@
+<?php
+$datas = $data['data'][0];
+
+
+$products = $data['products'];
+$prizes = $data['prizes'];
+$coupons = $data['coupons'];
+$followers = $data['followers'];
+$following = $data['following'];
+$isFollower = $data['isFollower'];
+
+$report = $data['report'];
+$table = "user_business";
+$item_id = $datas->id;
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddJustReview.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddRate.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReplyComment.phtml";
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="user_business_id" value="<?= $datas->id ?>">
+<input type="text" hidden id="user_business_type" value="<?= $datas->type ?>">
+
+<input type="text" hidden id="idSearch" value="<?= $datas->id ?>">
+<input type="text" hidden id="tableType" value="user_business">
+<input type="text" hidden id="email_user" value="<?=$data['email_online']?>">
+<input type="text" hidden id="title_item" value="Business: <?=$datas->display_name ?>">
+<input type="text" hidden id="display_name_user" value="<?=$data['display_name_online']?>">
+
+
+<div class="contains-item-page position-relative">
+    <div class="row p-1 ">
+        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Stores" class="text-muted txt-small">Businesses</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?><?= $datas->display_name_slug ?>" class="text-muted txt-small"><?= $datas->display_name ?></a>
+        </div>
+
+    </div>
+    <div class="mb-2 mt-2 d-flex justify-content-center">
+        <?php
+        $imgUrl = "";
+        $bannerUrl = "";
+        if ($datas->banner_file_url !== "" && $datas->banner_file_url !== null) {
+            $bannerUrl = $URL_PATH . $datas->banner_file_url . '/thumb/' . $datas->banner_file_name;
+        } else {
+            $bannerUrl = $VIEW_PATH . "imgs/default-banner.jpg";
+        }
+
+        if ($datas->file_url !== "" && $datas->file_url !== null) {
+            $imgUrl = $URL_PATH . $datas->file_url . '/small/' . $datas->file_name;
+        } else {
+            $imgUrl = $VIEW_PATH . "imgs/logo.png";
+        }
+        ?>
+        <img class="img-radus" src="<?= $bannerUrl ?>" alt="<?= $datas->display_name_slug ?>">
+        <?php  ?>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <div class="covers2 contains-item2 margin-top-negative position-relative">
+            <img class="profile-image" src="<?= $imgUrl ?>" alt="<?= $datas->display_name_slug ?>">
+
+            <div class=" text-center mt-4 mb-5 ">
+                <h4><strong><?= $datas->display_name ?></strong></h4>
+            </div>
+
+
+            <div class="mb-5 mt-2 text-muted border-bottom">
+                <div class="mt-2 mb-2">
+                    <i class="bi bi-layout-text-window mr-2"> </i><?= $datas->headline ?>
+                </div>
+
+                <div class="mt-2 mb-4">
+                    <i class="bi bi-geo-alt mr-2"></i> <?= $datas->country_name ?>
+                </div>
+
+                <div class="mt-2 mb-4">
+                    <i class="bi bi-info-circle"></i> <?= $datas->category_name ?>
+                </div>
+
+            </div>
+
+            <div class="mt-4 mb-2 row">
+                    <div class="col-md-12 text-center show-with-vertical-line">
+                        <div class="">
+                            <div class="text-center text-muted">
+                                <small>Following</small>
+                            </div>
+                            <div class="text-center ">
+                                <strong><?= number_format($following->data->total) ?></strong>
+                            </div>
+                        </div>
+                        <div class="border-end "></div>
+                        <div class="">
+                            <div class="text-center text-muted">
+                                <small>Followers</small>
+                            </div>
+                            <div class="text-center ">
+                                <strong><?= number_format($followers->data->total) ?></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 mb-4">
+                    <?php if ($isFollower == 'false') { ?>
+                        <button data-id="<?= $datas->id ?>" id="AddToFollow" class="btn btn-prim">Follow</button>
+                        <div></div>
+                    <?php } else { ?>
+                        <button data-id="<?= $data['user_follow_id'] ?>" id="UnFollowBtn" class="btn btn-danger">Unfollow</button data-id="<?= $data['user_follow_id'] ?>">
+                        <div class="mb-4"></div>
+                    <?php } ?>
+
+
+                </div>
+                
+            <div class=" text-start border-bottom">
+                <h6><strong>Activities</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 d-flex justify-content-center">
+
+                <div class="covers  m-1 col-4">
+                    <a class="hrefs" href="<?= $URL_Domain ?>StoreProduct/<?= $datas->display_name_slug ?>">
+                        <div class="text-muted">
+                            <small>Product</small>
+                        </div>
+                        <div>
+                            <small>
+                                <strong><?= number_format($products->data->total) ?></strong>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                <div class="covers  m-1 col-4">
+                    <a class="hrefs" href="<?= $URL_Domain ?>StorePrize/<?= $datas->display_name_slug ?>">
+                        <div class="text-muted">
+                            <small>Prize</small>
+                        </div>
+                        <div>
+                            <small>
+                                <strong><?= number_format($prizes->data->total) ?></strong>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="covers  m-1 col-4">
+                    <a class="hrefs" href="<?= $URL_Domain ?>StoreCoupon/<?= $datas->display_name_slug ?>">
+                        <div class="text-muted">
+                            <small>Coupon</small>
+                        </div>
+                        <div>
+                            <small>
+                                <strong><?= number_format($coupons->data->total) ?></strong>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <div class=" text-start border-bottom">
+                <h6><strong>About</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= $datas->about ?></div>
+
+            <div class=" text-start border-bottom">
+                <h6><strong>More Info</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= $datas->more_info ?></div>
+
+
+            <?php include $VIEW_PATH_INCLUDE . "WebSite/ProfileTimeLine.phtml"; ?>
+
+            <div class=" text-start border-bottom">
+                <h6><strong>Share</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted">
+                <?php
+                $title = $datas->title;
+                $id = $datas->id;
+                $type="business";
+                $url =  $URL_Domain .  $datas->display_name_slug;
+                include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+            </div>
+
+
+            <div class="mt-2 mb-3">
+                <?php
+                $user_image = $datas->user_image;
+                $display_name = $datas->display_name;
+                $display_name_slug = $datas->display_name_slug;
+                $user_id = $datas->user_id;
+                include $VIEW_PATH_INCLUDE . "WebSite/UserImage.phtml"; ?>
+            </div>
+
+            <div class=" mt-2 mb-4">
+                <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <?php if ($products->data->total > 0) {
+                $classes = "row p-2 mt-5";
+                $set_img_class = false;
+                if ($products->data->total > 5)
+                    $classes = "multiple-items p-2";
+                $set_img_class = true;
+
+            ?>
+                <div class="grid-row mb-2 mt-4 ">
+                    <div class="text-left"><strong>Products</strong></div>
+                    <div class="text-end"><strong><a class="hrefs" href="<?= $URL_Domain ?>StoreProduct/<?= $datas->display_name_slug ?>">See More</a></li></strong></div>
+                </div>
+                <div class="<?= $classes ?>">
+                    <?php $data['url_product'] = 'ProductDetail';
+                    foreach ($products->data->data as $d) {
+                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml"; ?>
+
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="col-md-12">
+            <?php if ($prizes->data->total > 0) {
+                $classes = "row p-2 mt-5";
+                $set_img_class = false;
+                if ($prizes->data->total > 5)
+                    $classes = "multiple-items p-2";
+                $set_img_class = true;
+
+            ?>
+                <div class="grid-row mb-2 mt-4 ">
+                    <div class="text-left"><strong>Prizes</strong></div>
+                    <div class="text-end"><strong><a class="hrefs" href="<?= $URL_Domain ?>StorePrize/<?= $datas->display_name_slug ?>">See More</a></li></strong></div>
+                </div>
+                <div class="<?= $classes ?>">
+                    <?php $data['url'] = 'PrizeDetail';
+                    foreach ($prizes->data->data as $d) {
+                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Prize.phtml"; ?>
+
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="col-md-12">
+            <?php if ($coupons->data->total > 0) {
+                $classes = "row p-2 mt-5";
+                $set_img_class = false;
+                if ($coupons->data->total > 5)
+                    $classes = "multiple-items p-2";
+                $set_img_class = true;
+
+            ?>
+                <div class="grid-row mb-2 mt-4 ">
+                    <div class="text-left"><strong>Coupons</strong></div>
+                    <div class="text-end"><strong><a class="hrefs" href="<?= $URL_Domain ?>StoreCoupon/<?= $datas->display_name_slug ?>">See More</a></li></strong></div>
+                </div>
+                <div class="<?= $classes ?>">
+                    <?php
+                    $data['url'] = 'CouponDetail';
+                    foreach ($coupons->data->data as $d) {
+                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/coupon.phtml"; ?>
+
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
+
+
+
+    <?php
+    $have_review = 'false';
+    $have_rate = 'false';
+    if ($datas->category_rate == '1')
+        $have_rate = 'true';
+
+    if ($datas->category_review == '1')
+        $have_review = 'true';
+    $total_rate = $datas->total_rate;
+    $Rating = $datas->Rating;
+    include $VIEW_PATH_INCLUDE . "WebSite/RateReview.phtml";
+    // $relates = $data['relates'];
+    // $type = "project";
+    // include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml"; 
+    ?>
+
+</div>

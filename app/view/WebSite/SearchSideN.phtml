@@ -1,0 +1,135 @@
+<div class="sidebar-widget price_range range mb-30">
+    <h5 class="section-title style-1 mb-30">Filter</h5>
+    <?php if (isset($data['have_price'])) { ?>
+        <div class="price-filter">
+            <div class="price-filter-inner">
+                <div id="slider-range" class="mb-20"></div>
+                <div class="d-flex justify-content-between">
+                    <div class="caption">From: <strong id="slider-range-value1" class="text-brand"></strong></div>
+                    <div class="caption">To: <strong id="slider-range-value2" class="text-brand"></strong></div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <div class="list-group">
+
+        <div class="list-group-item mb-10 mt-10">
+            <label class="">Title</label>
+            <input type="text" autocomplete="off" id="titles2" placeholder="title">
+        </div>
+
+        <?php if (isset($data['program_search'])) { ?>
+
+
+            <div class="list-group-item mb-10 mt-10">
+                <label for="recipient-name" class="">Program Type:</label>
+                <select id="typeP1" class=" form-control">
+                    <option value=""></option>
+
+                </select>
+            </div>
+
+            <div class="list-group-item mb-10 mt-10">
+                <label for="categoryP1" class="">Category:</label>
+                <select id="categoryP1" class="form-control ">
+                    <option value=""></option>
+                </select>
+            </div>
+
+            <!-- 
+                    <div class="mb-3">
+                        <label for="recipient-name" class="">Award Section:</label>
+                        <select id="awardP1" class="form-control ">
+                            <option value=""></option>
+
+                        </select>
+                    </div> -->
+            <?php } else {
+            if ($data['category_search'] == 'true') { ?>
+                <div class="list-group-item mb-10 mt-10">
+                    <label class="">Category</label>
+
+                    <div data-dismiss="modal" type="text" style="height: fit-content;" class="form-control p-4 category point" id="category_id"></div>
+                    <input type="text" hidden="" class="form-control point " id="catagories_id">
+                </div>
+            <?php }
+
+            if ($data['category_search_more'] == 'true') { ?>
+                <div class="list-group-item mb-10 mt-10">
+                <div id="more_cat"></div>
+                </div>
+        <?php }
+        } ?>
+        <?php if (isset($data['have_rating'])) { ?>
+            <div class="list-group-item mb-10 mt-10">
+                <label class="">Rating</label>
+                <div class="custome-radio">
+                    <input class="form-check-input" type="radio" name="rate" id="exampleCheckbox1" value="1" />
+                    <label class="form-check-label" for="exampleCheckbox1"><span>
+                            <div class="product-rate d-inline-block">
+                                <div class="product-rating" style="width: 20%"></div>
+                            </div>
+                        </span></label>
+                    <br />
+                    <input class="form-check-input" type="radio" name="rate" id="exampleCheckbox2" value="2" />
+                    <label class="form-check-label" for="exampleCheckbox2"><span>
+                            <div class="product-rate d-inline-block">
+                                <div class="product-rating" style="width: 40%"></div>
+                            </div>
+                        </span></label>
+                    <br />
+                    <input class="form-check-input" type="radio" name="rate" id="exampleCheckbox3" value="3" />
+                    <label class="form-check-label" for="exampleCheckbox3"><span>
+                            <div class="product-rate d-inline-block">
+                                <div class="product-rating" style="width: 60%"></div>
+                            </div>
+                        </span></label>
+
+                    <br />
+                    <input class="form-check-input" type="radio" name="rate" id="exampleCheckbox4" value="4" />
+                    <label class="form-check-label" for="exampleCheckbox4"><span>
+                            <div class="product-rate d-inline-block">
+                                <div class="product-rating" style="width: 80%"></div>
+                            </div>
+                        </span></label>
+
+                    <br />
+                    <input class="form-check-input" type="radio" name="rate" id="exampleCheckbox5" value="5" />
+                    <label class="form-check-label" for="exampleCheckbox5"><span>
+                            <div class="product-rate d-inline-block">
+                                <div class="product-rating" style="width: 100%"></div>
+                            </div>
+                        </span></label>
+                </div>
+
+            </div>
+        <?php } ?>
+        <?php if (isset($data['user_type'])) { ?>
+            <div class="list-group-item mb-10 mt-10">
+                <label class="">Type</label>
+                <div class="custome-radio">
+                    <input class="form-check-input" type="radio" name="type" id="exampleCheckbox1" value="business" />
+                    <label class="form-check-label" for="exampleCheckbox1"><span>
+                    Businesses
+                        </span></label>
+                    <br />
+                    <input class="form-check-input" type="radio" name="type" id="exampleCheckbox2" value="professional" />
+                    <label class="form-check-label" for="exampleCheckbox2"><span>
+                    Professionals
+                        </span></label>
+                    <br />
+                    <input class="form-check-input" type="radio" name="type" id="exampleCheckbox3" value="user" />
+                    <label class="form-check-label" for="exampleCheckbox3"><span>
+                            Public
+                        </span></label>
+
+                    <br />
+                   
+                </div>
+
+            </div>
+        <?php } ?>
+    </div>
+    <button id="SerachBtn" type="button" class="btn btn-sm btn-default inp-enter mt-2"><i class="fi-rs-filter mr-5"></i> Filter</button>
+    <button class="btn resetBtn mt-2 btn-sm btn-default" id="resetBtn">Reset</button>
+</div>

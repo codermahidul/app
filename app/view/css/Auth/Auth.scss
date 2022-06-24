@@ -1,0 +1,85 @@
+@import '../Variable/Colors';
+@import '../Variable/Fonts';
+@import  '../Common/inputNormal';
+@import  '../Common/button';
+@import  '../Common/body';
+@import  '../Common/layout';
+
+
+
+body
+ {
+  @include bodys
+}
+  
+.back-login-div
+{
+  background: white;
+ // background: $colorbacground;
+ // @include filter;
+
+  box-shadow: 5px 5px 30px $shadowColor;
+}
+
+ .login-text-header {
+  line-height: 55px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: $font-family;
+  text-transform: uppercase;
+ // color: #fff;
+  text-align: center;
+  //@include filter;
+  margin-top: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+
+.radus
+{
+  border-radius: $border-radus-input;
+}
+
+
+.txt
+{
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: $font-family;
+  color: black;
+ 
+}
+a
+{
+  text-decoration: none;
+}
+
+.width-btn
+{
+  width: 98%;
+}
+
+@media screen and (min-width:1500px) {
+  
+  .widths
+  {
+    width: 40%;
+  }
+}
+@media screen and (max-width:1500px) {
+  
+  .widths
+  {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  
+  .widths
+  {
+    width:100vw;
+  }
+}

@@ -1,0 +1,53 @@
+<?php
+ include_once ($VIEW_PATH_ADMIN_INCLUDE ."Setting/modal/AddStudio.phtml");
+ include_once ($VIEW_PATH_ADMIN_INCLUDE ."Setting/modal/EditStudio.phtml");
+ include_once $VIEW_PATH_INCLUDE."UserDashboard/Common/Modal/RemoveAdmin.phtml";
+ ?>
+<div class="covers m-top">
+
+    <div class="covers mb-3">
+            <div class="row">
+            <div class="col-md-12 mb-2">
+                <small id="addNewBtn" class="btn btn-prim btn-lg ">
+                    <i class="bi bi-plus-lg mr-2"></i> Add Studio
+                </small>
+            </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">ID:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="idSearchs" name="idSearch">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="titles">
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 mb-2 text-center">
+                    <button type="button" id="searchbtn" class="btn btn-prim btn-lg">
+                        <i class="bi bi-search mr-2"></i> Search
+                    </button>
+                    <button id="reset" type="button" class="btn  btn-lg">
+                        Reset
+                    </button>
+                </div>
+            </div>
+     
+    </div>
+    <table width="100%" class="table table-striped table-hover dt-responsive display dataTable" id="m_table_1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>

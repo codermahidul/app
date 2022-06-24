@@ -1,0 +1,47 @@
+<div class="card-ui cui-c-featured-card-carousel mt-3">
+    <div class="cui-sub-featured-tiles">
+        <?php for ($i = 0; $i < 4; $i++) {
+            $d = $items[$i];
+            if ($d->file_url !== "" && $d->file_url !== null) {
+                $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+            } else {
+                $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+            }
+        ?>
+
+            <div class="cui-c-sub-featured-tile">
+                <a href="<?= $URL_Domain ?><?= $d->display_name_slug ?>">
+                    <div class="cui-sub-featured-content">
+                        <div class="cui-sub-featured-overlay"></div>
+                        <img class="cui-sub-featured-image" src="<?= $imgUrl ?>" alt="<?= $d->display_name_slug ?>">
+                        <div class="cui-sub-featured-title cui-hyphenate"><?= $d->display_name ?></div>
+                    </div>
+                </a>
+            </div>
+        <?php } ?>
+
+
+    </div>
+    <div class="cui-featured-card mt-3 mb-2">
+        <?php if (count((array)$items) >= 5) { 
+             $d = $items[4];
+             if ($d->file_url !== "" && $d->file_url !== null) {
+                $imgUrl = $URL_PATH . $d->file_url . '/middle/' . $d->file_name;
+            } else {
+                $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+            }
+            ?>
+            <a href="<?= $URL_Domain ?><?= $d->display_name_slug ?>">
+                <div class="cui-featured-content">
+                    <div class="cui-featured-overlay"></div>
+                    <img class="cui-featured-image" src="<?= $imgUrl ?>" alt="<?= $d->display_name_slug ?>">
+                    <div class="cui-featured-text">
+                        <div class="cui-featured-title"><?= $d->display_name ?></div>
+                    </div>
+
+                </div>
+            </a>
+        <?php } ?>
+
+    </div>
+</div>

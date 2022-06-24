@@ -1,0 +1,121 @@
+// /* class applies to select element itself, not a wrapper element */
+// // .select-css {
+// //     font-family: $font-family;
+// //     font-size: 1rem;
+// //     font-weight: 400;
+// //     line-height: 1.5;
+// //     padding: .7rem;
+// //     position: relative;
+// //     width: 100%;
+// //     // border: none;
+// //     background: white;
+// //     // background: #a3a2a2;
+// //     //@include filter;
+// //     // border-top: $borderShadowColor;
+// //     // border-left: $borderShadowColor;
+// //     box-shadow: $shadowColor;
+// //     color: $inptColorNormal;
+// //     transition: color 0.3s ease-out;
+// //   }
+
+// .select-css
+// {
+//     display: block;
+//     width: 100%;
+//     padding: .375rem .75rem;
+//     font-size: 1rem;
+//     font-weight: 400;
+//     line-height: 1.5;
+//     color: #212529;
+//     background-color: #fff;
+//     background-clip: padding-box;
+//     border: 1px solid #ced4da;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     appearance: none;
+//     border-radius: .25rem;
+//     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+// }
+//   /* Hide arrow icon in IE browsers */
+//   .select-css::-ms-expand {
+//     display: none;
+//   }
+//   /* Hover style */
+//   .select-css:hover {
+//     border-color: #888;
+//   }
+//   /* Focus style */
+//   .select-css:focus {
+//     border-color: #aaa;
+//     /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+//     box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+//     box-shadow: 0 0 0 3px -moz-mac-focusring;
+//     color: #222; 
+//     outline: none;
+//   }
+  
+//   /* Set options to normal weight */
+//   .select-css option {
+//     font-weight:normal;
+//     background: white;
+//     // background: #a3a2a2;
+//     // @include filter;
+//     color: $inptColor;
+//   }
+  
+//   /* Support for rtl text, explicit support for Arabic and Hebrew */
+//   *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+//     background-position: left .7em top 50%, 0 0;
+//     padding: .6em .8em .5em 1.4em;
+//   }
+  
+//   .select-css:disabled:hover, .select-css[aria-disabled=true] {
+//     border-color: #aaa;
+//   }
+
+// .select2-container
+// {
+//     z-index:1000;
+// }
+
+
+// .select2-container--default .select2-selection--single {
+//     font-family: $font-family;
+//     background: white;
+//     // background: #a3a2a2;
+//     // @include filter;
+//     border: 1px solid #aaa;
+//     border-radius: 4px;
+//     height: auto;
+//     padding: .9rem;
+// }
+ 
+// .select2-dropdown {
+//     font-family: $font-family;
+//     background-color: #d8d2d2eb;
+//     /* color: white; */
+//     border: 1px solid #aaa;
+//     border-radius: 4px;
+//     box-sizing: border-box;
+//     display: block;
+//     position: absolute;
+//     left: -100000px;
+//     width: 100%;
+//     z-index: 1051;
+// }
+
+// .select2-selection--multiple
+// {
+//   font-family: $font-family;
+//   background: none !important;
+//   border-color: $inptColor !important;
+  
+// }
+// .select2-container--default.select2-container--focus{
+//   border-color: $inptColor !important;
+// }
+// .select2-selection--multiple .select2-selection__choice,.select2-selection__choice__remove
+// {
+//   color: $inptColor;
+// }
+

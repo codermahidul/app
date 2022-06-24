@@ -1,0 +1,21 @@
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Title:</label>
+        <input type="text" autocomplete="off" class="input-white min-radus " name="title" id="title<?=$edit?>">
+    </div>
+
+
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Type:</label>
+        <select id="type<?=$edit?>" name="type" class="input-white min-radus select-css  ">
+            <option value=""></option>
+            <?php  include($VIEW_PATH_ADMIN_INCLUDE."Setting/modal/ProofOptions.phtml");?>
+
+            
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Orders:</label>
+        <input type="number" autocomplete="off" class="input-white min-radus " name="orders" id="orders<?=$edit?>">
+    </div>

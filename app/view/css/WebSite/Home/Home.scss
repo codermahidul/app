@@ -1,0 +1,23 @@
+@import '../../Common/tag';
+@import '../../Common/slice';
+@import '../../Common/image';
+@import '../../Common/tag';
+@import '../Common/Common.scss';
+@import '../../Common/horizontalScrolling';
+@import '../../Common/Text';
+
+.grid-row
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.text-left
+{
+    text-align: left;
+}
+
+.text-right
+{
+    text-align: right;
+}

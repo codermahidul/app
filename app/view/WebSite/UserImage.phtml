@@ -1,0 +1,19 @@
+    <?php
+
+    $imgurl =$URL_Domain.$VIEW_PATH_INCLUDE."imgs/user_defult.jpg";
+    if ($user_image !== "" && $user_image !== null) {
+        $imgurl = $URL_PATH . "uploads/user/" . $user_id . '/profile/image/small/' . $user_image;
+    }
+
+    if($user_id !=='0' && isset($user_id)){
+    ?>
+    <a class="mb-2 mt-2 d-flex align-items-center" href="<?= $URL_Domain ?><?= $display_name_slug ?>">
+        <div class="col-md-1">
+            <img class="sm-img" src="<?= $imgurl ?>" alt="<?= $display_name_slug ?>">
+        </div>
+        <div class="col-md-2 ms-1 text-muted">
+            <?= $display_name ?>
+        </div>
+    </a>
+    <?php }?>
+

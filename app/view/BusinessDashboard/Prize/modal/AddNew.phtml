@@ -1,0 +1,46 @@
+<div class="modal fade bd-example-modal-lg" id="ModalAdd" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Prize</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="addnewfrm">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Title:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="title" name="title">
+                    </div>
+
+               
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Value:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="jvalues" name="jvalues">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Number of inventory:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="jnumber" name="jnumber">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description:</label>
+                        <textarea rows="5" class="form-control min-radus " id="description" name="description"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <input accept=".png, .jpg, .jpeg" type="file" name="main_image" id="main_image" class="fileinputs">
+
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="ModalAdd" id="btnaddnew" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

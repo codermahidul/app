@@ -1,0 +1,149 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" style="background: gainsboro;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <i class="bi bi-search"></i>
+        </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="covers row mt-3 mb-3 ms-1 me-1 mr-1 p-1">
+            <?php if ($data['category_search'] == 'true') { ?>
+                <div class="col-md-12 ">
+                    <div class="mb-3">
+                    <div id="more_cat2"></div>
+                    </div>
+                </div>
+            <?php } ?>
+            <div class="col-md-12 ">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Title:</label>
+                    <input type="text" autocomplete="off" class="form-control min-radus " id="titlese">
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Sort:</label>
+                    <select id="orderser" class="form-control ">
+                        <option value=""></option>
+                        <option value="id,desc">The Newest</option>
+                        <option value="id,asc">The Oldest</option>
+                        <option value="title,asc">A-Z</option>
+                        <option value="title,desc">Z-A</option>
+                    </select>
+                </div>
+            </div>
+
+            <?php if (isset($data['program_search'])) { ?>
+                <div class="col-md-12 ">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Program Type:</label>
+                        <select id="typeP" class="form-control ">
+                            <option value=""></option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12 ">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Category:</label>
+                        <select id="categoryP" class="form-control ">
+                            <option value=""></option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Award Section:</label>
+                        <select id="awardP" class="form-control ">
+                            <option value=""></option>
+
+                        </select>
+                    </div>
+                </div>
+            <?php } ?>
+
+            <?php if (isset($data['have_price'])) { ?>
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Price:</label>
+                        <label class="radiobox">$0.0-$65.0
+                            <input type="radio" value="0-65" name="price" id="price">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox">$65.0-$110.0
+                            <input type="radio" value="65-110" name="price" id="price2">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox">$110.0-$175.0
+                            <input type="radio" value="110-175" name="price" id="price3">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox">$175.0-$300.0
+                            <input type="radio" value="175-300" name="price" id="price4">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox">$300.0+
+                            <input type="radio" value="300" name="price" id="price5">
+                            <span class="chmr"></span>
+                        </label>
+
+                    </div>
+                </div>
+            <?php } ?>
+
+            <?php if (isset($data['have_rating'])) { ?>
+                <div class="col-md-12">
+                    <div class="mb-3 ">
+                        <label for="recipient-name" class="col-form-label">Rating:</label>
+                        <label class="radiobox text-warning ">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <input type="radio" value="4" name="rate" id="rate">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <input type="radio" value="3" name="rate" id="rate2">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <input type="radio" value="2" name="rate" id="rate3">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <input type="radio" value="1" name="rate" id="rate4">
+                            <span class="chmr"></span>
+                        </label>
+
+
+                    </div>
+                </div>
+            <?php } ?>
+
+
+
+            <div class="col-md-12 text-center mb-2 mt-2">
+                <button class="btn btn-prim SearchBtn inp-enter" id="SerachBtn">search</button>
+                <button class="btn resetBtn" id="resetBtn">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,203 @@
+<?php
+$datas = $data['data'][0];
+
+$webSite = $data['webSite'];
+
+$Skill = $data['Skill'];
+
+$Language = $data['Language'];
+$report = $data['report'];
+$table = "user";
+$item_id = $datas->id;
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+?>
+
+<input type="text" value="<?=$data['logged']?>" hidden id="logged">
+
+<div class="contains-item-page position-relative">
+    <div class="row p-1 ">
+    <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Networks" class="text-muted txt-small">Networks</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>UserDetailProfile/<?= $datas->display_name_slug ?>" class="text-muted txt-small"><?= $datas->display_name ?></a>
+        </div>
+
+    </div>
+    <div class="mb-2 mt-2 d-flex justify-content-center">
+        <?php
+        $imgurl = "";
+        $bannerurl = "";
+        if ($datas->banner !== "" && $datas->banner !== null) {
+            $bannerurl = $URL_PATH . 'uploads/user/' . $datas->id . '/profile/banner/thumb/' . $datas->banner;
+        } else {
+            $bannerurl = $VIEW_PATH . "imgs/default-banner.jpg";
+        }
+
+        if ($datas->image !== "" && $datas->image !== null) {
+            $imgurl = $URL_PATH . 'uploads/user/' . $datas->id . '/profile/image/small/' . $datas->image;
+        } else {
+            $imgurl = $VIEW_PATH . "imgs/user_defult.jpg";
+        }
+        ?>
+        <img class="img-radus" src="<?= $bannerurl ?>" alt="<?= $datas->display_name_slug ?>">
+        <?php  ?>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <div class="covers2 contains-item2 margin-top-negative position-relative">
+            <img class="profile-image" src="<?= $imgurl ?>" alt="<?= $datas->display_name_slug ?>">
+
+            <div class=" text-center mt-4 mb-5 ">
+                <h4><strong><?= $datas->display_name ?></strong></h4>
+            </div>
+
+
+            <div class="mb-5 mt-2 text-muted border-bottom">
+                <div class="mt-2 mb-2">
+                    <i class="bi bi-layout-text-window mr-2"> </i><?= $datas->headline ?>
+                </div>
+
+                <div class="mt-2 mb-4">
+                    <i class="bi bi-geo-alt mr-2"></i> <?= $datas->country_name ?>
+                </div>
+
+
+            </div>
+
+            <div class=" text-start border-bottom">
+                <h6><strong>Activitys</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 grids">
+
+
+                <div class="covers  m-1">
+                    <div class="text-muted">
+                        <small>Number of rate with actual purchase</small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong><?= number_format($datas->product_rate_bought) ?></strong>
+                        </small>
+                    </div>
+                </div>
+
+                <div class="covers  m-1">
+                    <div class="text-muted">
+                        <small>Number of rate without actual purchase</small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong><?= number_format($datas->rate_not_bought) ?></strong>
+                        </small>
+                    </div>
+                </div>
+
+                <div class="covers  m-1">
+                    <div class="text-muted">
+                        <small>Number of Review with actual purchase</small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong><?= number_format($datas->comment_bought) ?></strong>
+                        </small>
+                    </div>
+                </div>
+
+                <div class="covers  m-1">
+                    <div class="text-muted">
+                        <small>Number of Review without actual purchase</small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong><?= number_format($datas->comment_not_bought) ?></strong>
+                        </small>
+                    </div>
+                </div>
+                <div class="covers  m-1">
+                    <div class="text-muted">
+                        <small>Number of Comment</small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong><?= number_format($datas->comment_bought + $datas->comment_not_bought) ?></strong>
+                        </small>
+                    </div>
+                </div>
+                <div class="covers  m-1">
+                    <!-- <a class="hrefs" href="<?= $URL_Domain ?>UserFormulaStory/<?= $datas->display_name_slug ?>"> -->
+                    <div class="text-muted">
+                        <small>Number of other people like on his comment</small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong><?= number_format($datas->comment_like_bought + $datas->comment_like_not_bought) ?></strong>
+                        </small>
+                    </div>
+                    <!-- </a> -->
+                </div>
+
+            </div>
+            <div class=" text-start border-bottom">
+                <h6><strong>About</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= $datas->about ?></div>
+
+            <?php if ($webSite->data->total > 0) { ?>
+                <div class=" text-start border-bottom">
+                    <h6><strong>WebSite</strong></h6>
+                </div>
+
+
+                <?php foreach ($webSite->data->data as $d) {
+                ?>
+                    <div class="mb-3 mt-2 text-muted">
+                        <a href="<?= $d->website_url ?>" class="hrefs"><?= $d->website_title ?></a>
+
+                    </div>
+                <?php
+
+                } ?>
+            <?php } ?>
+
+            <?php include $VIEW_PATH_INCLUDE . "WebSite/ProfileTimeLine.phtml"; ?>
+
+            <div class=" text-start border-bottom">
+                <h6><strong>Share</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted">
+                <?php
+                $title = $datas->title;
+                $id = $datas->id;
+                $type="business";
+                $url =  $URL_Domain . "UserDetailProfile/" . $datas->display_name_slug;
+                include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+            </div>
+
+
+            <div class="mt-2 mb-3">
+                <?php
+                $user_image = $datas->user_image;
+                $display_name = $datas->display_name;
+                $display_name_slug = $datas->display_name_slug;
+                $user_id = $datas->user_id;
+                include $VIEW_PATH_INCLUDE . "WebSite/UserImage.phtml"; ?>
+            </div>
+
+            <div class=" mt-2 mb-4">
+                <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+</div>

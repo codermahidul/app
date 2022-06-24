@@ -1,0 +1,35 @@
+<?php
+
+$datas = $data['data'][0];
+
+
+?>
+
+<div class="m-1 covers ">
+    <form id="frmEdit">
+        <div class="row m-top text-dark">
+
+
+            <?php
+            $titleSearch = "Choose Business Name for  get data";
+            $idInput = "searchVal";
+            $idResult = "resultB";
+            include $VIEW_PATH_INCLUDE . "AutoComplete.phtml";
+            ?>
+
+            <?php
+            $titleSearch = "Choose Business Name for move data";
+            $idInput = "searchVal2";
+            $idResult = "resultB2";
+            include $VIEW_PATH_INCLUDE . "AutoComplete.phtml";
+            ?>
+
+
+        </div>
+    </form>
+    <diw class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-prim btn-lg" id="saveBtn">Move All Data</button>
+        </div>
+    </diw>
+</div>

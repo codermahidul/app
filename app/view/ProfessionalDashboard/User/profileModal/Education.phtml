@@ -1,0 +1,66 @@
+<div class="modal fade bd-example-modal-lg" id="modalEducation" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Education</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmEducation">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">School  :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="school" id="school">
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Degree :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="degree" id="degree">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Field of study :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="field_study" id="field_study">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Start Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="education_start_date" id="education_start_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">End Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="education_end_date" id="education_end_date">
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Grade :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="grade" id="grade">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Activities and societies :</label>
+                        <textarea rows="5" autocomplete="off" class="input-white min-radus " name="activitys" id="activitys"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description :</label>
+                        <textarea rows="5" autocomplete="off" class="input-white min-radus " name="description_education" id="description_education"></textarea>
+                    </div>
+                    <?php
+                  //  include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button id="educatinBtn" data-editid="" data-edit="false" data-id="modalEducation" type="button" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+@import '../Variable/position';
+@import '../Variable/Colors';
+@import '../Variable/Fonts';
+
+@mixin inputs($Color:$inptColor) {
+  font-family: $font-family;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: .7rem;
+    position: relative;
+    width: 100%;
+    border: none;
+    background: $bc-input;
+    @include filter;
+    border-top: $borderShadowColor;
+    border-left: $borderShadowColor;
+    box-shadow: $shadowColor;
+    transition: color 0.3s ease-out;
+    color: $Color;
+}
+@mixin focose-input($color:#212529) {
+    color: $color;
+    background-color: $bc-input;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #d9e3f340;
+}
+
+.input{
+    @include inputs($inptColor);
+   
+  }
+
+
+  .input-white{
+    @include inputs($white);
+  }
+  .max-radius
+  {
+    border-radius: 18px;
+  }
+  .min-radus
+  {
+    border-radius: 5px;
+  }
+  .middle-radius
+  {
+    border-radius: 25px;
+  }
+
+  .middle-radius-top-right
+  {
+    border-top-right-radius: 20px;
+  }
+
+  .middle-radius-top-left
+  {
+    border-top-left-radius: 20px;
+  }
+
+  .middle-radius-bottom-left
+  {
+    border-bottom-left-radius: 20px;
+  }
+
+  .middle-radius-bottom-right
+  {
+    border-bottom-right-radius: 20px;
+  }
+
+
+  .input:focus
+  {
+    @include focose-input(#212529);
+  }
+  .input-white:focus
+  {
+    @include focose-input($white);
+  }
+  .icons-input
+  {
+    @include absoluteTopRight(15px,30px);
+    font-size: larger;
+    color: $white;
+  }
+
+
+  

@@ -1,0 +1,37 @@
+<?php if ($total > 0) {
+    $classes = "grids p-2";
+    $class_img = "";
+    if ($total > 5)
+        $classes = "multiple-items p-2";
+        $class_img = "img-sam-size";
+?>
+    <div class="covers mb-2 mt-2">
+        <div class="grid-row mb-2 mt-4 ">
+            <div class="text-left"><strong><?= $title_name ?></strong></div>
+            <div class="text-end"><strong><a class="hrefs" href="<?= $URL_Domain ?><?= $url_person ?>">See More</a></li></strong></div>
+        </div>
+        <div class="<?= $classes ?>">
+            <?php foreach ($data as $d) {
+                if ($d->file_url !== "" && $d->file_url !== null) {
+                    $imgurl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+                } else {
+                    $imgurl = $VIEW_PATH . "imgs/defult.jpg";
+                }
+            ?>
+                <a href="<?= $URL_Domain ?><?= $detailLink ?>/<?= $d->title_slug ?>" class="hrefs">
+                    <div class="card-contain covers">
+                        <div class="card-image ">
+                            <img src="<?= $imgurl ?>" alt="<?= $d->title_slug ?>" class="<?= $class_img ?>">
+                        </div>
+                        <div class="card-details">
+                            <div class="h5"><?= $d->title ?></div>
+                            <div class="mt-1 min-text-show">
+                                <small class="text-muted"><?= $d->description ?></small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>

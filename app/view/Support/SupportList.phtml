@@ -1,0 +1,56 @@
+<?php
+
+include_once $VIEW_PATH_INCLUDE . "Support/modal/Add.phtml";
+
+?>
+<div class="covers">
+
+    <div class="covers m-top mb-3">
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <small id="btnAdd" class="btn btn-prim btn-lg ">
+                    <i class="bi bi-plus-lg mr-2"></i> Add Ticket
+                </small>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">ID:</label>
+                    <input type="text" autocomplete="off" class="form-control min-radus " id="idSearchs" name="idSearch">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Topic:</label>
+                    <select class="form-control" id="topicS"></select>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Priority:</label>
+                    <select class="form-control" id="priorityS"></select>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-2 text-center">
+                <button id="searchbtn" class="btn btn-prim btn-lg">
+                    <i class="bi bi-search mr-2"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <table width="100%" class="table table-striped table-hover dt-responsive display dataTable" id="m_table_1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Topic</th>
+                <th>Priority</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>

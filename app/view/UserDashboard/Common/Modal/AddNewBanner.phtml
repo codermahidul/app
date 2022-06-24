@@ -1,0 +1,41 @@
+<div class="modal fade bd-example-modal-lg" id="ModalAdd" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Banner Price</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="addFrm">
+
+                    <?php include_once $VIEW_PATH_INCLUDE . "Admin/modal/BannerItem.phtml"; ?>
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Link:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="link" name="link">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">numbers:</label>
+                        <input type="number" autocomplete="off" class="form-control min-radus " id="numbers" name="numbers">
+                    </div>
+                    
+
+
+                    <div class="mb-3">
+                        <input accept=".png, .jpg, .jpeg,.gif" type="file" name="main_image" id="main_image" class="fileinputs">
+
+                    </div>
+                    <input type="text" hidden name="creator_type" value="<?=$data['creator_type']?>">
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="ModalAdd" id="btnSave" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

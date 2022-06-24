@@ -1,0 +1,34 @@
+<?php
+
+$img = "";
+$indexB='0';
+$show=true;
+
+$class="";
+if(isset( $indexBanner) )
+{
+    if(count((array)$data['bigBanner']) > $indexBanner)
+    {
+        $indexB=$indexBanner;
+        
+    }else
+    {
+        $show=false;
+    }
+}
+if (count((array)$data['bigBanner']) > 0) {
+
+        $d = $data['bigBanner'][$indexB];
+        $img = $URL_PATH . $d->file_url . "/" . $d->file_name;
+        if($d->calculate_type=='click')
+        {
+            $class="clickBanner";
+        }
+
+}
+if ($img !== "" && $show) {
+?>
+    <div class="col-md-12 text-center mt-3">
+        <a class="<?=$class?>" data-id="<?=$d->id?>" href="<?= $d->link ?>"><img class="img-radus" src="<?= $img ?>" alt="adBanner"></a>
+    </div>
+<?php } ?>

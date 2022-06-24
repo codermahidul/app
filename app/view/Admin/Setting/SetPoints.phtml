@@ -1,0 +1,46 @@
+<?php
+
+$datas = $data['data'][0];
+
+
+?>
+
+<div class="m-1 covers ">
+    <form id="frmEdit">
+        <div class="row m-top">
+
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Comment rating for the person who bought the product:</label>
+                <input type="number" value="<?= $datas->comment_bought ?>" autocomplete="off" class="form-control min-radus " id="comment_bought" name="comment_bought">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Comment rating for the person who did not purchase the product:</label>
+                <input type="number" value="<?= $datas->comment ?>" autocomplete="off" class="form-control min-radus " id="comment" name="comment">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">The rating of the person who purchased the product and registered the rating:</label>
+                <input type="number" value="<?= $datas->rate_bought ?>" autocomplete="off" class="form-control min-radus " id="rate_bought" name="rate_bought">
+            </div>
+
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">The rating of the person who did not buy the product and registered the rating:</label>
+                <input type="number" value="<?= $datas->rate ?>" autocomplete="off" class="form-control min-radus " id="rate" name="rate">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">The rating of like person comment:</label>
+                <input type="number" value="<?= $datas->likes ?>" autocomplete="off" class="form-control min-radus " id="likes" name="likes">
+            </div>
+
+        </div>
+    </form>
+    <diw class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-prim btn-lg" id="saveBtn">Save</button>
+        </div>
+    </diw>
+</div>

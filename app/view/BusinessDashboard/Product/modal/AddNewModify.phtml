@@ -1,0 +1,107 @@
+<div class="modal fade bd-example-modal-lg" id="ModalAdd" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="addnewfrm">
+                    <div class="mb-3 row">
+                        <label for="recipient-name" class="col-form-label">Select a city or select an online option for all cities</label>
+
+                        <div class="col-md-3">
+                            <label class="chboxs ">Online
+                                <input type="checkbox" id="online" name="online" value="1">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+
+                            <select style="width: 100%;" id="country_id" name="country_id" class="form-control select2">
+
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select style="width: 100%;" name="province_id" id="province_id" class="form-control select2"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <select style="width: 100%;" name="city_id" id="city_id" class="form-control select2"></select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Title:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="title" name="title">
+                    </div>
+
+                    <div class="mb-3">
+                        <!-- <label for="recipient-name" class="col-form-label">Category:</label> -->
+                        <!-- <div data-dismiss="modal" type="text" class="form-control p-3 min-radus point" id="category_id"></div> -->
+
+                    </div>
+                    <div class="mb-3 " id="more_cat"></div>
+
+                    <div class="mb-3">
+                        <button type="button" id="add_more_cat" data-id="more_cat" class="btn btn-glass">Add More</button>
+                        <button type="button" id="reset_cat" data-id="more_cat" class="btn btn-danger m-1">Remove All</button>
+
+                    </div>
+
+                    <div class="mb-3 row" id="more_link">
+                        <div class="col-md-4">
+                            <label for="recipient-name" class="col-form-label">Link type:</label>
+                            <select id="ltype1" class="form-control min-radus select-css ">
+                                <option value=""></option>
+                                <option value="buy">Buy</option>
+                                <option value="video">Video</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="recipient-name" class="col-form-label">Link Title:</label>
+                            <input id="ltitle1" type="text" autocomplete="off" class="form-control min-radus ">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="recipient-name" class="col-form-label">Link Address:</label>
+                            <input id="ltag1" type="text" autocomplete="off" class="form-control min-radus ">
+                        </div>
+
+
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="button" id="add_more_links" data-id="more_link" class="btn btn-glass">Add More</button>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Price:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="price" name="price">
+                    </div>
+
+
+
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description:</label>
+                        <textarea rows="5" class="form-control min-radus " id="description" name="description"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <input accept=".png, .jpg, .jpeg" type="file" name="product_image" id="main_image" class="fileinputs">
+
+
+                    </div>
+
+                    
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button data-edit="false" data-editid="" data-id="ModalAdd" id="btnaddnew" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

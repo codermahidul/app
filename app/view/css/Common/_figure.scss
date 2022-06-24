@@ -1,0 +1,217 @@
+
+
+.cui-c-featured-card-carousel {
+    display: flex;
+}
+
+figure {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+    display: block;
+}
+
+
+
+
+.cui-c-sub-featured-tile {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 #00000033;
+    height: 100%;
+    max-height: 220px;
+
+}
+
+.cui-c-sub-featured-tile .cui-sub-featured-content {
+   // display: flex;
+    height: 100%;
+    position: relative;
+}
+
+.cui-c-sub-featured-tile .cui-sub-featured-overlay {
+    background: linear-gradient(
+180deg
+,transparent,#000000a6);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.cui-c-sub-featured-tile .cui-sub-featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+
+.cui-c-sub-featured-tile .cui-sub-featured-title {
+    bottom: 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    height: 48px;
+    line-height: 24px;
+    margin-bottom: 16px;
+    overflow: hidden;
+   // padding: 0 16px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.cui-hyphenate {
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.cui-c-featured-card-carousel .cui-featured-card {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 #00000033;
+    flex: 1;
+   // height: 464px;
+    overflow: hidden;
+}
+
+.cui-c-featured-card-carousel .cui-featured-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 450px;
+    justify-content: center;
+    position: relative;
+}
+
+.cui-c-featured-card-carousel .cui-featured-overlay {
+    background: radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.3) 0,transparent 100%);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+ 
+}
+
+
+
+.cui-c-featured-card-carousel .cui-featured-text {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 16px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.cui-c-featured-card-carousel .cui-featured-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 36px;
+    margin-bottom: 8px;
+}
+
+
+@media only screen  and (min-width: 1500px) {
+    .card-ui {
+
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: .4rem;
+    }
+    .cui-sub-featured-tiles
+    {
+       display: grid;
+       grid-template-columns: repeat(auto-fill,minmax(40%,1fr));
+       gap: .4rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
+    .card-ui {
+
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: .4rem;
+    }
+    .cui-sub-featured-tiles
+    {
+       display: grid;
+       grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+       gap: .4rem;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .card-ui {
+       display: grid;
+       grid-template-rows: auto auto;
+       
+       grid-template-areas: 
+       'BigImage'
+       'ListImage' ;
+    }
+
+    .cui-featured-card
+    {
+        grid-area: BigImage;
+    }
+
+    .cui-sub-featured-tiles
+    {
+        grid-area: ListImage;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: unset;
+        overflow-x: auto;
+        padding: 1.6rem 0 .8rem;
+        scrollbar-width: none;
+        width: 100%;
+    
+    }
+
+    .cui-sub-featured-content
+    {
+        margin-right: .4rem;
+    }
+
+    .cui-sub-featured-content
+    {
+        height: 120px;
+        margin-left: 1px;
+        margin-right: unset;
+        width: 120px;
+    }
+    
+}
+
+
+@media only screen and (min-width:600px) {
+    .cui-sub-featured-tiles
+    {
+    
+        justify-content: center;
+    
+    }
+}
+
+.cui-featured-image
+{
+    height: 100%;
+    object-fit: cover;
+}

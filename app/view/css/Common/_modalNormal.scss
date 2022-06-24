@@ -1,0 +1,26 @@
+@import '../Variable/Colors';
+@import '../Variable/Fonts';
+
+.modal
+{
+    z-index: 1060000;
+    overflow: auto;
+}
+
+.modal-dialog-glass{
+
+    border-radius: $blur;
+    border: 1px solid #ffffff47;
+    box-shadow: 0px 0px 20px 0 #00000091 ;
+    color: gray;
+    font-family: $font-family;
+}
+
+.modal-header-glass
+{
+    border-bottom: none;
+}
+.modal-footer-glass
+{
+    border-top: none;
+}

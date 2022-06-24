@@ -1,0 +1,74 @@
+<div class="covers m-top">
+
+    <div class="covers mt-1 mb-3">
+        <form id="searchfrm">
+            <div class="row">
+            <div class="col-md-12 mb-2">
+                <small id="addNewBtn" class="btn btn-prim btn-lg ">
+                    <i class="bi bi-plus-lg mr-2"></i> Add <?=$btn_title?>
+                </small>
+            </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">ID:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="idSearchs" name="idSearch">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title:</label>
+                        <input type="text" autocomplete="off" class="form-control min-radus " id="titlese">
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Category:</label>
+                        <div data-dismiss="modal" type="text" class="form-control point p-3" id="categorysearch_id"></div>
+                        <input type="text" hidden class="form-control point" id="categorys_id">
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Disabled:</label>
+                        <select id="trashSearch" class="form-control ">
+                            <option value=""></option>
+                            <option value="0" >No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 mb-2 text-center">
+                    <button type="button" id="searchbtn" class="btn btn-prim btn-lg">
+                        <i class="bi bi-search mr-2"></i> Search
+                    </button>
+                    <button id="reset" type="button" class="btn  btn-lg">
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <table width="100%" class="table table-striped table-hover dt-responsive display datatable" id="m_table_1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Disabled</th>
+                <!-- <th>Post Date</th> -->
+                <th>Action</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>

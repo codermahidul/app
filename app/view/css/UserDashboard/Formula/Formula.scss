@@ -1,0 +1,28 @@
+
+@import '../../Common/body';
+@import '../../Common/inputNormal';
+@import '../../Variable/Colors';
+@import '../../Variable/Fonts';
+@import '../../Variable/Size';
+@import '../../Common/button';
+@import '../../Common/layout';
+@import '../../Common/modalNormal';
+@import '../../Common/radio';
+
+@import '../../Common/table';
+@import '../../Common/tag';
+
+body
+{
+  @include bodysUserDashboard();
+}
+
+.hrefs
+{
+    color: $dashboardUserMenuColor !important;
+}
+
+.select2-container
+{
+    z-index:  100 !important;;
+}

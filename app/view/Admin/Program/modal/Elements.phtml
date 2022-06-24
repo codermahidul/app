@@ -1,0 +1,135 @@
+<div class="mb-3 row">
+    <label for="recipient-name" class="col-form-label">Select a city </label>
+    <!-- <label for="recipient-name" class="col-form-label">Select a city or select an online option for all cities</label> -->
+    <!-- 
+    <div class="col-md-3">
+        <label class="chboxs ">Online
+            <input type="checkbox" id="online" name="online" value="1">
+            <span class="checkmark"></span>
+        </label>
+    </div> -->
+    <div class="col-md-4">
+
+        <select style="width: 100%;" name="country_id" id="country_id<?= $edit ?>" class="form-control select2One<?= $edit ?>">
+
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select style="width: 100%;" name="province_id" id="province_id<?= $edit ?>" class="form-control select2One<?= $edit ?>"></select>
+    </div>
+    <div class="col-md-4">
+        <select style="width: 100%;" name="city_id" id="city_id<?= $edit ?>" class="form-control select2One<?= $edit ?>"></select>
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"> Title:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " name="title" id="title<?= $edit ?>">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Category:</label>
+    <select style="width: 100%" class="form-control min-radus " id="category_id<?= $edit ?>"></select>
+
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Type:</label>
+    <select style="width: 100%" class="form-control min-radus " name="type" id="type<?= $edit ?>"></select>
+</div>
+
+<!-- <div class="mb-3">
+        <label for="recipient-name" class="col-form-label"> Award Section:</label>
+        <select style="width: 100%" class="form-control min-radus select2" id="program_award_section<?= $edit ?>"></select>
+    </div> -->
+
+<!-- Role start -->
+<div class="mb-3 row" id="more_role<?= $edit ?>">
+    <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label ">Role:</label>
+        <select style="width: 100%" class="input-white min-radus roles select-css" id="role<?= $edit ?>1">
+
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label">Crew:</label>
+        <select style="width: 100%" class="input-white min-radus  team-search select-css" multiple id="team_id<?= $edit ?>1">
+
+        </select>
+    </div>
+
+</div>
+<div class="mb-3">
+    <button type="button" id="add_more_role<?= $edit ?>" data-id="more_role<?= $edit ?>" class="btn btn-glass">Add More</button>
+</div>
+
+<!-- Role End -->
+
+<!-- guest start -->
+<div class="mb-3 row" id="more_guest<?= $edit ?>">
+    <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label">Search Guest:</label>
+        <select style="width: 100%" class="input-white min-radus  guest-search select-css" multiple id="guest<?= $edit ?>1">
+
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label">Link:</label>
+        <input id="links<?= $edit ?>1" type="text" autocomplete="off" class="form-control min-radus ">
+
+    </div>
+
+</div>
+<div class="mb-3">
+    <button type="button" id="add_more_guest<?= $edit ?>" data-id="more_guest<?= $edit ?>" class="btn btn-glass">Add More</button>
+</div>
+<!-- guest end -->
+
+<!-- link start -->
+<div class="mb-3 row" id="more_link<?= $edit ?>">
+    <div class="col-md-4">
+        <label for="recipient-name" class="col-form-label">Link type:</label>
+        <select id="ltype<?= $edit ?>1" class="form-control min-radus select-css ">
+            <option value=""></option>
+            <option value="play">Multiple Play Links</option>
+            <option value="download">Multiple Download Links</option>
+
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="recipient-name" class="col-form-label">Link Title:</label>
+        <input id="ltitle<?= $edit ?>1" type="text" autocomplete="off" class="form-control min-radus ">
+    </div>
+    <div class="col-md-4">
+        <label for="recipient-name" class="col-form-label">Link Address:</label>
+        <input id="ltag<?= $edit ?>1" type="text" autocomplete="off" class="form-control min-radus ">
+    </div>
+
+
+</div>
+
+<div class="mb-3">
+    <button type="button" id="add_more_links<?= $edit ?>" data-id="more_link<?= $edit ?>" class="btn btn-glass">Add More</button>
+</div>
+<!-- link end -->
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Video Link:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " name="video_link" id="video_link<?= $edit ?>">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Photographer Name:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " name="photographer_name" id="photographer_name<?= $edit ?>">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Tags:</label>
+    <textarea rows="5" class="form-control min-radus " name="tags" id="tags<?= $edit ?>"></textarea>
+</div>
+
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Description:</label>
+    <textarea rows="5" class="form-control min-radus " name="description" id="description<?= $edit ?>"></textarea>
+</div>

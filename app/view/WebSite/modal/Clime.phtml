@@ -1,0 +1,55 @@
+<div class="modal fade bd-example-modal-lg" id="ModalClime" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Claim </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Please enter following info to show you own this.</h5>
+                    </div>
+                    <div class="col-md-12 mt-5 mb-3">
+                        <p class="bolds" id="title_item_cl"></p>
+                    </div>
+                </div>
+                <form id="frmNewClime">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="recipient-name" class="col-form-label"> Your Name</label>
+                            <input type="text" class="form-control" readonly name="display_name_user_cl" id="display_name_user_cl">
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="recipient-name" class="col-form-label">Your Email</label>
+                            <input type="text" class="form-control" name="email" id="email_online_cl">
+
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Description</label>
+                        <textarea rows="5" class="form-control" name="description" id="reason"></textarea>
+                    </div>
+
+                    <input type="text" value="" hidden name="user_business_id" id="creators_id">
+                    <input type="text" value="" hidden name="items_type" id="items_type">
+                    <input type="text" value="" hidden name="items_id" id="items_id">
+                    <div class="mb-3">
+                        <input accept=".png, .jpg, .jpeg, .pdf,.doc, .docx" type="file" name="main_image" id="main_image" multiple class="fileInputsClime">
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-table="<?= $table ?>" data-item="<?= $item_id ?>" data-id="modalAddComment" id="addClaim" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

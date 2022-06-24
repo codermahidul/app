@@ -1,0 +1,41 @@
+
+<?php
+
+foreach ($items as $d) {
+$imgUserUrl = "";
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUserUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUserUrl =  $VIEW_PATH . "imgs/user_defult.jpg";
+}
+
+$bannerUserUrl = "";
+
+
+if ($d->banner_file_url !== "" && $d->banner_file_url !== null) {
+    $bannerUserUrl = $URL_PATH . $d->banner_file_url . '/small/' . $d->banner_file_name;
+} else {
+    $bannerUserUrl =  $VIEW_PATH . "img/1640011298508.jpg";
+}
+
+
+?>
+<div class="item">
+    <!-- <a href="network-details.html"> -->
+        <div class="all-item">
+            <img class="pic-img" src="<?=$bannerUserUrl?>">
+
+            <img class="picture-image" src="<?=$imgUserUrl?>">
+            <p></p>
+            <span class="NAM"><?= $d->display_name ?></span><br>
+            <span class="NAM"><?= substr($d->headline, 0, 100) . '...' ?></span>
+
+            <span> <br><i class="fas fa-remove-format mutual"></i>
+            <span class="mutual" >1 mutual connection</span>
+            <!-- <a class="mutual" href="#">1 mutual connection</a> -->
+        </span>
+            <button class="connect-button"><a class="connect-link" href="<?= $URL_Domain ?><?= $d->display_name_slug ?>">Connect</a></button>
+        </div>
+    <!-- </a> -->
+</div>
+<?php } ?>

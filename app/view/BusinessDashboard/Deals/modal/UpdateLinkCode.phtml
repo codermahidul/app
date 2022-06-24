@@ -1,0 +1,29 @@
+<div class="modal fade bd-example-modal-lg" id="ModalEdit" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Value</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <form id="linkFrm">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Value</label>
+                        <input type="text" class="form-control" name="link_code" id="link_code">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> How many times can it be used?</label>
+                        <input type="text" class="form-control" name="used" id="used">
+                    </div>
+                    <input type="text" hidden name="idSearchLink" id="idSearchLink">
+                </form>
+            </div>
+            <div class="modal-footer-glass modal-footer">
+                <button data-id="ModalEdit" id="btnLinkCodeEdit" type="button" class="btn  btn-glass">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>

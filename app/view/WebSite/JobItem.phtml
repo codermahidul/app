@@ -1,0 +1,55 @@
+<?php foreach ($items as $d) {
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+}
+
+$ad="";
+if($d->top_show_id !=null)
+{
+    $ad="<span class='text-success'>Ad </span> ";
+}
+
+
+$types=[];
+$levels=[];
+$skills=[];
+$salaries=[];
+if($d->type !=='' && $d->type!==null)
+$types=explode(",",$d->type);
+if($d->level !=='' && $d->level!==null)
+$levels=explode(",",$d->level);
+if($d->skill !=='' && $d->skill!==null)
+$skills=explode(",",$d->skill);
+if($d->salary !=='' && $d->salary!==null)
+$salaries=explode(",",$d->salary);
+
+?>
+
+<div class="item">
+    <a href="<?= $URL_Domain ?><?= $url ?>/<?= $d->title_slug ?>">
+        <div class="card jobcard">
+            <div class="h4"><?=$ad?><?= $d->title ?></div>
+            <i class="fas fa-heart hrt"></i>
+            <p><i class="fas fa-map-marker-alt"></i> <span>
+            <?php if ($datas->online == '0') { ?>
+                    <?= $datas->country_name ?> <?= $datas->province_name ?> <?= $datas->city_name ?>
+                <?php } else { ?>
+                    <strong>Online</strong>
+                <?php } ?>
+                
+            </span></p>
+            <p><i class="fas fa-briefcase"></i> <span><?php if(count($types)>0){ foreach(array_slice($types, 0, 3) as $t){?><span class="bag-gray m-1"><?=$t?></span><?php }}?></span></p>
+            <p><i class="fas fa-money-bill-alt"></i><span>
+            <?php if(count($salaries)>0){ foreach(array_slice($salaries, 0, 3) as $t){?><span class="bag-defult m-1"><?=$t?></span><?php }}?>
+            </span></p>
+            <div class="dateline">
+                <p>Posted <?=$d->created_at?> </p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<?php } ?>

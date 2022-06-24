@@ -1,0 +1,703 @@
+<?php if ($experience->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Experience</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($experience->data->data as $d) {
+            $show = true;
+            //$show = false;
+         
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+            $str = "";
+            $end = 'false';
+            if ($d->experience_now == '0') {
+                $str = "d";
+                $end = 'true';
+            }
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->experience_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->experience_end_date ?><?php } else { ?>Now <?php } ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->title ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            <i class="bi bi-info-circle"></i> <?= $d->employment_type ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            <i class="bi bi-building"></i> <?= $d->company ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            <i class="bi bi-geo-alt"></i> <?= $d->location ?>
+                        </div>
+
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+<?php if ($vExperience->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Volunteer experience</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($vExperience->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+
+            $end = 'false';
+            if ($d->user_volunteer_experience_now == '0') {
+
+                $end = 'true';
+            }
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->user_volunteer_experience_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->user_volunteer_experience_end_date ?><?php } else { ?>Now <?php } ?>
+
+                            <?= $d->user_volunteer_experience_end_date ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->user_volunteer_experience_description ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller mb-2">
+                            Role: <?= $d->role ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller mb-2">
+                            organization: <?= $d->organization ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Cause: <?= $d->cause ?>
+                        </div>
+
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+<?php if ($Skill->data->total > 0) { ?>
+
+    <div class="text-start border-bottom mt-2">
+        <h6><strong>Skills </strong></h6>
+    </div>
+    <div class="mb-5 mt-2 grids-sm ">
+        <?php
+
+        foreach ($Skill->data->data as $skill) {
+            $sname = $skill->skill_name;
+
+            if ($sname == '') {
+                $sname = $skill->proof_title;
+            }
+        ?>
+
+            <div style="width: 100%;" class="badge bg-success p-2 col-md-1 rounded-pill m-1 font-large">
+                <?= $sname ?>
+            </div>
+
+        <?php } ?>
+
+    </div>
+<?php } ?>
+
+<?php if ($Education->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Education</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Education->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+            $str = "";
+            $end = 'false';
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->education_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->education_end_date ?><?php } else { ?>Now <?php } ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->description_education ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            School: <?= $d->school ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Degree: <?= $d->degree ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Field Study: <?= $d->field_study ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Activities and societies: <?= $d->activitys ?>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+<?php if ($License->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>License or Certification</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($License->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+
+            $end = 'Yes';
+            if ($d->license_now == '0') {
+
+                $end = 'No';
+            }
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->issuin_start_date ?> To
+                            <?= $d->issuin_end_date ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->license_name ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Issuin: <?= $d->issuin ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Credential ID: <a class="hrefs" href="<?= $d->credential_url ?>"><?= $d->credential_id ?></a>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Expire: <?= $end ?>
+                        </div>
+
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+
+<?php if ($Publication->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Publication</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Publication->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->publication_date ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><a class="hrefs" href="<?= $d->publication_url ?>">
+                                    <?= $d->title_publication ?>
+                                </a></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Publication/Publisher: <?= $d->publisher ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Author: <?= $d->author ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            <?= $d->publication_description ?>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+
+<?php if ($Patent->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Patent</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Patent->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->issue_date ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><a class="hrefs" href="<?= $d->patent_url ?>">
+                                    <?= $d->title_patent ?>
+                                </a></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Office Country: <?= $d->country_name ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Patent or application number: <?= $d->number ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Status: <?= $d->status ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            <?= $d->publication_description ?>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+<?php if ($Course->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom row">
+        <h6><strong>Course</strong></h6>
+    </div>
+    <?php foreach ($Course->data->data as $d) {
+        $shotruealse;
+    //$show = false;
+        if ($d->is_public == '1') {
+            if ($logged == 'true' && $isFollower == 'true') {
+                $show = true;
+            }
+        }
+        if ($d->is_public == '2') {
+            $show = true;
+        }
+        if ($show) { ?>
+            <div class="col-md-12">
+                <div class="m-2 p-2">
+                    <div class="covers p-3">
+                        <div class="mb-2">
+                            <span>Name : </span>
+                            <span class="text-dark bolds"><?= $d->course_name  ?></span>
+                        </div>
+                        <div class="mb-2">
+                            <span>Number : </span>
+                            <span class="text-dark bolds"><?= $d->course_number   ?></span>
+                        </div>
+                        <div class="mb-2">
+                            <span>Associated with : </span>
+                            <span class="text-dark bolds"><?= $d->experience_title ?></span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Project->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Project</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Project->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+            $str = "";
+            $end = 'flase';
+            if ($d->project_now == '0') {
+                $str = "d";
+                $end = 'true';
+            }
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->project_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->project_end_date ?><?php } else { ?>Now <?php } ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong>
+                                <a class="hrefs" href="<?= $d->project_url ?>">
+                                    <?= $d->project_name ?>
+                                </a>
+                            </strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Associated with: <?= $d->experience_title ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Creator: <?= $d->creator ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Field Study: <?= $d->field_study ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            <?= $d->project_description ?>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+
+<?php if ($Honors->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Honors</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Honors->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->issue_date ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->honors_title ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Associated with: <?= $d->experience_title ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Issuer: <?= $d->honors_issuer ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Issuer Date: <?= $d->honors_issuer_date ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            <?= $d->honors_description ?>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+<?php if ($Score->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Score</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Score->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->score_date ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->score ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Associated with: <?= $d->experience_title ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            <?= $d->score_description ?>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>
+
+<?php if ($Language->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom row">
+        <h6><strong>Language</strong></h6>
+    </div>
+    <?php foreach ($Language->data->data as $d) {
+        $show = true;
+        if ($show) { ?>
+            <div class="col-md-12">
+                <div class="m-2 p-2">
+                    <div class="covers p-3">
+                        <div class="mb-2">
+                            <span>Language : </span>
+                            <span class="text-dark bolds"><?= $d->language  ?></span>
+                        </div>
+                        <div class="mb-2">
+                            <span>Proficiency : </span>
+                            <span class="text-dark bolds"><?= $d->proficiency   ?></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    <?php
+        }
+    } ?>
+
+<?php } ?>
+
+
+<?php if ($Organization->data->total > 0) { ?>
+    <div class="mt-5 text-start border-bottom">
+        <h6><strong>Organization</strong></h6>
+    </div>
+    <div class="timeline mt-2 mb-5">
+        <?php
+        $i = 0;
+        foreach ($Organization->data->data as $d) {
+            $show = true;
+            //$show = false;
+            // if ($d->is_public == '1') {
+            //     if ($logged == 'true' && $isFollower == 'true') {
+            //         $show = true;
+            //     }
+            // }
+            // if ($d->is_public == '2') {
+            //     $show = true;
+            // }
+            $str = "";
+            $end = 'false';
+            if ($d->organization_now == '0') {
+                $str = "d";
+                $end = 'true';
+            }
+            if ($show) {
+                if ($i % 2 == 0) {
+                    $ccc = "left";
+                } else {
+                    $ccc = "right";
+                }
+                $i++;
+        ?>
+                <div class="containers <?= $ccc ?>">
+                    <div class="content">
+                        <strong>
+                            <?= $d->organization_start_date ?> To
+                            <?php if ($end == 'true') { ?> <?= $d->organization_end_date ?><?php } else { ?>Now <?php } ?>
+                        </strong>
+                        <div class="text-dark mt-2 mb-2 m-1">
+                            <strong><?= $d->organization_name ?></strong>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            Associated with: <?= $d->experience_title ?>
+                        </div>
+
+                        <div class="text-muted m-1 font-smaller">
+                            Position held : <?= $d->position ?>
+                        </div>
+                        <div class="text-muted m-1 font-smaller">
+                            <?= $d->organization_description ?>
+                        </div>
+
+                    </div>
+                </div>
+
+
+        <?php }
+        } ?>
+    </div>
+<?php } ?>

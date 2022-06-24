@@ -1,0 +1,40 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgurl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgurl = $VIEW_PATH . "imgs/defult.jpg";
+}
+
+$imgUserUrl = "";
+if ($d->user_image !== "" && $d->user_image !== null) {
+    $imgUserUrl = $URL_PATH . "uploads/user/" . $d->user_id . '/profile/image/small/' . $d->user_image;
+} else {
+    $imgUserUrl =  $VIEW_PATH . "imgs/user_defult.jpg";
+}
+
+$class_img = "img-sam-size";
+?>
+
+
+    <div class="card-image position-relative">
+        <a href="javascript:void(0);" class="hrefs">
+        <!-- <a href="<?= $URL_Domain ?><?= $data['url'] ?>/<?= $d->id ?>" class="hrefs"> -->
+            <img src="<?= $imgurl ?>" alt="<?= $d->title ?>" class="<?= $class_img ?>">
+            <!-- <div class="img-over-top bag-defult top-r-b-l-radus"><?= $d->jvalues ?></div> -->
+        </a>
+    </div>
+    <div class="card-details text-muted">
+        <div class="card-title"><?= $d->title ?></div>
+        <div class="mt-1 min-text-show">
+            <div class="text-muted">
+
+                <a class="hrefs" href="<?= $URL_Domain ?>UserDetailProfile/<?= $d->display_name_slug ?> ">
+                    <img src="<?= $imgUserUrl ?>" class="vsm-img" alt="<?= $d->display_name_slug ?>">
+                    <strong><?= $d->display_name ?> </strong>
+                </a>
+
+            </div>
+        </div>
+    </div>

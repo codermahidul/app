@@ -1,0 +1,128 @@
+@import '../../Variable/Colors';
+@import '../../Variable/Fonts';
+@import '../../Variable/Size';
+@import '../../Common/swal';
+
+.sideebaropen
+{
+    width: $widthSideMenuUser;
+}
+.sideebarclose
+{
+    width: 0;
+}
+
+.iq-sidebar {
+    position: fixed;
+    z-index: 1000;
+    top: 2.6rem;
+ 
+    height: 100%;
+    // background: $backHeaderSideMenuDashboardUser;
+    //background: linear-gradient(92deg, #d0cde1 -7.21%, #d2c0dc 118.08%);
+    // backdrop-filter: blur($blur);
+    // -webkit-backdrop-filter: blur( $blur );
+
+    transition: all 0.6s ease-in-out;
+    // box-shadow: 0 10px 20px #cdccde;
+    font-family: $font-family;
+    background-color: #fff;
+
+}
+.data-scrollbar {
+     height: 100vh;
+     overflow: auto;
+     outline: none;
+     margin-top: 1.2rem;
+}
+
+.iq-sidebar-menu {
+    position: relative;
+    margin: 0 15px;
+}
+
+.iq-sidebar-menu .iq-menu {
+    margin: 2rem 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.iq-sidebar-menu .iq-menu li {
+    list-style-type: none;
+    position: relative;
+    white-space: nowrap;
+    
+    
+}
+.sidebar-default .iq-sidebar-menu .iq-menu > li.active > a {
+    color: #292f46;
+    text-decoration: none;
+    box-shadow: 0px 0px 2px 1px #8b8bb725;
+    border: 1px solid #adb5bd54;
+    // background: #ffffff1c;
+    background-color: #3bb77e33;
+}
+
+.iq-sidebar-menu .iq-menu li a {
+    border: 1px solid transparent;
+    font-size: 16px;
+    white-space: nowrap;
+    display: block;
+    color: #292f46;
+    position: relative;
+    padding: 15px 15px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    line-height: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+    align-items: center;
+    text-transform: capitalize;
+    border-radius: 8px;
+}
+a {
+    color: $dashboardUserMenuColor;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.iq-sidebar-menu .iq-menu li ul {
+    padding-left: 0;
+    position: relative;
+}
+
+.iq-sidebar-menu .iq-menu li li {
+    margin: 0;
+    background: transparent !important;
+}
+
+.iq-sidebar-menu .iq-menu li {
+    list-style-type: none;
+    position: relative;
+    white-space: nowrap;
+ 
+}
+
+.iq-sidebar-menu .iq-menu li a .iq-arrow-right {
+    margin-right: 0px;
+    margin-left: auto;
+    font-size: 15px;
+    width: 15px;
+    transition: all 0.6s ease-in-out;
+}
+.hide
+{
+    display: none;
+}
+
+.show
+{
+    display: block;
+}
+.iq-submenu>li>a:hover,.iq-submenu>li>a:focus,.iactive
+{
+    font-weight: bold;
+    color: #3BB77E !important;
+}

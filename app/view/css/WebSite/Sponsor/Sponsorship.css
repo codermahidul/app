@@ -1,0 +1,38 @@
+.menu-wrappers {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 90%;
+}
+
+.menu-wrappers::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.child {
+  cursor: pointer;
+  min-width: 250px;
+  overflow: hidden;
+}
+
+.check-info {
+  position: absolute;
+  left: -10px;
+  font-size: larger;
+  color: #0a58ca;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #d1d1d1;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/*# sourceMappingURL=Sponsorship.css.map */

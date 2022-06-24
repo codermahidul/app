@@ -1,0 +1,60 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "assets/imgs/shop/thumbnail-1.jpg";
+}
+
+$class_img = "img-sam-size";
+?>
+
+
+
+<div class="product-cart-wrap">
+    <div class="product-img-action-wrap">
+        <div class="product-img product-img-zoom">
+            <a href="<?= $URL_Domain ?><?= $data['url'] ?>/<?= $d->title_slug ?>">
+                <img class="default-img img-sam-size" src="<?= $imgUrl ?>" alt="<?= $d->title ?>" />
+                <img class="hover-img img-sam-size" src="<?= $imgUrl ?>" alt="<?= $d->title ?>" />
+            </a>
+        </div>
+        <div class="product-action-1" style="opacity: 1;visibility: visible;background-color: transparent;border:none">
+            <a aria-label="view" class="action-btn small hover-up d-flex justify-content-center">
+                <i class="bi bi-youtube" style="font-size: xx-large;color:#3bb77e"></i>
+            </a>
+
+        </div>
+        <div class="product-badges product-badges-position product-badges-mrg">
+
+        </div>
+    </div>
+    <div class="product-content-wrap">
+        <div class="product-category">
+            <a><?= $d->program_type ?></a>
+        </div>
+        <h2><a href="<?= $URL_Domain ?><?= $data['url'] ?>/<?= $d->title_slug ?>"><?= substr($d->title, 0, 50)  ?>...</a></h2>
+     
+      
+        <div class="sold mt-1 mb-1">
+         
+            <span class="font-xs text-heading">
+                <span>Guest : </span>
+                <?php
+                $guest = explode(",", $d->program_guests);
+                foreach ($guest as $g) {
+                    $guest_item = explode("::", $g);
+                    $name = "";
+                    if ($guest_item[1] != '')
+                        $name = $guest_item[1];
+                    if ($guest_item[3] != '')
+                        $name = $guest_item[3];
+                    if ($guest_item[4] != '')
+                        $name = $guest_item[4]; ?>
+                    <span><?= $name ?></span><span> </span>
+                <?php } ?></span>
+        </div>
+
+    </div>
+</div>

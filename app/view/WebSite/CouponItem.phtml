@@ -1,0 +1,32 @@
+<?php foreach ($items as $d) {
+
+    if ($d->file_url !== "" && $d->file_url !== null) {
+        $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+    } else {
+        $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+    }
+
+    $ad="";
+    if($d->top_show_id !=null)
+    {
+        $ad="<span class='text-success'>Ad </span> ";
+    }
+  
+
+?>
+
+<div class="item">
+    <div class="coponbox">
+        <img src="<?=$imgUrl?>" alt="<?= $d->title ?>">
+        <div class="coptxt">
+            <p><i class="fas fa-map-marker-alt"></i> <?=$d->country_name?> - <?=$d->province_name?><i class="fas fa-store"></i> Dell</p>
+            <p class="offtxt"><?= $d->type_name == "Numerical" ? "$" : "" ?><?= ($d->amount) ?><?= $d->type_name == "Percent" ? " %" : "" ?> OFF</p>
+            <p><?=$ad?><?= $d->title ?></p>
+            <p><i class="fas fa-clock"></i> Expires On <?=$d->expire?></p>
+        </div>
+        <button  class="shocode"><a class="text-light" href="<?= $URL_Domain ?><?=$url?>/<?= $d->title_slug ?>">Show Code</a></button>
+
+    </div>
+</div>
+
+<?php } ?>

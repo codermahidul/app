@@ -1,0 +1,336 @@
+<?php
+$datas = $data['data'][0];
+
+$BuyTag = false;
+$socialTag = false;
+
+$links = explode(",", $datas->product_tag);
+foreach ($links as $li) {
+    $l = explode("::", $li);
+
+    if ($l[3] === "buy") {
+        $BuyTag = true;
+    }
+}
+
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "product";
+$item_id = $datas->id;
+$gallery = [];
+if ($datas->product_gallery !== null && $datas->product_gallery !== '') {
+    $gallery = explode(",", $datas->product_gallery);
+}
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddRate.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReview.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReplyComment.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Login.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Clime.phtml";
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="product_id" value="<?= $datas->id ?>">
+<input type="text" hidden id="idSearch" value="<?= $datas->id ?>">
+<input type="text" hidden id="tableType" value="product">
+<input type="text" hidden id="email_user" value="<?= $data['email_online'] ?>">
+<input type="text" hidden id="display_name_user" value="<?= $data['display_name_online'] ?>">
+<input type="text" hidden id="title_item" value="product: <?= $datas->title ?>">
+
+<div class="contains-item-page">
+    <div class="row p-1 ">
+        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Products" class="text-muted txt-small">Products</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>BusinessDetail/<?= $datas->title_slug ?>" class="text-muted txt-small"><?= $datas->title ?></a>
+        </div>
+
+    </div>
+    <div class="row position-relative">
+        <div class="col-md-12 mt-5">
+            <div class="header-h-text">
+                <h1 class="page-detail-header-title"><?= $datas->title ?></h1>
+                <span class="fw-bold text-muted ms-2">
+                    <?= number_format((float)$datas->Rating, 1, '.', '') ?>
+                </span>
+                <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                <span class="ms-2 text-muted"><?= number_format($datas->total_rate) ?> Ratings</span>
+
+            </div>
+            <div class="text-muted"><?= $datas->category_name ?></div>
+            <div class="text-muted"><?= $datas->country_name ?> <?= $datas->province_name ?> <?= $datas->city_name ?></div>
+
+        </div>
+
+        <div class="mb-2 mt-2 col-md-7">
+            <!-- slider start -->
+            <div class="slick-one">
+                <?php
+                $imgurl = $VIEW_PATH . "imgs/defult.jpg";
+                if ($datas->file_url !== "" && $datas->file_url !== null) {
+                    $imgurl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+                }
+                $imgs = [];
+                array_push($imgs, $imgurl);
+                foreach ($gallery as $g) {
+                    $attach = explode("::", $g);
+                    $file_url = $attach[1];
+                    $file_name = $attach[2];
+                    array_push($imgs, $URL_PATH . $file_url . "/thumb/" . $file_name);
+                }
+                foreach ($imgs as $img) {
+                ?>
+                    <img class="img-radus" src="<?= $img ?>" alt="<?= $datas->title_slug ?>">
+
+                <?php } ?>
+            </div>
+            <!-- slider End -->
+
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Active Ingredients </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->active_ingredients) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Age Range </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->age_range) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Item Dimensions </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->item_dimensions) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Item Form </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->item_form) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Hair Type </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->hair_type) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Liquid Volume </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->liquid_volume) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Skin type </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->skin_type) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Special Ingredients </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->special_ingredients) ?>
+            </div>
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Product Benefits </strong></h4>
+            </div>
+            <div class="mb-4 mt-2 text-muted ">
+                <?= ($datas->benefits) ?>
+            </div>
+
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Details</strong></h4>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= $datas->description ?></div>
+
+
+            <!-- rate&review -->
+            <div class="col-md-12">
+
+                <div id="ReviewDiv" class=" text-start border-bottom mt-4">
+                    <span class="h4"><strong>Customer Reviews</strong></span>
+                    <span>
+                        <button id="btnReview" data-id="<?= $datas->id ?>" class="btn hrefs mb-2">
+                            <i class="bi bi-plus-circle-fill"></i> Submit your review
+                        </button>
+
+                    </span>
+                </div>
+                <div class="mb-5 mt-2 ">
+
+                </div>
+
+                <div class="col-md-12 row">
+                    <div class="col-md-4">
+                        <span class="fw-bold h4 ms-2">
+                            <?= number_format((float)$datas->Rating, 1, '.', '') ?>
+                        </span> <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                        <span class="ms-2 text-muted"><?= number_format($datas->total_rate) ?> Ratings</span>
+                    </div>
+                    <div class="col-md-8 row justify-content-end">
+                        <div class="col-md-5 mt-2">
+                            <select id="orders_by" class="form-control">
+                                <option value="">Sort by</option>
+                                <option value="id,desc">the newest</option>
+                                <option value="id,asc">the oldest</option>
+                                <option value="like_number,desc">has the most likes</option>
+                                <option value="like_number,asc">has the least likes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 text-start mt-2">
+                            <button class="btn btn-outline-secondary" id="sortBtn">Sort</button>
+                        </div>
+                    </div>
+                </div>
+                <div class=" mt-4 mb-4 me-4" id="comments">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button id="LoadMoreComment" class="btn btn-prim" style="display: none;">Load More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-sticky col-md-4 mb-3">
+            <div class="  ">
+                <div class="mt-2 mb-3">
+                    <?php
+                    $logo = $datas->logo_url != '' && $datas->logo_url != null ? $datas->logo_url . "/small/" . $datas->logo_name : "";
+                    $display_name = $datas->display_name;
+                    $display_name_slug = $datas->display_name_slug;
+                    $user_id = $datas->user_business_id;
+                    include $VIEW_PATH_INCLUDE . "WebSite/BusinessUserImage.phtml";
+                    ?>
+                </div>
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Price</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted">
+                    <?php
+                    $price = $datas->price;
+                    $mainPrice = 0;
+                    if ($datas->amount !== null) {
+                        if ($datas->coupon_type == "Numerical") {
+                            $mainPrice = $price - $datas->amount;
+                        }
+
+                        if ($datas->coupon_type == "Percent") {
+                            $mainPrice = $price - (($price * $datas->amount) / 100);
+                        }
+                    }
+                    if ($mainPrice != 0) {
+                    ?>
+
+                        <del class="text-muted fw-bolder">$<?= number_format($price) ?></del>
+                        <strong class="text-muted fw-bolder h5">$<?= number_format($mainPrice) ?></strong>
+                        <small>
+                            <a href="<?= $URL_Domain ?>CouponDetail/<?= $datas->coupon_id ?>">
+                                <span class="bag-green h4 fw-bolder">
+                                    <?= $datas->coupon_type == "Numerical" ? "$" : "" ?>
+                                    <?= ($datas->amount) ?>
+                                    <?= $datas->coupon_type == "Percent" ? " %" : "" ?>
+                                    OFF
+                                </span>
+                            </a>
+                        </small>
+                    <?php } else { ?>
+                        <strong class="text-muted fw-bolder h5">$<?= number_format($datas->price) ?></strong>
+                    <?php } ?>
+                </div>
+
+                <?php
+                if ($datas->product_tag !== null && $datas->product_tag !== '') { ?>
+
+                    <?php if ($BuyTag) { ?>
+                        <div class="text-start border-bottom mt-4">
+                            <h4><strong>Buy Links</strong></h4>
+                        </div>
+                        <div class="mb-3 mt-2">
+                            <?php
+                            foreach ($links as $li) {
+                                $l = explode("::", $li);
+                                if ($l[3] === "buy") {
+                            ?>
+                                    <div class="mb-3 ">
+                                        <a target="blank" href="<?= $l[2] ?>" class=" text-muted">
+                                            <div class="covers bg-primary p-2 h5 text-light bg-opacity-75 text-center">
+                                                <i class="bi bi-link-45deg"></i> <?= $l[1] ?>
+                                            </div>
+                                        </a>
+
+                                    </div>
+
+                            <?php }
+                            } ?>
+                        </div>
+                    <?php } ?>
+
+                <?php } ?>
+
+
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Rate</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted">
+                    <button id="btnRate" data-cat="<?= $datas->cats_id ?>" data-id="<?= $datas->id ?>" class="btn btn  btn-outline-info fw-bold">Rate this product</button>
+
+                </div>
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Review</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted">
+                    <a href="#ReviewDiv">
+                        <strong class="text-success">
+                            <span id="number_comment"></span> Review to this product
+                        </strong>
+                    </a>
+                </div>
+
+
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Share</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted">
+                    <?php
+                    $title = $datas->title;
+                    $id = $datas->id;
+                    $type = "product";
+                    $url =  $URL_Domain . "ProductDetail/" . $datas->title_slug;
+                    include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                </div>
+
+
+
+                <div class=" mt-2 mb-4">
+                    <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <?php
+        $relates = $data['relates'];
+        $type = "product";
+        include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml"; ?>
+    </div>
+
+</div>

@@ -1,0 +1,296 @@
+<?php
+
+$datas = $data['data'][0];
+
+$socialTag = false;
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "coupon";
+$item_id = $datas->id;
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddJustReview.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReplyComment.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddRate.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Login.phtml";
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Clime.phtml";
+
+
+if ($datas->product_price == "" || $datas->product_price == null) {
+    $datas->product_price = "0";
+}
+$imgUrl = $VIEW_PATH . "assets/imgs/shop/product-16-1.jpg";
+if ($datas->file_url !== "" && $datas->file_url !== null) {
+    $imgUrl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+}
+$imgs = [];
+array_push($imgs, $imgUrl);
+
+$logo = $URL_Domain . $VIEW_PATH_INCLUDE . "imgs/logo.png";
+if ($datas->logo_url != '' && $datas->logo_url != null) {
+    $logo = $URL_PATH . $datas->logo_url . "/small/" . $datas->logo_name;
+}
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="coupon_id" value="<?= $datas->id ?>">
+<input type="text" hidden id="idSearch" value="<?= $datas->id ?>">
+<input type="text" hidden id="tableType" value="coupon">
+<input type="text" hidden id="email_user" value="<?= $data['email_online'] ?>">
+<input type="text" hidden id="title_item" value="Coupon: <?= $datas->title ?>">
+<input type="text" hidden id="display_name_user" value="<?= $data['display_name_online'] ?>">
+
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="<?= $URL_Domain ?>" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="<?= $URL_Domain ?>Coupons">Coupons</a> <span></span><?= $datas->title ?>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-30">
+        <div class="row">
+            <div class="col-xl-10 col-lg-12 m-auto">
+                <div class="product-detail accordion-detail">
+                    <div class="row mb-10 mt-30">
+                        <div class="col-md-4 col-sm-12 col-xs-12 mb-md-0 mb-sm-1">
+                            <div class="detail-gallery">
+                                <span class="zoom-icon">
+                                    <!-- <i class="fi-rs-search"></i> -->
+                                </span>
+                                <!-- MAIN SLIDES -->
+                                <div class="product-image-slider">
+                                    <?php foreach ($imgs as $im) { ?>
+                                        <figure class="border-radius-10">
+                                            <img src="<?= $im ?>" alt="<?= $datas->title ?>" />
+                                        </figure>
+                                    <?php } ?>
+
+
+                                </div>
+                                <!-- THUMBNAILS -->
+                                <div class="slider-nav-thumbnails">
+                                    <?php foreach ($imgs as $im) { ?>
+                                        <div><img src="<?= $im ?>" alt="<?= $datas->title ?>" /></div>
+
+                                    <?php } ?>
+
+                                </div>
+                            </div>
+                            <!-- End Gallery -->
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="detail-info pr-30 pl-30">
+                                <!-- <span class="stock-status out-stock"> Sale Off </span> -->
+                                <h2 class="title-detail"><?= $datas->title ?></h2>
+                                <div class="product-detail-rating">
+                                    <div class="product-rate-cover text-end">
+                                        <div class="product-rate d-inline-block">
+                                            <div class="product-rating" style="width: <?= intval($datas->Rating) * 20 ?>%"></div>
+                                        </div>
+                                        <span class="font-small ml-5 text-muted"> (<?= number_format($datas->total_rate) ?> Ratings)</span>
+                                    </div>
+                                </div>
+                                <!-- <div class="clearfix product-price-cover">
+                                    <div class="product-price primary-color float-left">
+
+                                        <span class="current-price text-brand">$<?= number_format(floatval($datas->price)) ?></span>
+
+                                    </div>
+                                </div> -->
+                                <div class="short-desc mb-30">
+                                    <p class="font-lg"><?= $datas->description ?></p>
+                                </div>
+                                <div class="short-desc mb-30">
+                                    <a style="width: 30%;" href="<?= $URL_Domain ?>shopCoupons/<?= $datas->id ?>" class="btn-just-them-green">Use it now</a>
+                                </div>
+                                <!-- <?php
+                                
+                                if ($datas->link !== "" && $datas->link !== null) { ?>
+
+                                    <div class="short-desc mb-30">
+                                        <a style="width: 30%;" href="<?= $datas->link ?>" class="btn-just-them-green"> Use it now</a>
+                                    </div>
+
+                                <?php } ?> -->
+
+
+
+                                <div class="detail-extralink mb-50">
+
+                                    <div class="product-extra-link2">
+
+                                        <?php
+                                        $title = $datas->title;
+                                        $id = $datas->id;
+                                        $type = "product";
+                                        $url =  $URL_Domain . "ProductDetail/" . $datas->title_slug;
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                                        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                                    </div>
+                                </div>
+                                <div class="font-xs">
+                                    <ul class="mr-50 float-start">
+                                        <li class="mb-5">Inventory: <span class="text-brand"><?= number_format($datas->inventory) ?></span></li>
+                                        <li class="mb-5">Expire:<span class="text-brand"> <?= ($datas->expire) ?></span></li>
+                                        <li>Amount: <span class="text-brand">
+                                                <?= $datas->type_name == "Numerical" ? "$" : "" ?><?= ($datas->amount) ?><?= $datas->type_name == "Percent" ? " %" : "" ?></span>
+                                        </li>
+                                        <li>Product Price: <span class="text-brand">
+                                                <del class="text-danger">$<?= number_format($datas->product_price) ?></del>
+                                                <?php
+                                                if ($datas->deal_product_price != null && $datas->deal_product_price != '') {
+                                                ?>
+                                                    <span class="text-dark">$<?= number_format($datas->deal_product_price) ?></span>
+                                                <?php } else {
+                                                    if ($datas->type_name == "Numerical") {
+                                                        $newDealsPrice = floatval($datas->product_price) - ($datas->amount);
+                                                    } else {
+                                                        $newDealsPrice = floatval($datas->product_price) - ((floatval($datas->product_price) * $datas->amount) / 100);
+                                                    }
+                                                ?>
+                                                    <span class="text-dark">$<?= number_format($newDealsPrice) ?></span>
+                                                <?php } ?>
+                                            </span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!-- Detail Info -->
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="tab-style3">
+                            <ul class="nav nav-tabs text-uppercase">
+
+                                <li class="nav-item active">
+                                    <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab" href="#Vendor-info">Vendor</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (<?= $datas->total_review ?>)</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content shop_info_tab entry-main-content ">
+
+
+                                <div class="tab-pane fade show active" id="Vendor-info">
+                                    <div class="vendor-logo d-flex mb-30">
+                                        <img src="<?= $logo ?>" class="midel-size-radus" alt="<?= $datas->display_name ?>" />
+                                        <div class="vendor-name ml-15">
+                                            <h6>
+                                                <a href="<?= $URL_Domain ?><?= $datas->display_name_slug ?>"><?= $datas->display_name ?></a>
+                                            </h6>
+                                            <div class="product-rate-cover text-end">
+                                                <div class="product-rate d-inline-block">
+                                                    <div class="product-rating" style="width: <?= intval($datas->Rating_business) * 20 ?>%"></div>
+                                                </div>
+                                                <span class="font-small ml-5 text-muted"> (<?= $datas->total_rate_business ?> reviews)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="contact-infor mb-50">
+                                        <li><img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/category-1.svg" alt="<?= $datas->display_name ?>" /><strong></strong> <span><?= $datas->more_info ?></span></li>
+                                        <li><img src="<?= $VIEW_PATH ?>assets/imgs/theme/icons/icon-contact.svg" alt="<?= $datas->display_name ?>" /><span><?= $datas->telephone ?></span></li>
+                                    </ul>
+
+                                </div>
+                                <div class="tab-pane fade " id="Reviews">
+                                    <!--Comments-->
+                                    <div class="comments-area">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <h4 class="mb-30">Customer questions & answers
+                                                    <button id="btnReview" data-id="<?= $datas->id ?>" class="btn  mb-2">
+                                                        Submit your review
+                                                    </button>
+                                                </h4>
+
+                                                <div class="comment-list" id="comments">
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <button id="LoadMoreComment" class="btn-them" style="display: none;">Load More</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <h4 class="mb-30">Customer reviews</h4>
+                                                <div class="d-flex mb-30">
+                                                    <div class="product-rate d-inline-block mr-15">
+                                                        <div class="product-rating" style="width: <?= intval($datas->Rating) * 20 ?>%"></div>
+                                                    </div>
+                                                    <h6><?= number_format((float)$datas->Rating, 1, '.', '') ?> out of 5</h6>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>5 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating5 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating5 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating5 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>4 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating4 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating4 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating4 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>3 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating3 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating3 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating3 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress">
+                                                    <span>2 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating2 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating2 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating2 ?>%
+                                                    </div>
+                                                </div>
+                                                <div class="progress mb-30">
+                                                    <span>1 star</span>
+                                                    <div class="progress-bar" role="progressbar" style="width: <?= ($datas->Rating1 * 10) / 100 ?>%" aria-valuenow="<?= $datas->Rating1 ?>" aria-valuemin="0" aria-valuemax="100">
+                                                        <?= $datas->Rating1 ?>%
+                                                    </div>
+                                                </div>
+
+                                                <button id="btnRate" data-cat="<?= $datas->catagories ?>" data-id="<?= $datas->id ?>" class="btn-them">Rate this product</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--comment form-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-60">
+                        <div class="col-12">
+                            <h2 class="section-title style-1 mb-30">Related Deals</h2>
+                        </div>
+                        <div class="col-12">
+                            <div class="row related-products">
+                                <?php
+                                $relates = $data['relates'];
+                                $type = "coupon";
+                                include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml";
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

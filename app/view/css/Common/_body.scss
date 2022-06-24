@@ -1,0 +1,74 @@
+
+ @import '../Variable/Colors';
+ @import '../Variable/Fonts';
+@import './url';
+
+$backgrounds:#ffffffdb;
+
+ @mixin bodys() {
+    padding: 5rem;
+    margin: 0;
+    background: $backgrounds;
+   // background: $background;
+    font-family: $font-family;
+    font-size: $fontSize;
+  
+ }
+
+ @mixin bodysUserDashboard() {
+    padding: 0;
+    margin: 0;
+   //  background: $backgroundUserDashboard;
+    font-family: $font-family;
+    height: auto;
+    width: auto;
+    overflow-x: hidden;
+    background: $backgrounds;
+    // background: url($urlBackgImage);
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: $fontSize;
+ }
+
+ @mixin bodysSite() {
+  padding: 0;
+  margin: 0;
+  background: $backgrounds;
+ //  background: $backgroundUserDashboard;
+  font-family: $font-family;
+  height: auto;
+  width: auto;
+  overflow-x: hidden;
+ // background: url($urlBackgImage);
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: $fontSize;
+}
+
+html { 
+   scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+   width: 5px;
+   
+ }
+ 
+ /* Track */
+ ::-webkit-scrollbar-track {
+   background: #f1f1f1; 
+ }
+  
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   background: #c4c2c2; 
+   border-radius: 10px;
+ }
+ 
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+   background: #555; 
+ }
+
+

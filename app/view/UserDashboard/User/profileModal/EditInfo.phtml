@@ -1,0 +1,74 @@
+<div class="modal fade bd-example-modal-lg" id="modalEditInfo" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Edit your info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmEditInfo">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Name:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="name" name="name">
+                    </div>
+         
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Display Name:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="display_name" name="display_name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Birthday:</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " id="birthday" name="birthday">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Headline:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="headline" name="headline">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Telephone:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="telephone" name="telephone">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Email:</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " id="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Country/Regionline:</label>
+                        <select style="width: 100%" class="input-white min-radus  select-css" name="country_id" id="country_id">
+                            <option value="">Choose an Country..</option>
+                        </select>
+
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">industr:</label>
+                        <select name="industry" id="industry" style="width: 100%" class="input-white min-radus select2 select-css">
+                            <option value="">Choose an industry…</option>
+
+
+                        </select>
+                    </div> -->
+
+                    <!-- <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Seen :</label>
+                        <label class="radiobox">Nobody
+                            <input type="radio" value="0" name="is_public" id="is_public">
+                            <span class="chmr"></span>
+                        </label>
+                        <label class="radiobox">All
+                            <input type="radio" value="2" name="is_public" id="is_public3">
+                            <span class="chmr"></span>
+                        </label>
+                    </div> -->
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-editid="" data-edit="false" data-id="modalEditInfo" id="editInfoBtn" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

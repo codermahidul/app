@@ -1,0 +1,64 @@
+<?php
+
+$datas = $data['data'][0];
+
+
+?>
+
+<div class="m-1 covers ">
+    <form id="frmEdit">
+        <div class="row m-top">
+
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description Home:</label>
+                <input type="text" value="<?= $datas->home ?>" autocomplete="off" class="form-control min-radus " id="home" name="home">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description product List:</label>
+                <input type="text" value="<?= $datas->products ?>" autocomplete="off" class="form-control min-radus " id="products" name="products">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description prize List:</label>
+                <input type="text" value="<?= $datas->prizes ?>" autocomplete="off" class="form-control min-radus " id="prizes" name="prizes">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description winner List:</label>
+                <input type="text" value="<?= $datas->winners ?>" autocomplete="off" class="form-control min-radus " id="winners" name="winners">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description coupon List:</label>
+                <input type="text" value="<?= $datas->coupons ?>" autocomplete="off" class="form-control min-radus " id="coupons" name="coupons">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description deals List:</label>
+                <input type="text" value="<?= $datas->deals ?>" autocomplete="off" class="form-control min-radus " id="deals" name="deals">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description job List:</label>
+                <input type="text" value="<?= $datas->jobs ?>" autocomplete="off" class="form-control min-radus " id="jobs" name="jobs">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="recipient-name" class="col-form-label">Description network List:</label>
+                <input type="text" value="<?= $datas->networks ?>" autocomplete="off" class="form-control min-radus " id="networks" name="networks">
+            </div>
+     
+
+
+
+ 
+
+        </div>
+    </form>
+    <diw class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-prim btn-lg" id="saveBtn">Save</button>
+        </div>
+    </diw>
+</div>

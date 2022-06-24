@@ -1,0 +1,24 @@
+
+<header>
+    <!-- for pc start -->
+
+
+    <div id="hSmall" style="display: none;">
+        <?php include $VIEW_PATH_INCLUDE . "WebSite/Layout/HeaderPc.phtml"; ?>
+    </div>
+
+    <!-- for pc end -->
+
+    <!-- for other device start -->
+    <?php include $VIEW_PATH_INCLUDE . "WebSite/Layout/SmallHeader.phtml"; ?>
+
+    <!-- for other device end -->
+
+</header>
+<?php
+include($VIEW_PATH_INCLUDE . "WebSite/Layout/ProfileSideMenu.phtml");
+?>
+
+
+<script type="module" src="<?= $VIEW_PATH ?>js/WebSite/Layout/Header.js?v= <?=rand(0,1500)?>"></script>
+<script type="module" src="<?= $VIEW_PATH ?>js/WebSite/Layout/FirstHeader.js?v= <?=rand(0,1500)?>"></script>

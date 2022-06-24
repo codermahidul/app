@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/WebSite/Layout/Header.css">
+
+<header>
+    <!-- for pc start -->
+    <div id="hBig" class="f-header big-size">
+        <div class="first-header ">
+            <div class="logo">
+
+                <h4 class="nameSite">
+                    <a class="text-dark" href="<?= $URL_Domain ?>">Rate&Review</a>
+                </h4>
+            </div>
+
+            <?php
+            $id = "first_header";
+            include $VIEW_PATH_INCLUDE . "WebSite/Layout/SearchResult.phtml"; ?>
+
+
+
+            <div class="account">
+                <a class="help-span text-dark" href="<?= $URL_Domain ?>Helps">Help</a>
+                <div id="accountB"></div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div id="hSmall" style="display: none;">
+        <?php include $VIEW_PATH_INCLUDE . "WebSite/Layout/HeaderPc.phtml"; ?>
+    </div>
+
+    <!-- for pc end -->
+
+    <!-- for other device start -->
+    <?php include $VIEW_PATH_INCLUDE . "WebSite/Layout/SmallHeader.phtml"; ?>
+
+    <!-- for other device end -->
+
+</header>
+<?php
+include($VIEW_PATH_INCLUDE . "WebSite/Layout/ProfileSideMenu.phtml");
+?>
+
+
+<script type="module" src="<?= $VIEW_PATH ?>js/WebSite/Layout/Header.js?v= <?=$VERSION?>"></script>
+<script type="module" src="<?= $VIEW_PATH ?>js/WebSite/Layout/FirstHeader.js?v= <?=$VERSION?>"></script>

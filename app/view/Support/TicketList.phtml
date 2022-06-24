@@ -1,0 +1,35 @@
+<div class="m-top covers text-dark">
+    <div class=" mb-4">
+        <span class="sm-font">
+            <a href="<?= $URL_Domain ?><?= $data['listHref'] ?>"><?= $data['list'] ?></a>
+        </span>
+        <span class="sm-font"><i class="bi bi-chevron-right"></i></span>
+        <span class="sm-font"><?= $data['title_page'] ?></span>
+    </div>
+    <div id="result_ticket" class="mb-5"></div>
+    <div class="mt-5">
+        <button class="btn btn-sm btn-prim" style="display: none;" id="BtnLoad">Lode More</button>
+
+    </div>
+    <div class="covers">
+    <form id="addFrm">
+        <input type="text" name="support_id" hidden id="support_id">
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Description:</label>
+            <textarea class="form-control min-radus " name="description" id="description<?= $edit ?>"></textarea>
+        </div>
+
+
+        <div class="mb-3">
+            <input accept=".png, .jpg, .jpeg, .pdf,.doc, .docx" type="file" name="main_image" id="main_image" multiple class="fileInput">
+
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button id="btnReply" class="btn btn-prim">Reply</button>
+        </div>
+    </div>
+    </div>
+</div>

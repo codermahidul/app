@@ -1,0 +1,174 @@
+<?php
+$not_type = $data['not_type'];
+
+?>
+<div class="">
+    <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                Change Password
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                Change Profile Image
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+            Change Profile header
+
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-interest-tab" data-bs-toggle="pill" data-bs-target="#pills-interest" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                Choose your interest
+            </button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-notification-tab" data-bs-toggle="pill" data-bs-target="#pills-notification" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                Notification
+            </button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-resume-tab" data-bs-toggle="pill" data-bs-target="#pills-resume" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                Resume
+            </button>
+        </li>
+
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="covers">
+                <form id="frmPassword">
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">New Password:</label>
+                        <input type="password" autocomplete="off" class="form-control min-radus " id="newPass" name="newpass">
+                    </div>
+
+
+                </form>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="btnPass" data-id="frmpssword" class="btn btn-prim btn-lg">Save</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="covers">
+                <div class="d-flex  justify-content-center">
+                    <div class="col-md-2 text-center mb-2 user-image-prof"></div>
+
+                </div>
+                <div class="d-flex  justify-content-center">
+                    <button id="btndeleteimage" class="btn btn-sm btn-danger btn-remove m-1 b-radus"><i class="bi bi-trash"></i></button>
+
+                </div>
+                <input type="file" name="user_image" id="user_image" class="fileinputs">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="btnimage" data-id="frmpssword" class="btn btn-prim btn-lg">Save</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+            <div class="covers">
+                <div class="d-flex  justify-content-center">
+                    <div class="col-md-2 rounded  mb-2 user-banner-prof-small"></div>
+
+                </div>
+                <div class="d-flex  justify-content-center">
+                    <button id="btndeletebanner" class="btn btn-sm btn-danger btn-remove m-1 b-radus"><i class="bi bi-trash"></i></button>
+
+
+
+                </div>
+
+                <input type="file" name="user_banner" id="user_banner" class="fileinputs">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="btnbanner" data-id="frmpssword" class="btn btn-prim btn-lg">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-interest" role="tabpanel" aria-labelledby="pills-interest-tab">
+
+            <div class="covers">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">skills:</label>
+                    <select style="width: 100%" class="input-white min-radus tokenize select-css" multiple name="skills" id="skills">
+
+                    </select>
+
+                </div>
+                <div class="mb-3" id="user_skill">
+
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="btninterest" class="btn btn-prim btn-lg">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab">
+
+            <div class="covers">
+                Email these notifications
+                <div class="row">
+                    <?php foreach ($not_type as $d) {
+                        $checked = "";
+                        if ($d->send_email == 'true') {
+                            $checked = "checked";
+                        }
+                    ?>
+                        <div class="col-md-4 mt-3 ">
+                            <label class="chboxs "><?= $d->name ?>
+                                <br>
+                                <small class="text-muted"><?= $d->descriptions ?></small><br>
+
+                                <input type="checkbox" <?= $checked ?> id="send_email" name="send_email" value="<?= $d->id ?>">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                    <?php } ?>
+                    <div class="col-12 text-center">
+                        <button id="btnemailNote" class="btn btn-prim btn-lg">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-resume" role="tabpanel" aria-labelledby="pills-resume-tab">
+            <div class="covers">
+                <div class="d-flex  justify-content-center">
+                    <div class="col-md-2 text-center mb-2 " id="resumeF"></div>
+
+                </div>
+                <div class="d-flex  justify-content-center">
+                    <button id="btnDeleteResume" class="btn btn-sm btn-danger btn-remove m-1 b-radus"><i class="bi bi-trash"></i></button>
+
+                </div>
+                <input type="file" accept=".pdf" name="user_resume_file" id="user_resume_file" class="fileInputResume">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="btnResume"  class="btn btn-prim btn-lg">Save</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<?php
+
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/middle/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "assets/imgs/shop/product-1-1.jpg";
+}
+
+$ad = "";
+if ($d->top_show_id != null) {
+    $ad = "<span class='text-success'>Ad </span> ";
+}
+$progress=1;
+if($d->total_rate>0){
+    $progress=$d->Rating/$d->total_rate;
+}
+
+
+?>
+
+
+
+<div class="product-cart-wrap">
+    <div class="product-img-action-wrap">
+        <div class="product-img product-img-zoom">
+            <a href="<?= $URL_Domain ?><?= $data['url_product'] ?>/<?= $d->title_slug ?>">
+                <img class="default-img img-sam-size" src="<?= $imgUrl ?>" alt="<?= $d->title ?>" />
+                <img class="hover-img img-sam-size" src="<?= $imgUrl ?>" alt="<?= $d->title ?>" />
+            </a>
+        </div>
+        <div class="product-action-1">
+            <a aria-label="Quick view" class="action-btn small hover-up" href="<?= $URL_Domain ?><?= $data['url_product'] ?>/<?= $d->title_slug ?>"> <i class="fi-rs-eye"></i></a>
+            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="<?= $URL_Domain ?><?= $data['url_product'] ?>/<?= $d->title_slug ?>"><i class="fi-rs-heart"></i></a>
+            <a aria-label="List" class="action-btn small hover-up" href="<?= $URL_Domain ?>Products"><i class="fi-rs-shuffle"></i></a>
+        </div>
+        <!-- <div class="product-badges product-badges-position product-badges-mrg">
+            <span class="hot">Save 15%</span>
+        </div> -->
+    </div>
+    <div class="product-content-wrap">
+        <div class="product-category">
+            <a ><?= $d->category_name ?></a>
+        </div>
+        <h2><a href="<?= $URL_Domain ?><?= $data['url_product'] ?>/<?= $d->title_slug ?>"><?= $ad?> <?= substr($d->title, 0, 20)."..."  ?></a></h2>
+        <div class="product-rate d-inline-block">
+            <div class="product-rating" style="width: <?= intval($d->Rating)*20  ?>%"></div>
+        </div>
+        <div class="product-price mt-2">
+            <?php if ($mainPrice != 0) {
+            ?>
+                <span>$<?= number_format($mainPrice) ?> </span>
+                <span class="old-price">$<?= number_format($price) ?></span>
+            <?php } else { ?>
+                <span>$<?= number_format(floatval($d->price)) ?></span>
+
+            <?php } ?>
+        </div>
+        <div class="sold mt-1 mb-1">
+        <div class=" mb-1">
+            <!-- <div class="progress mb-5"> -->
+                <!-- <div class="progress-bar" role="progressbar" style="width: <?=($progress)?>%" aria-valuemin="0" aria-valuemax="100"></div> -->
+                <div class="text-muted"><?= substr($d->description, 0, 50) . '...' ?></div>
+
+            </div>
+            <span class="font-xs text-heading"> total Ratings: <?= number_format($d->total_rate) ?></span>
+        </div>
+        <!-- <a href="<?= $URL_Domain ?><?= $data['url_product'] ?>/<?= $d->title_slug ?>" class="btn w-100 hover-up"></i>View</a> -->
+    </div>
+</div>

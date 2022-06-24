@@ -1,0 +1,175 @@
+<?php
+
+$datas = $data['data'][0];
+
+$socialTag = false;
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "job";
+$item_id = $datas->id;
+
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Login.phtml";
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+?>
+<input type="text" hidden value="<?= $data['logged'] ?>" id="logged">
+<input type="text" hidden value="<?= $data['user_online_id'] ?>" id="user_online_id">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+<input type="text" hidden id="job_id" value="<?= $datas->id ?>">
+
+
+<div class="contains-item-page">
+    <div class="row p-1 ">
+        <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Jobs" class="text-muted txt-small">Jobs</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>JobDetail/<?= $datas->title_slug ?>" class="text-muted txt-small"><?= $datas->title ?></a>
+        </div>
+
+    </div>
+
+    <div class="row position-relative">
+        <div class="col-md-12">
+            <div class="header-h-text">
+                <h1><strong><?= $datas->title ?></strong></h1>
+
+            </div>
+            <div class="text-muted">
+                <?php if ($datas->online == '0') { ?>
+                    <?= $datas->country_name ?> <?= $datas->province_name ?> <?= $datas->city_name ?>
+                <?php } else { ?>
+                    <strong>Online</strong>
+                <?php } ?>
+            </div>
+            <div class="text-muted">   <?= $datas->category_name ?></div>
+        </div>
+
+        <div class="mb-2 mt-2 col-md-6">
+            <?php
+            $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+            if ($datas->file_url !== "" && $datas->file_url !== null) {
+                $imgUrl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+            }
+            if ($imgUrl != "") {
+            ?>
+                <img class="img-radus" src="<?= $imgUrl ?>" alt="<?= $datas->title_slug ?>">
+            <?php } ?>
+
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Benefit</strong></h4>
+            </div>
+            <div class=" mt-2 text-muted h6"><?= $datas->benefit ?></div>
+
+
+            <div class=" text-start border-bottom mt-4">
+                <h4><strong>Details</strong></h4>
+            </div>
+            <div class=" mt-2 text-muted h6"><?= $datas->description ?></div>
+
+        </div>
+
+        <div class="side-sticky col-md-6 mb-3">
+            <div class="  ">
+       
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Salary</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 h6">
+                    <strong class="text-success"><?= $datas->salary ?></strong>
+                </div>
+
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Gender</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= ($datas->gender) ?>
+                </div>
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Type</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= ($datas->type) ?>
+                </div>
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Level</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= ($datas->level) ?>
+                </div>
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Exprience </strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= ($datas->exprience) ?>
+                </div>
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Skill</strong></h4>
+                </div>
+                <div class="mb-4 mt-2 text-muted h6">
+                    <?= ($datas->skill) ?>
+                </div>
+
+   
+
+                <div class="mb-4 mt-2  h6">
+                    <?php if($data['HaveResume']=='false'){?>
+                    <button id="apply" style="width: 100%;" class="btn btn-lg btn-success">Apply Now</button>
+                    <?php }else{?>
+                        <div class="alert alert-success">You have already applied</div>
+                        <?php }?>
+                </div>
+
+                <div class=" mt-2 mb-4">
+                    <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+                </div>
+
+
+                <div class=" text-start border-bottom mt-4">
+                    <h4><strong>Share</strong></h4>
+                </div>
+                <div class="mb-3 mt-2 text-muted">
+                    <?php
+                    $title = $datas->title;
+                    $id = $datas->id;
+                    $type="job";
+                    $url =  $URL_Domain . "JobDetail/" . $datas->title_slug;
+                    include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+                </div>
+
+
+                <div class="mt-2 mb-3">
+                    <?php
+                    $logo = $datas->logo_url != '' && $datas->logo_url != null ? $datas->logo_url . "/small/" . $datas->logo_name : "";
+                    $display_name = $datas->display_name;
+                    $display_name_slug = $datas->display_name_slug;
+                    $user_id = $datas->user_business_id;
+                    include $VIEW_PATH_INCLUDE . "WebSite/BusinessUserImage.phtml";
+                    ?>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <?php
+        $relates = $data['relates'];
+        $type = "job";
+        include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml"; ?>
+    </div>
+</div>

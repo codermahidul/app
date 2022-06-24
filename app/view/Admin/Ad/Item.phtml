@@ -1,0 +1,30 @@
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> Title:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " id="title<?= $edit ?>" name="title">
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span> type:</label>
+    <select class="form-control min-radus" name="type" id="type<?= $edit ?>"></select>
+</div>
+
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label"> Price:</label>
+    <input type="text" autocomplete="off" class="form-control min-radus " id="price<?= $edit ?>" name="price">
+</div>
+
+<div id="more_link" class="mb-3 row"></div>
+<div class="mb-3">
+    <button type="button" id="add_more_links" data-id="more_link" class="btn btn-glass">Add More</button>
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Key Words:</label>
+    <textarea rows="5" class="form-control min-radus " placeholder="Separate with the (,)" name="keywords" id="keywords<?= $edit ?>"></textarea>
+</div>
+
+<div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Description:</label>
+    <textarea rows="5" class="form-control min-radus " name="description" id="description<?= $edit ?>"></textarea>
+</div>

@@ -1,0 +1,122 @@
+<?php
+$datas = $data['data'][0];
+
+$BuyTag = false;
+$socialTag = false;
+
+$links = explode(",", $datas->product_tag);
+foreach ($links as $li) {
+    $l = explode("::", $li);
+
+    if ($l[3] === "buy") {
+        $BuyTag = true;
+    }
+}
+
+$phone = false;
+$email = false;
+$address = false;
+
+$report = $data['report'];
+$table = "prize";
+$item_id = $datas->id;
+
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/AddReport.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/Clime.phtml";
+
+?>
+<input type="text" value="<?=$data['logged']?>" hidden id="logged">
+<input type="text" hidden id="idSearch" value="<?= $datas->id ?>">
+<input type="text" hidden id="tableType" value="prize">
+<input type="text" hidden id="email_user" value="<?=$data['email_online']?>">
+<input type="text" hidden id="title_item" value="Prize: <?=$datas->title?>">
+<input type="text" hidden id="display_name_user" value="<?=$data['display_name_online']?>">
+<input type="text" hidden id="type_creator" value="<?= $data['type_creator'] ?>">
+
+<div class="contains-item-page position-relative">
+    <div class="row p-1 ">
+    <?php include_once $VIEW_PATH_INCLUDE . "WebSite/BigBanner.phtml"; ?>
+        <div class="col-md-12  p-2 mb-1 ">
+            <a href="<?= $URL_Domain ?>" class="text-muted txt-small"><i class="bi bi-house-fill h5"></i></a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>Prizes" class="text-muted txt-small">Prizes</a>
+            <span> <i class="bi bi-chevron-right"></i> </span>
+            <a href="<?= $URL_Domain ?>PrizeDetail/<?= $datas->id ?>" class="text-muted txt-small"><?= $datas->title ?></a>
+        </div>
+
+    </div>
+    <div class="mb-2 mt-2 d-flex justify-content-center">
+        <?php
+        $imgurl = "";
+        if ($datas->file_url !== "" && $datas->file_url !== null) {
+            $imgurl = $URL_PATH . $datas->file_url . '/thumb/' . $datas->file_name;
+        }
+        if ($imgurl != "") {
+        ?>
+            <img class="img-radus" src="<?= $imgurl ?>" alt="<?= $datas->title_slug ?>">
+        <?php } ?>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <div class="covers2 contains-item2 margin-top-negative">
+            <div class=" text-center mt-4 mb-5">
+                <h4><strong><?= $datas->title ?></strong></h4>
+            </div>
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Value</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= ($datas->jvalues) ?></div>
+
+
+
+
+
+
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Details</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted"><?= $datas->description ?></div>
+
+
+
+
+
+            <div class=" text-start border-bottom mt-4">
+                <h6><strong>Share</strong></h6>
+            </div>
+            <div class="mb-5 mt-2 text-muted">
+                <?php
+                $title = $datas->title;
+                $id = $datas->id;
+                $type="prize";
+                $url =  $URL_Domain . "PrizeDetail/" . $datas->title_slug;
+                include $VIEW_PATH_INCLUDE . "WebSite/Share.phtml"; ?>
+            </div>
+
+
+            <div class="mt-2 mb-3">
+                <?php
+                $logo = $datas->logo_url != '' && $datas->logo_url != null ? $datas->logo_url . "/small/" . $datas->logo_name : "";
+                $display_name = $datas->display_name;
+                $display_name_slug = $datas->display_name_slug;
+                $user_id = $datas->user_business_id;
+                include $VIEW_PATH_INCLUDE . "WebSite/BusinessUserImage.phtml"; ?>
+            </div>
+
+            <div class=" mt-2 mb-4">
+                <?php include_once $VIEW_PATH_INCLUDE . "WebSite/ReportBtn.phtml"; ?>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <?php
+    $relates = $data['relates'];
+    $type = "prize";
+    include $VIEW_PATH_INCLUDE . "WebSite/Relates.phtml"; ?>
+</div>

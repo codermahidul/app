@@ -1,0 +1,60 @@
+<?php foreach ($items as $d) {
+
+if ($d->file_url !== "" && $d->file_url !== null) {
+    $imgUrl = $URL_PATH . $d->file_url . '/small/' . $d->file_name;
+} else {
+    $imgUrl = $VIEW_PATH . "imgs/defult.jpg";
+}
+
+$ad="";
+if($d->top_show_id !=null)
+{
+    $ad="<span class='text-success'>Ad </span> ";
+}
+
+
+?>
+<div class="item">
+    <div class="dealbox">
+        <a href="<?= $URL_Domain ?><?=$url?>/<?= $d->title_slug ?>">
+            <img class="dpimg" src="<?= $imgUrl ?>" alt="<?= $d->title ?>">
+            <div class="label-discount top-10 right-10">- <?= $d->type_name == "Numerical" ? "$" : "" ?><?= ($d->amount) ?><?= $d->type_name == "Percent" ? " %" : "" ?></div>
+            <img class="clogo" src="<?=$VIEW_PATH?>img/brand_03.jpg">
+            <div class="dltext">
+                <p class="revietext">
+                    <span class="review">
+                        <!-- <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i> -->
+                    </span>
+                </p>
+                <h4><?=$ad?><?= $d->title ?></h4>
+                <p><i class="fas fa-map-marker-alt"></i> <?=$d->country_name?> - <?=$d->province_name?> <i class="fas fa-store"></i> Dell</p>
+                <p><?= substr($d->description, 0, 100) . '...' ?></p>
+                <p class="dprice"><del>$<?= number_format($d->product_price) ?></del> 
+                <span>
+                <?php
+                    if($d->deal_product_price !=null && $d->deal_product_price!=''){
+                        ?>
+                        <span class="text-dark">$<?=number_format($d->deal_product_price)?></span>
+                    <?php }else{
+                        if($d->type_name == "Numerical" )
+                        {
+                            $newDealsPrice=floatval($d->product_price)-($d->amount);
+
+                        }else
+                        {
+                            $newDealsPrice=floatval($d->product_price)-((floatval($d->product_price)*$d->amount)/100);
+
+                        }
+                        ?>
+                        <span class="text-dark">$<?=number_format($newDealsPrice)?></span>
+                     <?php }?>
+                </span></p>
+            </div>
+        </a>
+    </div>
+</div>
+<?php } ?>

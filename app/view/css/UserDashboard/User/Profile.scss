@@ -1,0 +1,53 @@
+
+@import '../../Common/body';
+@import '../../Common/inputNormal';
+@import '../../Variable/Colors';
+@import '../../Common/button';
+@import '../../Common/layout';
+@import '../../Common/modalNormal';
+@import '../../Common/select';
+@import '../../Common/chbox';
+@import '../../Common/radio';
+@import '../../Common/tab';
+@import '../../Common/gallery';
+
+
+body
+ {
+  @include bodysUserDashboard();
+}
+
+@media only screen and (min-width: 1025px) {
+    .profile
+    {
+        margin: 0 2rem;
+    }
+}
+
+@media only screen and (max-width: 1025px)
+{
+    .profile
+    {
+        margin: 0;
+    }
+}
+.profile
+{
+    background: $backgroundUserDashboardProfileDiv;    
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 10px 20px 0 #00000005;
+    padding: 1rem;
+    color: $dashboardUserMenuColor;
+    font-family: $font-family;
+}
+.Negative-margin-top
+{
+    margin-top: -3rem;
+}
+.hrefs
+{
+    color: $dashboardUserMenuColor !important;
+}

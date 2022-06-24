@@ -1,0 +1,61 @@
+<div class="modal fade bd-example-modal-lg" id="modalLicense" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">license or certification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmlic">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Name  :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="license_name" id="license_name">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Issuing organization :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="issuin" id="issuin">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Issue date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="issuin_start_date" id="issuin_start_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Expiration date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="issuin_end_date" id="issuin_end_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="chboxs">This credential does not expire
+
+                            <input type="checkbox" value="1" id="license_now" name="license_now">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Credential ID :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="credential_id" id="credential_id">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Credential URL :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="credential_url" id="credential_url">
+                    </div>
+                    <?php
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-editid="" data-edit="false" id="licensebtn" data-id="modalLicense" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

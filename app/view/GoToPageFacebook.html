@@ -1,0 +1,19 @@
+<script>
+  const d = new Date();
+  d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  document.cookie =
+    "<?=$data['tokenName']?>" +
+    "=<?=$data['tokenValue']?>;" +
+    expires +
+    ";path=/";
+
+  if (localStorage.getItem("urlLogout") !== null) {
+    if (localStorage.getItem("urlLogout").indexOf("openid") < 0) {
+      window.location.replace(localStorage.getItem("urlLogout"));
+      localStorage.removeItem(localStorage.getItem("urlLogout"));
+    } else {
+      window.location.href = "<?= $URL_Domain ?><?=$data['href']?>";
+    }
+  } else window.location.href = "<?= $URL_Domain ?><?=$data['href']?>";
+</script>

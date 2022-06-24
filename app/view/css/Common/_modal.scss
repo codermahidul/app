@@ -1,0 +1,29 @@
+@import '../Variable/Colors';
+@import '../Variable/Fonts';
+
+.modal
+{
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur( $blur );
+    z-index: 1060000;
+}
+
+.modal-dialog-glass{
+    background: #ecf3ee1f;
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur( $blur );
+    border-radius: $blur;
+    border: 1px solid #ffffff47;
+    box-shadow: 0 10px 20px 0 #00000005;
+    color: #f7f7f7;
+    font-family: $font-family;
+}
+
+.modal-header-glass
+{
+    border-bottom: none;
+}
+.modal-footer-glass
+{
+    border-top: none;
+}

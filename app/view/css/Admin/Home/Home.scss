@@ -1,0 +1,8 @@
+@import '../../Common/body';
+@import '../../Common/inputNormal';
+@import '../../Common/tag';
+
+body
+ {
+  @include bodysUserDashboard();
+}

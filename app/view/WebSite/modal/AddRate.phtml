@@ -1,0 +1,23 @@
+<div class="modal fade bd-example-modal-lg" id="modalRate" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Rate  </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmNewRate">
+
+                </form>
+                <?php include $VIEW_PATH_INCLUDE . "Captcha.html";?>
+
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-table="<?=$table?>" data-item="<?=$item_id?>"   data-id="modalRate" id="saveRate" class="btn  btn-glass">Save</button>
+             
+            </div>
+        </div>
+    </div>
+</div>

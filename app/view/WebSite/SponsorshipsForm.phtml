@@ -1,0 +1,136 @@
+<?php
+
+$datas = $data['datas'];
+include_once $VIEW_PATH_INCLUDE . "UserDashboard/Common/Modal/Category.phtml";
+include_once $VIEW_PATH_INCLUDE . "WebSite/modal/ViewDataModify.phtml";
+?>
+
+<input type="text" name="idSearch" id="idSearch" value="<?=$data['idSearch']?>" hidden>
+<div class="contains-item-page ">
+    <div class="row">
+        <div class="col-md-12 text-center mb-2">
+            <h1><strong>Sponsorship Form</strong></h1>
+        </div>
+
+
+    </div>
+    <div class="row mt-5 contains-item-page">
+
+        <?php
+        foreach ($datas as $d) {
+
+        ?>
+            <div class="col-md-4 mt-3 position-relative">
+                <span class=" check-info point" data-id="<?=$d->id?>"><i class="bi bi-info-circle-fill"></i></span>
+                <label class="chboxs"><?= $d->title ?>
+                    <input class="cheB" type="checkbox" id="<?= $d->id ?>" name="option" value="<?= $d->price ?>">
+                    <span class="checkmark"></span>
+                </label>
+
+            </div>
+        <?php } ?>
+    </div>
+
+    <div class="row mt-5 ms-2 me-2">
+        <div class="col-md-12 text-center mb-5">
+            <h4>Contract Form</h4>
+        </div>
+
+        <form id="frmNew">
+            <div class="row">
+        <div class="col-md-6">
+            <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span>Company Name :</label>
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="bi bi-building"></i></span>
+                <input type="text" name="company" id="company"  class="form-control middle-radius-top-right middle-radius-bottom-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="more_category"></div>
+        </div>
+        <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span>Contact Name :</label>
+
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="bi bi-file-person"></i>
+                </span>
+                <input type="text" name="contact" id="contact" class="form-control middle-radius-top-right middle-radius-bottom-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span>Tel :</label>
+
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="bi bi-telephone"></i>
+                </span>
+                <input type="text" name="tel" id="tel" class="form-control middle-radius-top-right middle-radius-bottom-right">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span>Mobile :</label>
+
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="bi bi-phone-fill"></i>
+                </span>
+                <input type="text" name="mobile" id="mobile" class="form-control middle-radius-top-right middle-radius-bottom-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label">Fax :</label>
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="fas fa-fax"></i>
+                </span>
+                <input type="text" name="fax" id="fax" class="form-control middle-radius-top-right middle-radius-bottom-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label"><span class="text-danger">*</span>Email :</label>
+
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <input type="text" name="email" id="email" class="form-control middle-radius-top-right middle-radius-bottom-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+        <label for="recipient-name" class="col-form-label">Address :</label>
+
+            <div class="input-group mb-3 ">
+                <span class="input-group-text middle-radius-top-left middle-radius-bottom-left">
+                    <i class="fas fa-map-marked-alt"></i>
+                </span>
+                <textarea rows="1" name="address" id="address" class="form-control middle-radius-top-right middle-radius-bottom-right"></textarea>
+            </div>
+        </div>
+        </div>
+        </form>
+        <div class="col-md-12 mt-5 mb-2  row">
+            <div class="col-md-12 ">
+                <span class="">Order Price</span>
+                <span class="h6 badge bg-dark" id="order_price"></span>
+            </div>
+            <div class="col-md-12 ">
+                <span class="">Tax</span>
+                <span class="h6 badge bg-secondary" id="tax"><?=$data['tax']?>%</span>
+                <input type="text" name="taxV" id="taxV" hidden value="<?=$data['tax']?>">
+            </div>
+            <div class="col-md-12  ">
+                <span class="">Total Price</span>
+                <span class="h6  badge bg-success" id="total_price"></span>
+            </div>
+        </div>
+        <div class="mb-5 mt-3 col-md-12 text-center">
+            <button class="btn btn-success" id="SaveToList">Pay & Save</button>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,17 @@
+@import '../../Common/body';
+@import '../../Common/input';
+@import '../../Variable/Colors';
+@import '../../Variable/Fonts';
+@import '../../Variable/Size';
+@import '../../Common/button';
+@import '../../Common/layout';
+@import '../../Common/modal';
+@import '../../Common/chbox';
+@import '../../Common/radio';
+@import '../../Common/select';
+@import '../../Common/table';
+@import '../../Common/tag';
+body
+{
+  @include bodysUserDashboard();
+}

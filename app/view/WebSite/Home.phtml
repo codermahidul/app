@@ -1,0 +1,216 @@
+<?php
+
+$slider = $data['slider'];
+$products = $data['products'];
+$prizes = $data['prizes'];
+$coupons = $data['coupons'];
+$deals = $data['deals'];
+$jobs = $data['jobs'];
+$programs = $data['programs'];
+$users = $data['users'];
+$businessUsers = $data['businessUsers'];
+
+
+?>
+
+<div class="">
+    <!-- <div class="contains-item-page"> -->
+    <main class="main">
+
+        <!--Products -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Products</h3>
+
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Products">
+                        All Products
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+                                    <?php foreach ($products->data->data as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Product.phtml"; ?>
+
+                                    <?php } ?>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+
+        <!--Deals -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Deals</h3>
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Deal">
+                        All Deals
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-deals">
+                                    <?php foreach ($deals->data->data as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Deals.phtml"; ?>
+
+                                    <?php } ?>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+
+        <!--Coupon -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Coupons</h3>
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Coupons">
+                        All Coupons
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-coupon">
+                                <?php foreach ($coupons->data->data as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Coupon.phtml"; ?>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+
+
+        <!--Program -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Programs</h3>
+
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Programs">
+                        All Programs
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-programs">
+                                <?php foreach ($programs->data->data as $d) {
+                                    $data['url']='ProgramDetail';
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/Program.phtml"; ?>
+
+                                    <?php } ?>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--Network -->
+        <section class="section-padding pb-5">
+            <div class="container">
+                <div class="section-title">
+                    <h3 class="">Network</h3>
+
+
+                    <a class="show-all" href="<?= $URL_Domain ?>Networks">
+                        All Network
+                        <i class="fi-rs-angle-right"></i>
+                    </a>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class=" fade show ">
+                            <div class="carausel-4-columns-cover arrow-center position-relative">
+                                <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+                                <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-network">
+                                <?php foreach ($businessUsers->data->data as $d) {
+                                        include $VIEW_PATH_INCLUDE . "WebSite/Cards/User.phtml"; ?>
+
+                                    <?php } ?>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End carausel-->
+
+
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+
+
+
+</div>

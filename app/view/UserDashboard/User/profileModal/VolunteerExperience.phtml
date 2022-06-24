@@ -1,0 +1,113 @@
+<div class="modal fade bd-example-modal-lg" id="modalVolunteerExperience" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Volunteer Experience</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmve">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Organization :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="organization" id="organization">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Role :</label>
+                        <input type="text" autocomplete="off" class="input-white min-radus " name="role" id="role">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Cause:</label>
+                        <select style="width: 100%" class="input-white min-radus select2 select-css" name="cause" id="cause">
+                            <option value="Please select">
+                                Please select
+                            </option>
+                            <option value="Animal Welfare">
+                                Animal Welfare
+                            </option>
+                            <option value="Arts and Culture">
+                                Arts and Culture
+                            </option>
+                            <option value="Children">
+                                Children
+                            </option>
+                            <option value="Civil Rights and Social Action">
+                                Civil Rights and Social Action
+                            </option>
+                            <option value="Economic Empowerment">
+                                Economic Empowerment
+                            </option>
+                            <option value="Education">
+                                Education
+                            </option>
+                            <option value="Environment">
+                                Environment
+                            </option>
+                            <option value="Health">
+                                Health
+                            </option>
+                            <option value="Human Rights">
+                                Human Rights
+                            </option>
+                            <option value="Disaster and Humanitarian Relief">
+                                Disaster and Humanitarian Relief
+                            </option>
+                            <option value="Politics">
+                                Politics
+                            </option>
+                            <option value="Poverty Alleviation">
+                                Poverty Alleviation
+                            </option>
+                            <option value="Science and Technology">
+                                Science and Technology
+                            </option>
+                            <option value="Social Services">
+                                Social Services
+                            </option>
+                            <option value="Veteran Support">
+                                Veteran Support
+                            </option>
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Start Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="user_volunteer_experience_start_date" id="user_volunteer_experience_start_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">End Date :</label>
+                        <input type="date" autocomplete="off" class="input-white min-radus " name="user_volunteer_experience_end_date" id="user_volunteer_experience_end_date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="chboxs">I am currently working in this role
+                            <input type="checkbox" value="1" name="user_volunteer_experience_now" id="user_volunteer_experience_now">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Description :</label>
+                        <textarea rows="5" autocomplete="off" class="input-white min-radus " name="user_volunteer_experience_description" id="user_volunteer_experience_description"></textarea>
+                    </div>
+                    <?php
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button id="btnve" data-editid="" data-id="modalVolunteerExperience" data-edit="false" type="button" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

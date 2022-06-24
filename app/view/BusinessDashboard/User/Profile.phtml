@@ -1,0 +1,108 @@
+<!-- import modal start -->
+<?php
+include $VIEW_PATH_INCLUDE . "BusinessDashboard/User/ProfileModal/EditInfo.phtml";
+include $VIEW_PATH_INCLUDE . "BusinessDashboard/User/ProfileModal/EditAbout.phtml";
+include_once $VIEW_PATH_INCLUDE."BusinessDashboard/modal/AddToTop.phtml";
+include_once $VIEW_PATH_INCLUDE."UserDashboard/Common/Modal/Category.phtml";
+
+
+?>
+<!-- end import modal start -->
+<div class=" mt-5">
+    <div class="mt-5 banner-profile user-banner-prof text-center">
+        <img src="<?= $VIEW_PATH ?>imgs/default-banner.jpg" alt="user banner">
+    </div>
+    <div class="profile Negative-margin-top">
+
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 user-image-prof">
+                <img class="midel-size-radus " src="<?= $VIEW_PATH ?>imgs/logo.png" alt="logo business">
+            </div>
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <!-- <small id="EditInfo" class="btn-them point  modalbtn">
+                        <i class="bi bi-pencil-square"> Edit Your info </i>
+                    </small> -->
+                    <a href="<?=$URL_Domain?>EditMyProfile" class="btn-them point  modalbtn">
+                        <i class="bi bi-pencil-square"> Edit Your info </i>
+                    </a>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <i class="bi bi-person me-2"></i>
+                        <strong id="user_name">Company name </strong>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-person me-2"></i>
+                        <span id="user_display_name">Company Display Name</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bi bi-calendar me-2"></i>
+                        <span id="user_birthday"> Date of Establishment</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        <span id="user_country_name"> Location</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-envelope me-2"></i>
+                        <span id="user_email">Your Email</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <span id="user_more_info"> More Info</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="bi bi-bookshelf me-2"></i>
+                        <span id="user_category_name">Your Category</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12 mt-4 mb-4">
+                <a href="BusinessProfileSetting" class=" hrefs m-1"><i class="bi bi-gear point h3"></i></span></a>
+
+            </div>
+            <div class="col-md-12 mt-4 mb-4">
+                <button id="AddTopMe" class="btn btn-sm btn-outline-primary">Add My page to top list</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- about start -->
+    <div class="profile">
+        <div class="row">
+            <div class="col-md-12 p-2">
+                <h5>About</h5>
+            </div>
+            <div class="col-md-12">
+                <small id="EditAbout" data-functions="editInfo" class="btn-them point  modalbtn">
+                    <i class="bi bi-plus-lg me-2"></i> Edit About
+                </small>
+
+            </div>
+            <div class="col-md-12">
+                <div class="m-2 p-2">
+                    <p id="user_about"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about end -->
+
+
+
+
+
+
+
+</div>

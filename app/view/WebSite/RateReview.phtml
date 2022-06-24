@@ -1,0 +1,62 @@
+<?php
+$have_reviews = 'true';
+if (isset($have_review)) {
+    $have_reviews = $have_review;
+}
+
+?>
+<div class="col-md-12">
+    <?php if ($have_reviews == 'true') { ?>
+        <div id="ReviewDiv" class=" text-start border-bottom mt-4">
+            <span class="h4"><strong>Customer Reviews</strong></span>
+            <span>
+                <button id="btnReview" data-id="<?= $datas->id ?>" class="btn hrefs mb-2">
+                    <i class="bi bi-plus-circle-fill"></i> Submit your review
+                </button>
+
+            </span>
+        </div>
+    <?php } ?>
+    <div class="mb-5 mt-2 ">
+
+    </div>
+
+    <div class="col-md-12 row">
+        <?php if ($have_rate == 'true') { ?>
+            <div class="col-md-4">
+                <span class="fw-bold h4 ms-2">
+                    <?= number_format((float)$Rating, 1, '.', '') ?>
+                </span> <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                <span class="ms-2 text-muted"><?= number_format($total_rate) ?> Ratings</span>
+                <small class="point" data-cat="<?= $datas->cats_id ?>" data-id="<?= $datas->id ?>" id="btnRate"><i class="bi bi-plus-circle-fill"></i> Submit your rate</small>
+            </div>
+        <?php } ?>
+
+        <?php if ($have_reviews == 'true') { ?>
+            <div class="col-md-8 row justify-content-end">
+                <div class="col-md-5 mt-2">
+                    <select id="orders_by" class="form-control">
+                        <option value="">Sort by</option>
+                        <option value="id,desc">the newest</option>
+                        <option value="id,asc">the oldest</option>
+                        <option value="like_number,desc">has the most likes</option>
+                        <option value="like_number,asc">has the least likes</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-start mt-2">
+                    <button class="btn btn-outline-secondary" id="sortBtn">Sort</button>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+    <?php if ($have_reviews == 'true') { ?>
+        <div class=" mt-4 mb-4 me-4" id="comments">
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button id="LoadMoreComment" class="btn btn-prim" style="display: none;">Load More</button>
+            </div>
+        </div>
+    <?php } ?>
+</div>

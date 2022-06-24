@@ -1,0 +1,33 @@
+<div class="modal fade bd-example-modal-lg" id="modalLogin" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel"> Login  </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmLogin">
+
+                <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Email</label>
+                        <input type="text" class="form-control" name="email" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                    </div>
+                    <?php include $VIEW_PATH_INCLUDE . "Captcha.html";?>
+
+                </form>
+
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <a class="text-dark" href="<?= $URL_Domain ?>Register"> Register</a>
+                <button type="button"  data-item="<?=$item_id?>"   data-id="modalLogin" id="btnLogin" class="btn  btn-glass">Login</button>
+
+            </div>
+        </div>
+    </div>
+</div>

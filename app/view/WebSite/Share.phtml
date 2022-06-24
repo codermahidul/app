@@ -1,0 +1,49 @@
+    
+        <a target="_blank" href="tg://msg_url/share/url?url=<?= $url ?>&text=<?= $title ?>" class="btn-sm-radus-icon m-1">
+
+            <i class="bi bi-telegram"></i>
+        </a>
+    
+    
+        <a target="_blank" href="https://api.whatsapp.com/send/?text=<?= $url ?>" style="color: #2fa81e;" class="btn-sm-radus-icon m-1 ">
+
+            <i class="bi bi-whatsapp "></i>
+        </a>
+    
+
+    
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>" class="btn-sm-radus-icon m-1">
+            <i class="bi bi-facebook"></i>
+        </a>
+    
+
+    
+        <a id="copy_url" title="copy" data-url="<?= $url ?>" class="btn-sm-radus-icon m-1 point ">
+
+            <i class="bi bi-bookmarks "></i>
+        </a>
+    
+
+    
+        <?php if ($data['share'] == false) { ?>
+            <a id="AddWish" title="Add to wish list" data-type="<?= $type ?>" data-id="<?= $id ?>" class="btn-sm-radus-icon m-1 point ">
+
+                <i class="bi bi-suit-heart "></i>
+            </a>
+        <?php } else { ?>
+            <a  id="RemoveWishHeader" title="Remove from wish list" data-type="<?= $type ?>" data-id="<?= $id ?>" class="btn-sm-radus-icon m-1 point ">
+            <!-- <a style="background: indianred;" id="RemoveWishHeader" title="Remove from wish list" data-type="<?= $type ?>" data-id="<?= $id ?>" class="btn-sm-radus-icon m-1 point "> -->
+
+                <i class="bi bi-suit-heart text-danger"></i>
+            </a>
+        <?php } ?>
+    
+
+
+    
+        <?php if ($data['clime'] === 'true') { ?>
+            <a id="climeBtn" data-url="<?= $url ?>" title="Claim this" class=" btn-sm-radus-icon">
+                <i class="fas fa-user-tag "></i>
+            </a>
+        <?php } ?>
+    

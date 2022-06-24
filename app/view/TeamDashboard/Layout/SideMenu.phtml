@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="<?= $VIEW_PATH ?>css/UserDashboard/Layout/SideMenu.css">
+
+<div id="sideBar" class="iq-sidebar   sidebar-default mt-4">
+
+    <div class="data-scrollbar" data-scroll="1" data-scrollbar="true" tabindex="-1">
+        <div class="scroll-content">
+            <nav class="iq-sidebar-menu">
+                <ul id="iq-sidebar-toggle" class="iq-menu">
+
+                    <li class="active pl">
+                        <a href="<?= $URL_Domain ?>TeamProfile" class="svg-icon ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                            <span class="ml-3"> Profile</span>
+                        </a>
+                    </li>
+
+                    <li class=" pl">
+                        <a id="bookings" data-id="book" href="javascript:void(0)" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                                <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                            </svg>
+                            <span class="ml-3">Booking</span>
+                            <i class="bi bi-chevron-right iq-arrow-right arrow-active"></i>
+
+                        </a>
+                        <ul id="book" data-parentid="bookings" class="iq-submenu hide" data-parent="#iq-sidebar-toggle">
+                            <li class="">
+                                <a href="<?= $URL_Domain ?>InterviewBooking" class="sub-menu" data-parent="bookings">
+                                    <i class="las la-minus"></i><span>Interview Booking</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="<?= $URL_Domain ?>AllBooking" class="sub-menu" data-parent="bookings">
+                                    <i class="las la-minus"></i><span>All Booking</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="pt-5 pb-2"></div>
+        </div>
+        <div class="scrollbar-track scrollbar-track-x" style="display: none;">
+            <div class="scrollbar-thumb scrollbar-thumb-x" style="width: 274px; transform: translate3d(0px, 0px, 0px);"></div>
+        </div>
+        <div class="scrollbar-track scrollbar-track-y" style="display: block;">
+            <div class="scrollbar-thumb scrollbar-thumb-y" style="height: 60.6143px; transform: translate3d(0px, 0px, 0px);"></div>
+        </div>
+    </div>
+</div>

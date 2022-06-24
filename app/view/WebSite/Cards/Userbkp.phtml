@@ -1,0 +1,31 @@
+<?php
+
+
+$imgUserUrl = "";
+if ($d->image !== "" && $d->image !== null) {
+    $imgUserUrl = $URL_PATH . "uploads/user/" . $d->id . '/profile/image/middle/' . $d->image;
+} else {
+    $imgUserUrl =  $VIEW_PATH . "imgs/user_defult.jpg";
+}
+
+
+$class_img = "img-sam-size";
+?>
+
+<a href="<?= $URL_Domain ?><?=$data['url']?>/<?= $d->display_name_slug ?>" class="hrefs col-md-4">
+    <div class="card-contain  m-1 ">
+        <div class="card-image position-relative">
+            <img src="<?= $imgUserUrl ?>" alt="<?= $d->display_name_slug ?>" class="<?= $class_img ?>">
+            
+        </div>
+        <div class="card-details">
+            <div class="card-title"><?= $d->display_name ?></div>
+            <div class="mt-1 ">
+           
+                <div class=" p-1">
+                    <small class="text-muted"><?= substr($d->headline, 0, 100) . '...' ?></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

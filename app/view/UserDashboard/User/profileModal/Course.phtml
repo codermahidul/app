@@ -1,0 +1,41 @@
+<div class="modal fade bd-example-modal-lg" id="modalCourse" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content modal-dialog-glass">
+            <div class="modal-header modal-header-glass">
+                <h5 class="modal-title" id="exampleModalLabel">Course </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmcourse">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Name :</label>
+                        <input type="text" placeholder="Ex: World History" autocomplete="off" class="input-white min-radus " name="course_name" id="course_name">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Number :</label>
+                        <input type="text" placeholder="Ex: HIS101" autocomplete="off" class="input-white min-radus " name="course_number" id="course_number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Associated with (experience):</label>
+                        <select style="width: 100%" class="input-white min-radus select2 select-css" id="course_experience_id" name="course_experience_id">
+
+                        </select>
+                    </div>
+                    <?php
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../privacyAccess/privacy.phtml";
+                    include dirname(__FILE__) . DIRECTORY_SEPARATOR  . "../delete/remove.phtml";
+
+                    ?>
+                </form>
+            </div>
+
+            <div class="modal-footer-glass modal-footer">
+                <button type="button" data-editid="" data-edit="false" data-id="modalCourse" id="btnCourse" class="btn  btn-glass">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
